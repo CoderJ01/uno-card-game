@@ -25,4 +25,21 @@ public class Card {
             this.points = 20;
         }
     }
+
+    // getters
+    public String getCardName() {
+        return this.name;
+    }
+
+    public String getCardColor() {
+        return this.color;
+    }
+
+    public String getCardSymbol() {
+        return this.symbol;
+    }
+
+    public int getCardPoints() {
+        return this.points;
+    }
 }
