@@ -18,4 +18,12 @@ public class Card {
         this.symbol = symbol;
         this.points = Integer.parseInt(symbol);
     }
+
+    // constructor for non-wild special cards
+    public Card(String name, String color, String symbol, int points) {
+        this.name = name;
+        this.color = color;
+        this.symbol = symbol;
+        this.points = points;
+    }
 }
