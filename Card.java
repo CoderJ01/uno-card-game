@@ -6,9 +6,9 @@ public class Card {
     private int points;
 
     // constructor for wild cards
-    public Card(String name, int points) {
+    public Card(String name) {
         this.name = name;
-        this.points = points;
+        this.points = 50;
     }
 
     // constructor for numbered cards (symbol = number)
