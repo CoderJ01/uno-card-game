@@ -11,7 +11,7 @@ public class Card {
         this.points = 50;
     }
 
-    // constructor for numbered cards (symbol = number)
+    // constructor for non-wild cards
     public Card(String name, String color, String symbol) {
         this(name);
         this.color = color;
