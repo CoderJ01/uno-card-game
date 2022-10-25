@@ -16,12 +16,19 @@ public class Card {
         this(name);
         this.color = color;
         this.symbol = symbol;
-        this.points = Integer.parseInt(symbol);
+        if(symbol.equals("1") || symbol.equals("2") || symbol.equals("3") || symbol.equals("4") || 
+           symbol.equals("5") || symbol.equals("6") || symbol.equals("7") || symbol.equals("8") ||
+           symbol.equals("9") || symbol.equals("0")) {
+            this.points = Integer.parseInt(symbol);
+        }
+        else {
+            this.points = 20;
+        }
     }
 
-    // constructor for non-wild special cards
-    public Card(String name, String color, String symbol, int points) {
-        this(name, color, symbol); // constructor chaining
-        this.points = points;
-    }
+    // // constructor for non-wild special cards
+    // public Card(String name, String color, String symbol) {
+    //     this(name, color, symbol); // constructor chaining
+    //     this.points = 20;
+    // }
 }
