@@ -7,4 +7,9 @@ public class Deck {
 
     // constructor 
     public Deck () {}
+
+    // add a card to the deck
+    public void addToDeck(Card card) {
+        this.deck.add(card);
+    }
 }
