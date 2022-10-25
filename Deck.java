@@ -9,19 +9,19 @@ public class Deck {
     public Deck () {}
 
     // display cards in deck
-    public void displayDeck() {
+    public void displayCards() {
         for(Card card : this.deck) {
             System.out.print(card.getCardName() + " ");
         }
     }
 
     // add a card to the deck
-    public void addToDeck(Card card) {
+    public void addCard(Card card) {
         this.deck.add(card);
     }
 
     // remove card from deck
-    public Card removeFromDeck() {
+    public Card removeCard() {
         Card topCard = deck.get(this.deck.size() - 1);
         this.deck.remove(topCard);
         return topCard;
@@ -29,7 +29,7 @@ public class Deck {
 
     // remove the bottom card to start the game
     // this will be the first card in the discard pile
-    public Card firstDiscard() {
+    public Card removeBottomCard() {
         Card bottomCard = deck.get(0);
         this.deck.remove(bottomCard);
         return bottomCard;
