@@ -21,8 +21,9 @@ public class Deck {
     }
 
     // remove card from deck
-    public Card removeFromDeck(Card card) {
-        this.deck.remove(card);
-        return card;
+    public Card removeFromDeck() {
+        Card topCard = deck.get(this.deck.size() - 1);
+        this.deck.remove(topCard);
+        return topCard;
     }
 }
