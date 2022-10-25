@@ -12,4 +12,10 @@ public class Deck {
     public void addToDeck(Card card) {
         this.deck.add(card);
     }
+
+    // remove card from deck
+    public Card removeFromDeck(Card card) {
+        this.deck.remove(card);
+        return card;
+    }
 }
