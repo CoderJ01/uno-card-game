@@ -25,10 +25,4 @@ public class Card {
             this.points = 20;
         }
     }
-
-    // // constructor for non-wild special cards
-    // public Card(String name, String color, String symbol) {
-    //     this(name, color, symbol); // constructor chaining
-    //     this.points = 20;
-    // }
 }
