@@ -13,7 +13,7 @@ public class Card {
 
     // constructor for numbered cards (symbol = number)
     public Card(String name, String color, String symbol) {
-        this.name = name;
+        this(name);
         this.color = color;
         this.symbol = symbol;
         this.points = Integer.parseInt(symbol);
