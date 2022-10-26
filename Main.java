@@ -1,5 +1,3 @@
-import java.util.Collections;
-
 public class Main {
 
     private static Deck deck = new Deck();
@@ -13,6 +11,8 @@ public class Main {
         setUpDeck();
 
         deck.shuffleCards();
+        discardPile.addCard(deck.removeBottomCard());
+        discardPile.displayCards();
     }
 
     // set up the deck of non-wild cards
