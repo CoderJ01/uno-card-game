@@ -21,6 +21,23 @@ public class Main {
         player.displayCards();
         if(player.pickOrNo() == true) {
             player.pickCard();
+           
+            String playerCardName = player.pickCard().getCardName();
+            String playerCardColor = player.pickCard().getCardColor();
+            String playerCardSymbol = player.pickCard().getCardSymbol();
+            String requiredColor = discardPile.showTopCard().getCardColor();
+            String requiredSymbol = discardPile.showTopCard().getCardSymbol();
+             // check if player's card is a wild card
+            if(playerCardName.equals("W") || playerCardName.equals("W_4")) {
+                discardPile.addCard(player.pickCard());
+            }
+            // check if either the color or symbol of the player's card matches those of the top discard card
+            else if(playerCardColor.equals(requiredColor) || playerCardSymbol.equals(requiredSymbol)) {
+                discardPile.addCard(player.pickCard());
+            }
+            else {
+                System.out.println("Invalid placement");
+            }
         }
         else {
             player.drawCards();
