@@ -148,6 +148,8 @@ public class Main {
                 }
             }
         }
+
+        displayPoints();
     }
 
     // set up the deck of non-wild cards
@@ -218,5 +220,15 @@ public class Main {
             }
         }
         return p;
+    }
+
+    // display the amount of points for each player 
+    private static void displayPoints() { 
+        int i = 1;
+        System.out.println("The player with the least amount of points wins the game");
+        for(PlayerHand player : players) {
+            System.out.println("Player " + i + " had " + player.tallyPoints() + " remaining");
+            i++;
+        }
     }
 }
