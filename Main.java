@@ -2,7 +2,7 @@ public class Main {
 
     private static Deck deck = new Deck();
     private static DiscardPile discardPile = new DiscardPile();
-    private static PlayerHand player = new PlayerHand();
+    private static PlayerHand player = new PlayerHand("Joshua");
 
     public static void main(String[] args) {
         setUpDeck("B", "blue");
