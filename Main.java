@@ -12,10 +12,7 @@ public class Main {
         setUpDeck("Y", "yellow");
         setUpDeck();
 
-        deck.displayCards();
         deck.shuffleCards();
-        System.out.println("*********************************");
-        deck.displayCards();
     }
 
     // set up the deck of non-wild cards
