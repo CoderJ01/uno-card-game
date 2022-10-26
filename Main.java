@@ -71,7 +71,13 @@ public class Main {
                     discardPile.addCard(players.get(p).pickCard());
                     // if player places a skip card
                     if(playerCardSymbol.equals(skip)) {
-
+                        // skip the turn of the next player (i.e. if player 1 places card, player 2's turn is skipped)
+                        if((p + 2) <= (players.size() - 1)) {
+                            p+=2;
+                        }
+                        else {
+                            p = ((p + 2) - players.size());
+                        }
                     }
                     // if player places a reverse card
                     if(playerCardSymbol.equals(reverse)) {
