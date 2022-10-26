@@ -155,8 +155,8 @@ public class Main {
     // set of deck of wild cards
     private static void setUpDeck() {
         for(int i = 0; i < 4; i++) {
-            deck.addCard(new Card(wildCard));
-            deck.addCard(new Card(wildPlus4));
+            deck.addCard(new Card(wildCard, ""));
+            deck.addCard(new Card(wildPlus4, ""));
         }
     }
 

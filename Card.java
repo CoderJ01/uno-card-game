@@ -6,14 +6,15 @@ public class Card {
     private int points;
 
     // constructor for wild cards
-    public Card(String name) {
+    public Card(String name, String color) {
         this.name = name;
+        this.color = color;
         this.points = 50;
     }
 
     // constructor for non-wild cards
     public Card(String name, String color, String symbol) {
-        this(name);
+        this(name, color);
         this.color = color;
         this.symbol = symbol;
         if(symbol.equals("1") || symbol.equals("2") || symbol.equals("3") || symbol.equals("4") || 
