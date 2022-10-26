@@ -6,6 +6,7 @@ public class PlayerHand extends Deck {
         this.playerName = playerName;
     }
 
+    // getter
     public String getPlayerName() {
         return this.playerName;
     }
