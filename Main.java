@@ -9,7 +9,7 @@ public class Main {
     private static DiscardPile discardPile = new DiscardPile();
     private static List<PlayerHand> players = new ArrayList<>();
     private static String wildCard = "W";
-    private static String wildPlus4 = "W_4";
+    private static String wildPlus4 = "W+4";
     private static String skip = "S";
     private static String reverse = "R";
     private static String draw2 = "D";
