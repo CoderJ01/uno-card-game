@@ -3,6 +3,7 @@ import java.util.Collections;
 public class Main {
 
     private static Deck deck = new Deck();
+    private static DiscardPile discardPile = new DiscardPile();
 
     public static void main(String[] args) {
         setUpDeck("B", "blue");
@@ -11,11 +12,10 @@ public class Main {
         setUpDeck("Y", "yellow");
         setUpDeck();
 
-        // deck.displayCards();
-        // System.out.println(deck.numberOfCards());
-        // Collections.shuffle(deck.returnCards());
-        // deck.displayCards();
-        System.out.println(deck.returnCards());
+        deck.displayCards();
+        deck.shuffleCards();
+        System.out.println("*********************************");
+        deck.displayCards();
     }
 
     // set up the deck of non-wild cards
