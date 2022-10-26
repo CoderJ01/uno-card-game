@@ -11,7 +11,7 @@ public class Deck {
     // display cards in deck
     public void displayCards() {
         for(Card card : this.deck) {
-            System.out.print(card.getCardName() + " ");
+            System.out.println(card.getCardName() + " ");
         }
     }
 

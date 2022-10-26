@@ -8,6 +8,8 @@ public class Main {
         setUpDeck("R", "red");
         setUpDeck("Y", "yellow");
         setUpDeck();
+
+        deck.displayCards();
     }
 
     // set up the deck of cards
