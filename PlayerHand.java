@@ -32,7 +32,7 @@ public class PlayerHand extends Deck {
         
         // exit loop only if player chooses card in hand
         while(this.valid == false) {
-            System.out.print("\nPlace a card onto the discard pile: ");
+            System.out.print("\n" + this.playerName + ", place a card onto the discard pile: ");
             choosenCard = input.next();
             for(Card card : returnCards()) {
                 // check if player input matches String representation (display) of card
@@ -53,7 +53,7 @@ public class PlayerHand extends Deck {
     // ask if player would like to place a card onto the discard pile
     public boolean pickOrNo() {
         String placeCard = "";
-        System.out.print("\nWould you like to place a card onto the discard pile? If so, press 'y': ");
+        System.out.print("\n" + this.playerName + ", would you like to place a card onto the discard pile? If so, press 'y': ");
         placeCard = input.next();
         if(!placeCard.equals("y")) {
             return false;
@@ -65,7 +65,7 @@ public class PlayerHand extends Deck {
     public void drawCards() {
         String draw = "";
         while(!draw.equals("d")) {
-            System.out.print("You must draw two cards. Press 'd' to draw: ");
+            System.out.print(this.playerName + ", you must draw two cards. Press 'd' to draw: ");
             draw = input.next();
         }
     }
