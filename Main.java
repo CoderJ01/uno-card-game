@@ -9,7 +9,8 @@ public class Main {
         setUpDeck("Y", "yellow");
         setUpDeck();
 
-        deck.displayCards();
+        // deck.displayCards();
+        System.out.println(deck.numberOfCards());
     }
 
     // set up the deck of cards
