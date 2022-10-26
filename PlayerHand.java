@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PlayerHand extends Deck {
+public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     private String playerName;
     private Scanner input = new Scanner(System.in);
     private boolean valid = false;
@@ -91,5 +91,11 @@ public class PlayerHand extends Deck {
             points += card.getCardPoints();
         }
         return points;
+    }
+
+    // sort players by the number of points they have remaining
+    @Override
+    public int compareTo(PlayerHand rankPlayer) {
+        return tallyPoints();
     }
 }

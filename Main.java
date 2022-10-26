@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -150,6 +151,7 @@ public class Main {
         }
 
         displayPoints();
+        rankPlayers(); 
     }
 
     // set up the deck of non-wild cards
@@ -228,6 +230,21 @@ public class Main {
         System.out.println("The player with the least amount of points wins the game");
         for(PlayerHand player : players) {
             System.out.println("Player " + i + " had " + player.tallyPoints() + " remaining");
+            i++;
+        }
+    }
+
+    // rank players
+    private static void rankPlayers() {
+        // use collections
+        Collections.sort(players);
+
+        // print out ranks
+        System.out.println("\nRANKS");
+        System.out.println("*****");
+        int i = 1;
+        for(PlayerHand player : players) {
+            System.out.println(i + ". " + player.getPlayerName());
             i++;
         }
     }
