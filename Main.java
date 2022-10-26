@@ -3,6 +3,8 @@ public class Main {
     private static Deck deck = new Deck();
     private static DiscardPile discardPile = new DiscardPile();
     private static PlayerHand player = new PlayerHand("Joshua");
+    private static String wildCard = "W";
+    private static String wildPlus4 = "W_4";
 
     public static void main(String[] args) {
         // set up deck of cards
@@ -41,7 +43,7 @@ public class Main {
             String requiredSymbol = discardPile.showTopCard().getCardSymbol();
             
             // check if player's card is a wild card
-            if(playerCardName.equals("W") || playerCardName.equals("W_4")) {
+            if(playerCardName.equals(wildCard) || playerCardName.equals(wildPlus4)) {
                 discardPile.addCard(player.pickCard());
             }
             // check if either the color or symbol of the player's card matches those of the top discard card
@@ -86,8 +88,8 @@ public class Main {
     // set of deck of wild cards
     private static void setUpDeck() {
         for(int i = 0; i < 4; i++) {
-            deck.addCard(new Card("W"));
-            deck.addCard(new Card("W_4"));
+            deck.addCard(new Card(wildCard));
+            deck.addCard(new Card(wildPlus4));
         }
     }
 }
