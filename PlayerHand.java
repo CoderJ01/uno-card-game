@@ -49,4 +49,15 @@ public class PlayerHand extends Deck {
         // return actual card (object)
         return realCard;
     }
+
+    // ask if player would like to place a card onto the discard pile
+    public boolean pickOrNo() {
+        String placeCard = "";
+        System.out.print("\nWould you like to place a card onto the discard pile? If so, press 'y': ");
+        placeCard = input.next();
+        if(!placeCard.equals("y")) {
+            return false;
+        }
+        return true;
+    }
 }
