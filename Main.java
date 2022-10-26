@@ -72,7 +72,7 @@ public class Main {
 
                     // if the card picked is wild
                     if(playerCardName.equals(wildPlus4)) {
-                        // the next player draws four cards
+                       // the next player draws four cards
                        int d = nextPlayerDraws(flip, p);
                        for(int i = 0; i < 4; i++) {
                         players.get(d).addCard(deck.removeCard());
@@ -123,6 +123,11 @@ public class Main {
             // display 
             discardPile.showTopCard();
             players.get(p).displayCards();
+
+            // end the game if a player has no cards left 
+            if(players.get(p).returnCards().size() == 0) {
+                break;
+            }
 
             // direction of game
             if(flip == false) {
