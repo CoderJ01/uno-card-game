@@ -181,6 +181,7 @@ public class Main {
         return p;
     }
 
+    // determine the next player to draw the cards
     private static int nextPlayerDraws(boolean flip, int p) {
         if(flip == false) {
             if((p + 1) <= (players.size() - 1)) {
