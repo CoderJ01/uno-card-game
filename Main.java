@@ -13,7 +13,7 @@ public class Main {
 
         deck.shuffleCards();
         discardPile.addCard(deck.removeBottomCard());
-        // discardPile.showTopCard();
+        discardPile.showTopCard();
         for(int i = 0; i < 7; i++) {
             player.addCard(deck.removeCard());
         }

@@ -8,6 +8,8 @@ public class DiscardPile extends Deck {
     public Card showTopCard() {
         List<Card> cards = returnCards();
         Card topCard = cards.get(cards.size() - 1);
+        System.out.println("DISCARD PILE");
+        System.out.println("************");
         System.out.println(topCard.getCardName());
         return topCard;
     }
