@@ -15,22 +15,22 @@ public class Main {
 
     // set up the deck of non-wild cards
     private static void setUpDeck(String letter, String color) {
-        // numbered cards
+        // card 0
         deck.addCard(new Card(letter + "0", color, "0"));
-        for(Integer i = 1; i < 10; i++) {
-            deck.addCard(new Card(letter + i, color, i.toString()));
-        }
-        for(Integer i = 1; i < 10; i++) {
-            deck.addCard(new Card(letter + i, color, i.toString()));
-        }
         
-        // special cards
-        deck.addCard(new Card("Skip (" + color + ")", color, "S"));
-        deck.addCard(new Card("Skip (" + color + ")", color, "S"));
-        deck.addCard(new Card("Reverse (" + color + ")", color, "R"));
-        deck.addCard(new Card("Reverse (" + color + ")", color, "R"));
-        deck.addCard(new Card("Draw 2 (" + color + ")", color, "D"));
-        deck.addCard(new Card("Draw 2 (" + color + ")", color, "D"));
+        int n = 0;
+        while(n < 2) {
+            // numbered cards
+            for(Integer i = 1; i < 10; i++) {
+                deck.addCard(new Card(letter + i, color, i.toString()));
+            }
+            // special cards
+            deck.addCard(new Card("Skip (" + color + ")", color, "S"));
+            deck.addCard(new Card("Reverse (" + color + ")", color, "R"));
+            deck.addCard(new Card("Draw 2 (" + color + ")", color, "D"));
+            // increment
+            n++;
+        }
     }
 
     // set of deck of wild cards
