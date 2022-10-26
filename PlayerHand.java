@@ -8,7 +8,7 @@ public class PlayerHand extends Deck {
         System.out.println("Your Hand");
         System.out.println("*********");
         for(Card card : returnCards()) {
-            System.out.println(card.getCardName() + " ");
+            System.out.print(card.getCardName() + ", ");
         }
     }
 }
