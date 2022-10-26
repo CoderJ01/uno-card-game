@@ -77,6 +77,7 @@ public class Main {
             player.addCard(deck.removeCard());
         }
 
+        // display 
         discardPile.showTopCard();
         player.displayCards();
     }
