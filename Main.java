@@ -71,12 +71,12 @@ public class Main {
                     discardPile.addCard(players.get(p).pickCard());
                     // if player places a skip card
                     if(playerCardSymbol.equals(skip)) {
-                        // skip the turn of the next player (i.e. if player 1 places card, player 2's turn is skipped)
-                        if((p + 2) <= (players.size() - 1)) {
-                            p+=2;
+                        // skip the turn of the next player
+                        if(flip == false) {
+                            p = skipTurn(p);
                         }
                         else {
-                            p = ((p + 2) - players.size());
+                            p = skipTurnReverse(p);
                         }
                     }
                     // if player places a reverse card
@@ -91,7 +91,7 @@ public class Main {
                     }
                     // if player places a draw 2 card
                     if(playerCardSymbol.equals(draw2)) {
-                        
+
                     }
                 }
                 else {
@@ -156,5 +156,27 @@ public class Main {
             deck.addCard(new Card(wildCard));
             deck.addCard(new Card(wildPlus4));
         }
+    }
+
+    // skip the turn of the next player (i.e. if player 1 places card, player 2's turn is skipped)
+    private static int skipTurn(int p) {
+        if((p + 2) <= (players.size() - 1)) {
+            p+=2;
+        }
+        else {
+            p = ((p + 2) - players.size());
+        }
+        return p;
+    }
+
+    // skip the turn of the next player for reverse direction
+    private static int skipTurnReverse(int p) {
+        if((p - 2) >= 0) {
+            p-=2;
+        }
+        else {
+            p = ((p - 2) + players.size());
+        }
+        return p;
     }
 }
