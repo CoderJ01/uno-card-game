@@ -22,6 +22,14 @@ public class Main {
         if(player.pickOrNo() == true) {
             player.pickCard();
         }
+        else {
+            player.drawCards();
+            player.addCard(deck.removeCard());
+            player.addCard(deck.removeCard());
+        }
+
+        discardPile.showTopCard();
+        player.displayCards();
     }
 
     // set up the deck of non-wild cards

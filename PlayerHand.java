@@ -60,4 +60,13 @@ public class PlayerHand extends Deck {
         }
         return true;
     }
+
+    // force player to draw two cards
+    public void drawCards() {
+        String draw = "";
+        while(!draw.equals("d")) {
+            System.out.print("You must draw two cards. Press 'd' to draw: ");
+            draw = input.next();
+        }
+    }
 }
