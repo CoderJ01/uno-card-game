@@ -2,6 +2,7 @@ public class Main {
 
     private static Deck deck = new Deck();
     private static DiscardPile discardPile = new DiscardPile();
+    private static PlayerHand player = new PlayerHand();
 
     public static void main(String[] args) {
         setUpDeck("B", "blue");
@@ -12,7 +13,12 @@ public class Main {
 
         deck.shuffleCards();
         discardPile.addCard(deck.removeBottomCard());
-        discardPile.showTopCard();
+        // discardPile.showTopCard();
+        for(int i = 0; i < 7; i++) {
+            player.addCard(deck.removeCard());
+        }
+
+        player.displayCards();
     }
 
     // set up the deck of non-wild cards
