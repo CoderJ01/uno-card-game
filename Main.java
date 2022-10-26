@@ -1,10 +1,14 @@
 public class Main {
 
+    // variables
     private static Deck deck = new Deck();
     private static DiscardPile discardPile = new DiscardPile();
     private static PlayerHand player = new PlayerHand("Joshua");
     private static String wildCard = "W";
     private static String wildPlus4 = "W_4";
+    private static String skip = "S";
+    private static String reverse = "R";
+    private static String draw2 = "D";
 
     public static void main(String[] args) {
         // set up deck of cards
@@ -49,6 +53,18 @@ public class Main {
             // check if either the color or symbol of the player's card matches those of the top discard card
             else if(playerCardColor.equals(requiredColor) || playerCardSymbol.equals(requiredSymbol)) {
                 discardPile.addCard(player.pickCard());
+                // if player places a skip card
+                if(playerCardSymbol.equals(skip)) {
+
+                }
+                // if player places a reverse card
+                if(playerCardSymbol.equals(reverse)) {
+                    
+                }
+                // if player places a draw 2 card
+                if(playerCardSymbol.equals(draw2)) {
+                    
+                }
             }
             else {
                 System.out.println("Invalid placement");
@@ -77,9 +93,9 @@ public class Main {
                 deck.addCard(new Card(letter + i, color, i.toString()));
             }
             // special cards
-            deck.addCard(new Card(letter + "_Skip", color, "S"));
-            deck.addCard(new Card(letter + "_Reverse", color, "R"));
-            deck.addCard(new Card(letter + "_Draw-2", color, "D"));
+            deck.addCard(new Card(letter + "_Skip", color, skip));
+            deck.addCard(new Card(letter + "_Reverse", color, reverse));
+            deck.addCard(new Card(letter + "_Draw-2", color, draw2));
             // increment
             n++;
         }
