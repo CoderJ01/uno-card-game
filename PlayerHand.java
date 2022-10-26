@@ -83,4 +83,13 @@ public class PlayerHand extends Deck {
         }
         return color;
     }
+
+    // tally the points for the player
+    public int tallyPoints() {
+        int points = 0;
+        for (Card card : returnCards()) {
+            points += card.getCardPoints();
+        }
+        return points;
+    }
 }
