@@ -11,10 +11,11 @@ public class Main {
         setUpDeck("Y", "yellow");
         setUpDeck();
 
-        deck.displayCards();
+        // deck.displayCards();
         // System.out.println(deck.numberOfCards());
-        Collections.shuffle(deck.returnCards());
-        deck.displayCards();
+        // Collections.shuffle(deck.returnCards());
+        // deck.displayCards();
+        System.out.println(deck.returnCards());
     }
 
     // set up the deck of non-wild cards
