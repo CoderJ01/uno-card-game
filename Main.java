@@ -5,29 +5,42 @@ public class Main {
     private static PlayerHand player = new PlayerHand("Joshua");
 
     public static void main(String[] args) {
+        // set up deck of cards
         setUpDeck("B", "blue");
         setUpDeck("G", "green");
         setUpDeck("R", "red");
         setUpDeck("Y", "yellow");
         setUpDeck();
 
-        deck.shuffleCards();
+        // shuffle cards
+        deck.shuffleCards(); 
+
+        // start game
         discardPile.addCard(deck.removeBottomCard());
+
+        // show top of discard pile
         discardPile.showTopCard();
+
+        // deal 7 cards to player
         for(int i = 0; i < 7; i++) {
             player.addCard(deck.removeCard());
         }
 
+        // display player cards
         player.displayCards();
+
+        // prompt player to either discard matching card
         if(player.pickOrNo() == true) {
             player.pickCard();
            
+            // variables
             String playerCardName = player.pickCard().getCardName();
             String playerCardColor = player.pickCard().getCardColor();
             String playerCardSymbol = player.pickCard().getCardSymbol();
             String requiredColor = discardPile.showTopCard().getCardColor();
             String requiredSymbol = discardPile.showTopCard().getCardSymbol();
-             // check if player's card is a wild card
+            
+            // check if player's card is a wild card
             if(playerCardName.equals("W") || playerCardName.equals("W_4")) {
                 discardPile.addCard(player.pickCard());
             }
@@ -39,6 +52,7 @@ public class Main {
                 System.out.println("Invalid placement");
             }
         }
+        // force player to draw two cards
         else {
             player.drawCards();
             player.addCard(deck.removeCard());
