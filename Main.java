@@ -19,6 +19,7 @@ public class Main {
         }
 
         player.displayCards();
+        player.pickCard();
     }
 
     // set up the deck of non-wild cards

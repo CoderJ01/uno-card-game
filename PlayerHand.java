@@ -1,5 +1,12 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 public class PlayerHand extends Deck {
     private String playerName;
+    private Scanner input = new Scanner(System.in);
+    private boolean valid = false;
 
     // constructor
     public PlayerHand (String playerName) {
@@ -19,5 +26,30 @@ public class PlayerHand extends Deck {
         for(Card card : returnCards()) {
             System.out.print(card.getCardName() + "   ");
         }
+    }
+
+    // prompt player to pick a card
+    public Card pickCard() {
+        String choosenCard = ""; 
+        Card realCard = null;
+        
+        // exit loop only if player chooses card in hand
+        while(this.valid == false) {
+            System.out.print("\nPlace a card onto the discard pile: ");
+            choosenCard = input.next();
+            for(Card card : returnCards()) {
+                // check if player input matches String representation (display) of card
+                if(choosenCard.equals(card.getCardName())) {
+                    this.valid = true;
+                    realCard = card;
+                    break;
+                }
+                else {
+                    this.valid = false;
+                }
+            }
+        }
+        // return actual card (object)
+        return realCard;
     }
 }
