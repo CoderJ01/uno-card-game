@@ -12,6 +12,7 @@ public class Main {
     private static String skip = "S";
     private static String reverse = "R";
     private static String draw2 = "D";
+    private static boolean flip = false;
 
     public static void main(String[] args) {
         // set up deck of cards
@@ -74,7 +75,13 @@ public class Main {
                     }
                     // if player places a reverse card
                     if(playerCardSymbol.equals(reverse)) {
-                        
+                        // change the direction of the game
+                        if(flip == false) {
+                            flip = true;
+                        }
+                        else if(flip = true) {
+                            flip = false;
+                        }
                     }
                     // if player places a draw 2 card
                     if(playerCardSymbol.equals(draw2)) {
@@ -96,11 +103,22 @@ public class Main {
             discardPile.showTopCard();
             players.get(p).displayCards();
 
-            if(p < (players.size() - 1)) {
-                p++;
+            // direction of game
+            if(flip == false) {
+                if(p < (players.size() - 1)) {
+                    p++;
+                }
+                else {
+                    p = 0;
+                }
             }
             else {
-                p = 0;
+                if(p > 0) {
+                    p--;
+                }
+                else {
+                    p = (players.size() - 1);
+                }
             }
         }
     }
