@@ -49,7 +49,7 @@ public class Card {
     }
 
     // setter
-    public void setColor(String color) {
+    public void setCardColor(String color) {
         this.color = color;
     }
 

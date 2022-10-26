@@ -69,7 +69,7 @@ public class Main {
 
                     // set color of card
                     String color = players.get(p).enterColor();
-                    pickedCard.setColor(color);
+                    pickedCard.setCardColor(color);
 
                     // if the card picked is wild
                     if(playerCardName.equals(wildPlus4)) {
