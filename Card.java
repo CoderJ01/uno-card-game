@@ -52,4 +52,8 @@ public class Card {
     public void setColor(String color) {
         this.color = color;
     }
+
+    public void setCardName(String name) {
+        this.name = name;
+    }
 }
