@@ -33,9 +33,9 @@ public class Main {
                 deck.addCard(new Card(letter + i, color, i.toString()));
             }
             // special cards
-            deck.addCard(new Card("Skip (" + color + ")", color, "S"));
-            deck.addCard(new Card("Reverse (" + color + ")", color, "R"));
-            deck.addCard(new Card("Draw 2 (" + color + ")", color, "D"));
+            deck.addCard(new Card(letter + "_Skip", color, "S"));
+            deck.addCard(new Card(letter + "_Reverse", color, "R"));
+            deck.addCard(new Card(letter + "_Draw-2", color, "D"));
             // increment
             n++;
         }
@@ -44,8 +44,8 @@ public class Main {
     // set of deck of wild cards
     private static void setUpDeck() {
         for(int i = 0; i < 4; i++) {
-            deck.addCard(new Card("Wild"));
-            deck.addCard(new Card("Wild (+4)"));
+            deck.addCard(new Card("W"));
+            deck.addCard(new Card("W_4"));
         }
     }
 }
