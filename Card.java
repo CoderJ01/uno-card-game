@@ -44,4 +44,9 @@ public class Card {
     public int getCardPoints() {
         return this.points;
     }
+
+    // setter
+    public void setColor(String color) {
+        this.color = color;
+    }
 }
