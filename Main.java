@@ -70,9 +70,11 @@ public class Main {
                     // set color of card
                     String color = players.get(p).enterColor();
                     pickedCard.setCardColor(color);
+                    pickedCard.setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildCard);
 
                     // if the card picked is wild
                     if(playerCardName.equals(wildPlus4)) {
+                        pickedCard.setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildPlus4);
                        // the next player draws four cards
                        int d = nextPlayerDraws(flip, p);
                        for(int i = 0; i < 4; i++) {
