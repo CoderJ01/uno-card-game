@@ -13,7 +13,7 @@ public class Main {
         System.out.println(deck.numberOfCards());
     }
 
-    // set up the deck of cards
+    // set up the deck of non-wild cards
     private static void setUpDeck(String letter, String color) {
         // numbered cards
         deck.addCard(new Card(letter + "0", color, "0"));
@@ -33,6 +33,7 @@ public class Main {
         deck.addCard(new Card("Draw 2 (" + color + ")", color, "D"));
     }
 
+    // set of deck of wild cards
     private static void setUpDeck() {
         for(int i = 0; i < 4; i++) {
             deck.addCard(new Card("Wild"));
