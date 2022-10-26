@@ -91,7 +91,19 @@ public class Main {
                     }
                     // if player places a draw 2 card
                     if(playerCardSymbol.equals(draw2)) {
-
+                        // next player draws two cards
+                        int d = nextPlayerDraws(flip, p);
+                        players.get(d).drawCards();
+                        players.get(d).addCard(deck.removeCard());
+                        players.get(d).addCard(deck.removeCard());
+                        
+                        // skip the turn of the next player
+                        if(flip == false) {
+                            p = skipTurn(p);
+                        }
+                        else {
+                            p = skipTurnReverse(p);
+                        }
                     }
                 }
                 else {
@@ -176,6 +188,26 @@ public class Main {
         }
         else {
             p = ((p - 2) + players.size());
+        }
+        return p;
+    }
+
+    private static int nextPlayerDraws(boolean flip, int p) {
+        if(flip == false) {
+            if((p + 1) <= (players.size() - 1)) {
+                p+=1;
+            }
+            else {
+                p = ((p + 1) - players.size());
+            }
+        }
+        else {
+            if((p - 1) >= 0) {
+                p-=1;
+            }
+            else {
+                p = ((p - 1) + players.size());
+            }
         }
         return p;
     }
