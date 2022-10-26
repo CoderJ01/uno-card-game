@@ -79,7 +79,7 @@ public class Main {
                         if(flip == false) {
                             flip = true;
                         }
-                        else if(flip = true) {
+                        else if(flip == true) {
                             flip = false;
                         }
                     }
