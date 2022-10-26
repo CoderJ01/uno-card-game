@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     // variables
     private static Deck deck = new Deck();
     private static DiscardPile discardPile = new DiscardPile();
-    private static PlayerHand player = new PlayerHand("Joshua");
+    private static List<PlayerHand> players = new ArrayList<>();
     private static String wildCard = "W";
     private static String wildPlus4 = "W_4";
     private static String skip = "S";
@@ -21,65 +24,85 @@ public class Main {
         // shuffle cards
         deck.shuffleCards(); 
 
+        // add players
+        players.add(new PlayerHand("Joshua"));
+        players.add(new PlayerHand("Kraken"));
+        players.add(new PlayerHand("Leonardo"));
+        players.add(new PlayerHand("Michaelangelo"));
+
         // start game
         discardPile.addCard(deck.removeBottomCard());
 
         // show top of discard pile
         discardPile.showTopCard();
 
-        // deal 7 cards to player
-        for(int i = 0; i < 7; i++) {
-            player.addCard(deck.removeCard());
+        // deal 7 cards to each player
+        int q = 0;
+        while(q < players.size()) {
+            for(int i = 0; i < 7; i++) {
+                players.get(q).addCard(deck.removeCard());
+            }
         }
 
-        // display player cards
-        player.displayCards();
+        int p = 0;
+        while(true) {
 
-        // prompt player to either discard matching card
-        if(player.pickOrNo() == true) {
-            player.pickCard();
-           
-            // variables
-            String playerCardName = player.pickCard().getCardName();
-            String playerCardColor = player.pickCard().getCardColor();
-            String playerCardSymbol = player.pickCard().getCardSymbol();
-            String requiredColor = discardPile.showTopCard().getCardColor();
-            String requiredSymbol = discardPile.showTopCard().getCardSymbol();
+            // display player cards
+            players.get(p).displayCards();
+
+            // prompt player to either discard matching card
+            if(players.get(p).pickOrNo() == true) {
+                players.get(p).pickCard();
             
-            // check if player's card is a wild card
-            if(playerCardName.equals(wildCard) || playerCardName.equals(wildPlus4)) {
-                discardPile.addCard(player.pickCard());
-            }
-            // check if either the color or symbol of the player's card matches those of the top discard card
-            else if(playerCardColor.equals(requiredColor) || playerCardSymbol.equals(requiredSymbol)) {
-                discardPile.addCard(player.pickCard());
-                // if player places a skip card
-                if(playerCardSymbol.equals(skip)) {
+                // variables
+                String playerCardName = players.get(p).pickCard().getCardName();
+                String playerCardColor = players.get(p).pickCard().getCardColor();
+                String playerCardSymbol = players.get(p).pickCard().getCardSymbol();
+                String requiredColor = discardPile.showTopCard().getCardColor();
+                String requiredSymbol = discardPile.showTopCard().getCardSymbol();
+                
+                // check if player's card is a wild card
+                if(playerCardName.equals(wildCard) || playerCardName.equals(wildPlus4)) {
+                    discardPile.addCard(players.get(p).pickCard());
+                }
+                // check if either the color or symbol of the player's card matches those of the top discard card
+                else if(playerCardColor.equals(requiredColor) || playerCardSymbol.equals(requiredSymbol)) {
+                    discardPile.addCard(players.get(p).pickCard());
+                    // if player places a skip card
+                    if(playerCardSymbol.equals(skip)) {
 
+                    }
+                    // if player places a reverse card
+                    if(playerCardSymbol.equals(reverse)) {
+                        
+                    }
+                    // if player places a draw 2 card
+                    if(playerCardSymbol.equals(draw2)) {
+                        
+                    }
                 }
-                // if player places a reverse card
-                if(playerCardSymbol.equals(reverse)) {
-                    
+                else {
+                    System.out.println("Invalid placement");
                 }
-                // if player places a draw 2 card
-                if(playerCardSymbol.equals(draw2)) {
-                    
-                }
+            }
+            // force player to draw two cards
+            else {
+                players.get(p).drawCards();
+                players.get(p).addCard(deck.removeCard());
+                players.get(p).addCard(deck.removeCard());
+            }
+
+            // display 
+            discardPile.showTopCard();
+            players.get(p).displayCards();
+
+            if(p < (players.size() - 1)) {
+                p++;
             }
             else {
-                System.out.println("Invalid placement");
+                p = 0;
             }
         }
-        // force player to draw two cards
-        else {
-            player.drawCards();
-            player.addCard(deck.removeCard());
-            player.addCard(deck.removeCard());
-        }
-
-        // display 
-        discardPile.showTopCard();
-        player.displayCards();
     }
 
     // set up the deck of non-wild cards
