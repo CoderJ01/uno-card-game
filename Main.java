@@ -53,13 +53,13 @@ public class Main {
 
             // prompt player to either discard matching card
             if(players.get(p).pickOrNo() == true) {
-                players.get(p).pickCard();
+                Card pickedCard = players.get(p).pickCard();
             
                 // variables
-                String playerCardName = players.get(p).pickCard().getCardName();
-                String playerCardColor = players.get(p).pickCard().getCardColor();
-                String playerCardSymbol = players.get(p).pickCard().getCardSymbol();
-                String requiredColor = discardPile.showTopCard().getCardColor();
+                String playerCardName = pickedCard.getCardName();
+                String playerCardColor = pickedCard.getCardColor();
+                String playerCardSymbol = pickedCard.getCardSymbol();
+                String requiredColor = pickedCard.getCardColor();
                 String requiredSymbol = discardPile.showTopCard().getCardSymbol();
                 
                 // check if player's card is a wild card
@@ -67,7 +67,9 @@ public class Main {
                     discardPile.addCard(players.get(p).pickCard());
                     // if the card picked is wild
                     if(playerCardName.equals(wildCard)) {
+                        // set color of wild card
                         String color = players.get(p).enterColor();
+                        pickedCard.setColor(color);
                     }
                     // or, if wild +4
                     else {
