@@ -11,6 +11,7 @@ public class DiscardPile extends Deck {
         System.out.println("Discard Pile");
         System.out.println("************");
         System.out.println(topCard.getCardName());
+        System.out.println();
         return topCard;
     }
 }
