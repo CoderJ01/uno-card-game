@@ -12,7 +12,7 @@ public class Main {
 
         deck.shuffleCards();
         discardPile.addCard(deck.removeBottomCard());
-        discardPile.displayCards();
+        discardPile.showTopCard();
     }
 
     // set up the deck of non-wild cards
