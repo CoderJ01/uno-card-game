@@ -105,6 +105,7 @@ public class Main {
 
             // direction of game
             if(flip == false) {
+                // default direction
                 if(p < (players.size() - 1)) {
                     p++;
                 }
