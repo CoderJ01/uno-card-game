@@ -72,12 +72,7 @@ public class Main {
                     // if player places a skip card
                     if(playerCardSymbol.equals(skip)) {
                         // skip the turn of the next player
-                        if(flip == false) {
-                            p = skipTurn(p);
-                        }
-                        else {
-                            p = skipTurnReverse(p);
-                        }
+                        p = skipTurn(flip, p);
                     }
                     // if player places a reverse card
                     if(playerCardSymbol.equals(reverse)) {
@@ -98,12 +93,7 @@ public class Main {
                         players.get(d).addCard(deck.removeCard());
                         
                         // skip the turn of the next player
-                        if(flip == false) {
-                            p = skipTurn(p);
-                        }
-                        else {
-                            p = skipTurnReverse(p);
-                        }
+                        p = skipTurn(flip, p);
                     }
                 }
                 else {
@@ -170,24 +160,23 @@ public class Main {
         }
     }
 
-    // skip the turn of the next player (i.e. if player 1 places card, player 2's turn is skipped)
-    private static int skipTurn(int p) {
-        if((p + 2) <= (players.size() - 1)) {
-            p+=2;
+    // skip the turn of the next player 
+    private static int skipTurn(boolean flip, int p) {
+        if(flip == false) {
+            if((p + 2) <= (players.size() - 1)) {
+                p+=2;
+            }
+            else {
+                p = ((p + 2) - players.size());
+            }
         }
         else {
-            p = ((p + 2) - players.size());
-        }
-        return p;
-    }
-
-    // skip the turn of the next player for reverse direction
-    private static int skipTurnReverse(int p) {
-        if((p - 2) >= 0) {
-            p-=2;
-        }
-        else {
-            p = ((p - 2) + players.size());
+            if((p - 2) >= 0) {
+                p-=2;
+            }
+            else {
+                p = ((p - 2) + players.size());
+            }
         }
         return p;
     }
