@@ -94,8 +94,8 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     }
 
     /* sort players by the number of points they have remaining
-    // the less points a players has, the higher player's rank
-    // the player with no cards left in his hand wins the game (0 points)
+       the less points a players has, the higher player's rank
+       the player with no cards left in his hand wins the game (0 points)
     */
     @Override
     public int compareTo(PlayerHand rankPlayer) {
