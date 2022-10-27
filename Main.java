@@ -234,7 +234,7 @@ public class Main {
         int i = 1;
         System.out.println("The player with the least amount of points wins the game");
         for(PlayerHand player : players) {
-            System.out.println("Player " + i + " had " + player.tallyPoints() + " remaining");
+            System.out.println("Player " + i + " (" + player.getPlayerName() + ") had " + player.tallyPoints() + " remaining");
             i++;
         }
     }

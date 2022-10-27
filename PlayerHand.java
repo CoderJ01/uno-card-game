@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     private String playerName;
     private Scanner input = new Scanner(System.in);
+    private int points;
 
     // constructor
     public PlayerHand (String playerName) {
@@ -109,7 +110,8 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     */
     @Override
     public int compareTo(PlayerHand rankPlayer) {
-        return tallyPoints();
+        this.points = tallyPoints();
+        return this.points = rankPlayer.points;
     }
 
     // remove card from player's hand
