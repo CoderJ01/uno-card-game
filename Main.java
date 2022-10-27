@@ -35,9 +35,6 @@ public class Main {
         // start game
         discardPile.addCard(deck.removeBottomCard());
 
-        // show top of discard pile
-        discardPile.showTopCard();
-
         // deal 7 cards to each player
         int q = 0;
         while(q < players.size()) {
@@ -49,6 +46,13 @@ public class Main {
 
         int p = 0;
         while(true) {
+
+            // show top of discard pile
+           
+            System.out.println("\nDiscard Pile");
+            System.out.println("************");
+            System.out.println(discardPile.showTopCard().getCardName());
+            System.out.println();
 
             // display player cards
             players.get(p).displayCards();
@@ -126,10 +130,6 @@ public class Main {
                 players.get(p).addCard(deck.removeCard());
                 players.get(p).addCard(deck.removeCard());
             }
-
-            // display 
-            discardPile.showTopCard();
-            players.get(p).displayCards();
 
             // end the game if a player has no cards left 
             if(players.get(p).returnCards().size() == 0) {
