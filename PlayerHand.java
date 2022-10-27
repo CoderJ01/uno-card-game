@@ -46,6 +46,8 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                 }
             }
         }
+        System.out.println(realCard);
+        System.out.println(realCard.getCardName());
         // return actual card (object)
         return realCard;
     }
