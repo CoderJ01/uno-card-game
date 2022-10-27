@@ -173,7 +173,7 @@ public class Main {
                 deck.addCard(new Card(letter + i, color, i.toString()));
             }
             // special cards
-            // deck.addCard(new Card(letter + "_Skip", color, skip));
+            deck.addCard(new Card(letter + "_Skip", color, skip));
             // deck.addCard(new Card(letter + "_Reverse", color, reverse));
             // deck.addCard(new Card(letter + "_Draw-2", color, draw2));
             // increment
@@ -198,6 +198,7 @@ public class Main {
             else {
                 p = ((p + 2) - players.size());
             }
+            return p - 1;
         }
         else {
             if((p - 2) >= 0) {
@@ -206,8 +207,8 @@ public class Main {
             else {
                 p = ((p - 2) + players.size());
             }
+            return p + 1;
         }
-        return p;
     }
 
     // determine the next player to draw the cards
