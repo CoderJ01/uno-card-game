@@ -8,6 +8,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // constructor
     public PlayerHand (String playerName) {
         this.playerName = playerName;
+        this.points = 0;
     }
 
     // getter
@@ -95,11 +96,11 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
 
     // tally the points for the player
     public int tallyPoints() {
-        int points = 0;
+        this.points = 0;
         for (Card card : returnCards()) {
-            points += card.getCardPoints();
+            this.points += card.getCardPoints();
         }
-        return points;
+        return this.points;
     }
 
     /* sort players by the number of points they have remaining
