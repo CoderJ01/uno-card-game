@@ -38,7 +38,6 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                 // check if player input matches String representation (display) of card
                 if(choosenCard.equals(card.getCardName())) {
                     this.valid = true;
-                    System.out.println(card);
                     realCard = card;
                     break;
                 }
@@ -48,8 +47,6 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
             }
         }
         // return actual card (object)
-        System.out.println(realCard);
-        System.out.println(realCard.getCardName());
         return realCard;
     }
 

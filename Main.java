@@ -56,7 +56,6 @@ public class Main {
             // prompt player to either discard matching card
             if(players.get(p).pickOrNo() == true) {
                 Card pickedCard = players.get(p).pickCard();
-                System.out.println(pickedCard);
             
                 // variables
                 String playerCardName = pickedCard.getCardName();
