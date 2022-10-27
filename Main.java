@@ -21,7 +21,7 @@ public class Main {
         setUpDeck("G", "green");
         setUpDeck("R", "red");
         setUpDeck("Y", "yellow");
-        setUpDeck();
+        // setUpDeck();
 
         // shuffle cards
         deck.shuffleCards(); 
