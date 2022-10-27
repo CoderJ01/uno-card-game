@@ -171,9 +171,9 @@ public class Main {
                 deck.addCard(new Card(letter + i, color, i.toString()));
             }
             // special cards
-            deck.addCard(new Card(letter + "_Skip", color, skip));
-            deck.addCard(new Card(letter + "_Reverse", color, reverse));
-            deck.addCard(new Card(letter + "_Draw-2", color, draw2));
+            // deck.addCard(new Card(letter + "_Skip", color, skip));
+            // deck.addCard(new Card(letter + "_Reverse", color, reverse));
+            // deck.addCard(new Card(letter + "_Draw-2", color, draw2));
             // increment
             n++;
         }
