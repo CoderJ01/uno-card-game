@@ -130,8 +130,10 @@ public class Main {
                 players.get(p).addCard(deck.removeCard());
             }
 
+            System.out.println("Deck: " + deck.numberOfCards() + " cards");
+
             // end the game if a player has no cards left 
-            if(players.get(p).returnCards().size() == 0) {
+            if(players.get(p).returnCards().size() == 0 || deck.numberOfCards() <= 1) {
                 break;
             }
 
