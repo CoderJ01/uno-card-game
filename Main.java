@@ -58,27 +58,27 @@ public class Main {
 
             // prompt player to either discard matching card
             if(players.get(p).pickOrNo() == true) {
-                Card pickedCard = players.get(p).pickCard();
+                players.get(p).pickCard();
             
                 // variables
-                String playerCardName = pickedCard.getCardName();
-                String playerCardColor = pickedCard.getCardColor();
-                String playerCardSymbol = pickedCard.getCardSymbol();
+                String playerCardName = players.get(p).pickCard().getCardName();
+                String playerCardColor = players.get(p).pickCard().getCardColor();
+                String playerCardSymbol = players.get(p).pickCard().getCardSymbol();
                 String requiredColor = discardPile.showTopCard().getCardColor();
                 String requiredSymbol = discardPile.showTopCard().getCardSymbol();
                 
                 // check if player's card is a wild card
                 if(playerCardName.equals(wildCard) || playerCardName.equals(wildPlus4)) {
-                    discardPile.addCard(pickedCard);
+                    discardPile.addCard(players.get(p).pickCard());
 
                     // set color of card
                     String color = players.get(p).enterColor();
-                    pickedCard.setCardColor(color);
-                    pickedCard.setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildCard);
+                    players.get(p).pickCard().setCardColor(color);
+                    players.get(p).pickCard().setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildCard);
 
                     // if the card picked is wild
                     if(playerCardName.equals(wildPlus4)) {
-                        pickedCard.setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildPlus4);
+                        players.get(p).pickCard().setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildPlus4);
                        // the next player draws four cards
                        int d = nextPlayerDraws(flip, p);
                        for(int i = 0; i < 4; i++) {
@@ -88,7 +88,7 @@ public class Main {
                 }
                 // check if either the color or symbol of the player's card matches those of the top discard card
                 else if(playerCardColor.equals(requiredColor) || playerCardSymbol.equals(requiredSymbol)) {
-                    discardPile.addCard(pickedCard);
+                    discardPile.addCard(players.get(p).pickCard());
                     // if player places a skip card
                     if(playerCardSymbol.equals(skip)) {
                         // skip the turn of the next player
