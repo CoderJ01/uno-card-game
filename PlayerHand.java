@@ -53,12 +53,20 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // ask if player would like to place a card onto the discard pile
     public boolean pickOrNo() {
         String placeCard = "";
-        System.out.print("\n\n" + this.playerName + ", would you like to place a card onto the discard pile? If so, press 'y': ");
-        placeCard = input.next();
-        if(!placeCard.equals("y")) {
+        // allow player to select only 'y' for "yes" or 'n' for "no"
+        while(true) {
+            System.out.print("\n\n" + this.playerName + ", would you like to place a card onto the discard pile? If so, press 'y'. Otherwise, press 'n': ");
+            placeCard = input.next();
+            if(placeCard.equals("y") || placeCard.equals("n")) {
+                break;
+            }
+        }
+        if(placeCard.equals("y")) {
+            return true;
+        }
+        else {
             return false;
         }
-        return true;
     }
 
     // force player to draw two cards

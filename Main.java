@@ -48,7 +48,6 @@ public class Main {
         while(true) {
 
             // show top of discard pile
-           
             System.out.println("\nDiscard Pile");
             System.out.println("************");
             System.out.println(discardPile.showTopCard().getCardName());
