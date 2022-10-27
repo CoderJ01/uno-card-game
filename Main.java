@@ -113,7 +113,10 @@ public class Main {
                     }
                 }
                 else {
-                    System.out.println("Invalid placement");
+                    System.out.print("Invalid placement. ");
+                    players.get(p).drawCards();
+                    players.get(p).addCard(deck.removeCard());
+                    players.get(p).addCard(deck.removeCard());
                 }
             }
             // force player to draw two cards
