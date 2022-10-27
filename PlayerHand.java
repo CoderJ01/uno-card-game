@@ -109,7 +109,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     @Override
     public int compareTo(PlayerHand rankPlayer) {
         this.points = tallyPoints();
-        return this.points = rankPlayer.points;
+        return this.points - rankPlayer.points;
     }
 
     // remove card from player's hand
