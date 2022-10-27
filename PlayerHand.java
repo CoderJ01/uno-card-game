@@ -38,6 +38,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                 // check if player input matches String representation (display) of card
                 if(choosenCard.equals(card.getCardName())) {
                     this.valid = true;
+                    System.out.println(card);
                     realCard = card;
                     break;
                 }
@@ -47,13 +48,15 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
             }
         }
         // return actual card (object)
+        System.out.println(realCard);
+        System.out.println(realCard.getCardName());
         return realCard;
     }
 
     // ask if player would like to place a card onto the discard pile
     public boolean pickOrNo() {
         String placeCard = "";
-        System.out.print("\n" + this.playerName + ", would you like to place a card onto the discard pile? If so, press 'y': ");
+        System.out.print("\n\n" + this.playerName + ", would you like to place a card onto the discard pile? If so, press 'y': ");
         placeCard = input.next();
         if(!placeCard.equals("y")) {
             return false;

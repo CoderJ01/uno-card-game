@@ -44,6 +44,7 @@ public class Main {
             for(int i = 0; i < 7; i++) {
                 players.get(q).addCard(deck.removeCard());
             }
+            q++;
         }
 
         int p = 0;
@@ -55,17 +56,18 @@ public class Main {
             // prompt player to either discard matching card
             if(players.get(p).pickOrNo() == true) {
                 Card pickedCard = players.get(p).pickCard();
+                System.out.println(pickedCard);
             
                 // variables
                 String playerCardName = pickedCard.getCardName();
                 String playerCardColor = pickedCard.getCardColor();
                 String playerCardSymbol = pickedCard.getCardSymbol();
-                String requiredColor = pickedCard.getCardColor();
+                String requiredColor = discardPile.showTopCard().getCardColor();
                 String requiredSymbol = discardPile.showTopCard().getCardSymbol();
                 
                 // check if player's card is a wild card
                 if(playerCardName.equals(wildCard) || playerCardName.equals(wildPlus4)) {
-                    discardPile.addCard(players.get(p).pickCard());
+                    discardPile.addCard(pickedCard);
 
                     // set color of card
                     String color = players.get(p).enterColor();
@@ -84,7 +86,7 @@ public class Main {
                 }
                 // check if either the color or symbol of the player's card matches those of the top discard card
                 else if(playerCardColor.equals(requiredColor) || playerCardSymbol.equals(requiredSymbol)) {
-                    discardPile.addCard(players.get(p).pickCard());
+                    discardPile.addCard(pickedCard);
                     // if player places a skip card
                     if(playerCardSymbol.equals(skip)) {
                         // skip the turn of the next player
