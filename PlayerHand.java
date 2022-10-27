@@ -111,4 +111,10 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     public int compareTo(PlayerHand rankPlayer) {
         return tallyPoints();
     }
+
+    // remove card from player's hand
+    public Card removeFromPlayerHand(Card card) {
+        returnCards().remove(card);
+        return card;
+    }
 }

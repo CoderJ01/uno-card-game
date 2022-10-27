@@ -69,7 +69,7 @@ public class Main {
                 
                 // check if player's card is a wild card
                 if(playerCardName.equals(wildCard) || playerCardName.equals(wildPlus4)) {
-                    discardPile.addCard(pickedCard);
+                    discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
 
                     // set color of card
                     String color = players.get(p).enterColor();
@@ -88,7 +88,7 @@ public class Main {
                 }
                 // check if either the color or symbol of the player's card matches those of the top discard card
                 else if(playerCardColor.equals(requiredColor) || playerCardSymbol.equals(requiredSymbol)) {
-                    discardPile.addCard(pickedCard);
+                    discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
                     // if player places a skip card
                     if(playerCardSymbol.equals(skip)) {
                         // skip the turn of the next player
