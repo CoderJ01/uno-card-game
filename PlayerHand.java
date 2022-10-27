@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     private String playerName;
     private Scanner input = new Scanner(System.in);
-    private boolean valid = false;
 
     // constructor
     public PlayerHand (String playerName) {
@@ -29,20 +28,21 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     public Card pickCard() {
         String choosenCard = ""; 
         Card realCard = null;
+        boolean valid = false;
         
         // exit loop only if player chooses card in hand
-        while(this.valid == false) {
+        while(valid == false) {
             System.out.print("\n" + this.playerName + ", place a card onto the discard pile: ");
             choosenCard = input.next();
             for(Card card : returnCards()) {
                 // check if player input matches String representation (display) of card
                 if(choosenCard.equals(card.getCardName())) {
-                    this.valid = true;
+                    valid = true;
                     realCard = card;
                     break;
                 }
                 else {
-                    this.valid = false;
+                    valid = false;
                 }
             }
         }
