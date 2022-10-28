@@ -23,8 +23,7 @@ public class Main {
         setUpDeck("Y", "yellow");
         setUpDeck();
 
-        // shuffle cards
-        deck.shuffleCards(); 
+        deck.shuffleCards(); // shuffle cards
 
         // add players
         players.add(new PlayerHand("Joshua"));
@@ -32,8 +31,7 @@ public class Main {
         players.add(new PlayerHand("Leonardo"));
         players.add(new PlayerHand("Michelangelo"));
 
-        // start game
-        discardPile.addCard(deck.removeBottomCard());
+        discardPile.addCard(deck.removeBottomCard()); // place first card onto discard pile
 
         // deal 7 cards to each player
         int q = 0;
@@ -44,6 +42,7 @@ public class Main {
             q++;
         }
 
+        // start game
         int p = 0;
         while(true) {
 
