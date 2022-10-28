@@ -92,7 +92,9 @@ public class Main {
                     // if player places a skip card
                     if(playerCardSymbol.equals(skip)) {
                         // skip the turn of the next player
+                        System.out.println("p = " + p);
                         p = skipTurn(flip, p);
+                        System.out.println("p = skipTurn(flip, p) = " + p);
                     }
                     // if player places a reverse card
                     if(playerCardSymbol.equals(reverse)) {
@@ -107,13 +109,17 @@ public class Main {
                     // if player places a draw 2 card
                     if(playerCardSymbol.equals(draw2)) {
                         // next player draws two cards
+                        System.out.println("p = " + p);
                         int d = nextPlayerDraws(flip, p);
+                        System.out.println("d = nextPlayerDraws(flip, p) = " + d);
                         players.get(d).drawCards();
                         players.get(d).addCard(deck.removeCard());
                         players.get(d).addCard(deck.removeCard());
                         
                         // skip the turn of the next player
+                        System.out.println("p = " + p);
                         p = skipTurn(flip, p);
+                        System.out.println("p = skipTurn(flip, p) = " + p);
                     }
                 }
                 else {
@@ -175,7 +181,7 @@ public class Main {
             // special cards
             deck.addCard(new Card(letter + "_Skip", color, skip));
             deck.addCard(new Card(letter + "_Reverse", color, reverse));
-            // deck.addCard(new Card(letter + "_Draw-2", color, draw2));
+            deck.addCard(new Card(letter + "_Draw-2", color, draw2));
             // increment
             n++;
         }
@@ -214,22 +220,23 @@ public class Main {
     // determine the next player to draw the cards
     private static int nextPlayerDraws(boolean flip, int p) {
         if(flip == false) {
-            if((p + 1) <= (players.size() - 1)) {
+            if((p + 1) < (players.size() - 1)) {
                 p+=1;
             }
             else {
                 p = ((p + 1) - players.size());
             }
+            return p - 1;
         }
         else {
-            if((p - 1) >= 0) {
+            if((p - 1) > 0) {
                 p-=1;
             }
             else {
                 p = ((p - 1) + players.size());
             }
+            return p + 1;
         }
-        return p;
     }
 
     // display the amount of points for each player 
