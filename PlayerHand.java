@@ -53,7 +53,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     }
 
     // ask if player would like to place a card onto the discard pile
-    public boolean pickOrNo() {
+    public boolean pickOrNo(Card card) {
         String placeCard = "";
         // allow player to select only 'y' for "yes" or 'n' for "no"
         while(true) {

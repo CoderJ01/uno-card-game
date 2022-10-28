@@ -68,7 +68,7 @@ public class Main {
             players.get(p).displayCards(); // display player cards
 
             // prompt player to either discard matching card
-            if(players.get(p).pickOrNo() == true) {
+            if(players.get(p).pickOrNo(discardPile.showTopCard()) == true) {
                 Card pickedCard = players.get(p).pickCard();
             
                 // variables
