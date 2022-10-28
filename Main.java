@@ -108,7 +108,7 @@ public class Main {
                     if(playerCardSymbol.equals(draw2)) {
                         // next player draws two cards
                         int d = skipTurnOrDraw(flip, p);
-                        System.out.println("d = nextPlayerDraws(flip, p) = " + d);
+                        players.get(d).drawCards();
                         players.get(d).addCard(deck.removeCard());
                         players.get(d).addCard(deck.removeCard());
                         
