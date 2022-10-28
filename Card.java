@@ -48,7 +48,7 @@ public class Card {
         return this.points;
     }
 
-    // setter
+    // setters
     public void setCardColor(String color) {
         this.color = color;
     }

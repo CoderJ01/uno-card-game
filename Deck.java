@@ -3,11 +3,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-    // variable
-    private List<Card> deck = new ArrayList<>();
+ 
+    private List<Card> deck = new ArrayList<>(); // variable
 
-    // constructor 
-    public Deck () {}
+    public Deck () {} // constructor 
 
     // display cards in deck
     public void displayCards() {

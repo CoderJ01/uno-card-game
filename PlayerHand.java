@@ -48,8 +48,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                 }
             }
         }
-        // return actual card (object)
-        return realCard;
+        return realCard; // return actual card (instance)
     }
 
     // ask if player would like to place a card onto the discard pile

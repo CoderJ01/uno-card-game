@@ -1,8 +1,8 @@
 import java.util.List;
 
 public class DiscardPile extends Deck {
-    // contructor
-    public DiscardPile() {}
+
+    public DiscardPile() {} // contructor
 
     // display and return top card
     public Card showTopCard() {
