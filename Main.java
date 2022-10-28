@@ -225,7 +225,7 @@ public class Main {
 
         // draw cards only if there are cards left to draw
         if(max >= 1) {
-            String messageNumber = messageNumber(max);
+            String messageNumber = messageNumber(max); // retrieve message number
             players.get(next).drawCards(messageNumber);
             for(int i = 0; i < max; i++) {
                 players.get(next).addCard(deck.removeCard());
