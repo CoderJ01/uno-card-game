@@ -171,7 +171,7 @@ public class Main {
         if(flip == false) {
             // default direction
             if(p < highestIndex) {
-                p+=1;
+                p++;
             }
             else if(p == highestIndex) {
                 p = 0;
@@ -179,7 +179,7 @@ public class Main {
         }
         else {
             if(p > 0) {
-                p-=1;
+                p--;
             }
             else if(p == 0) {
                 p = highestIndex;
