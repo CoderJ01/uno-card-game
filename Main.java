@@ -80,11 +80,6 @@ public class Main {
                     pickedCard = setWildCard(pickedCard, p); // allow player that discarded the card to set card
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
 
-                    // end the game if a player has no cards left 
-                    if(players.get(p).returnCards().size() == 0) {
-                        break;
-                    }
-
                     // extra rules for wild +4 card
                     if(playerCardName.equals(wildPlus4)) {
                         int d = nextSkipOrDraw(flip, p);
@@ -96,10 +91,6 @@ public class Main {
                 else if(playerCardColor.equals(requiredColor) || playerCardSymbol.equals(requiredSymbol)) {
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
 
-                     // end the game if a player has no cards left 
-                    if(players.get(p).returnCards().size() == 0) {
-                        break;
-                    }
                     // if player places a skip card
                     if(playerCardSymbol.equals(skip)) {
                         p = nextSkipOrDraw(flip, p); // skip the turn of the next player
