@@ -80,7 +80,7 @@ public class Main {
                     if(playerCardName.equals(wildPlus4)) {
                         pickedCard.setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildPlus4);
                        // the next player draws four cards
-                       int d = nextPlayerDraws(flip, p);
+                       int d = skipTurnOrDraw(flip, p);
                        for(int i = 0; i < 4; i++) {
                         players.get(d).addCard(deck.removeCard());
                        }
@@ -94,7 +94,7 @@ public class Main {
                         // skip the turn of the next player
                         System.out.println("p = " + p);
                         System.out.println(skip);
-                        p = skipTurn(flip, p);
+                        p = skipTurnOrDraw(flip, p);
                         System.out.println("p = skipTurn(flip, p) = " + p);
                     }
                     // if player places a reverse card
@@ -112,7 +112,7 @@ public class Main {
                         // next player draws two cards
                         System.out.println("p = " + p);
                         System.out.println(flip);
-                        int d = nextPlayerDraws(flip, p);
+                        int d = skipTurnOrDraw(flip, p);
                         System.out.println("d = nextPlayerDraws(flip, p) = " + d);
                         players.get(d).drawCards();
                         players.get(d).addCard(deck.removeCard());
@@ -121,7 +121,7 @@ public class Main {
                         // skip the turn of the next player
                         System.out.println("p = " + p);
                         System.out.print(flip);
-                        p = skipTurn(flip, p);
+                        p = skipTurnOrDraw(flip, p);
                         System.out.println("p = skipTurn(flip, p) = " + p);
                     }
                 }
@@ -199,8 +199,8 @@ public class Main {
         }
     }
 
-    // skip the turn of the next player 
-    private static int skipTurn(boolean flip, int p) {
+    // skip the turn of the next player or determine the next player to draw the cards
+    private static int skipTurnOrDraw(boolean flip, int p) {
         int highestIndex = players.size() - 1;
         if(flip == false) {
             if(p < highestIndex) {
@@ -220,29 +220,7 @@ public class Main {
         }
         return p;
     }
-
-    // determine the next player to draw the cards
-    private static int nextPlayerDraws(boolean flip, int p) {
-        int highestIndex = players.size() - 1;
-        if(flip == false) {
-            if(p < highestIndex) {
-                p+=1;
-            }
-            else if(p == highestIndex) {
-                p = 0;
-            }
-        }
-        else {
-            if(p > 0) {
-                p-=1;
-            }
-            else if(p == 0) {
-                p = highestIndex;
-            }
-        }
-        return p;
-    }
-
+   
     // display the amount of points for each player 
     private static void displayPoints() { 
         int i = 1;
