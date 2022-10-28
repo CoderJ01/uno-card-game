@@ -93,6 +93,7 @@ public class Main {
                     if(playerCardSymbol.equals(skip)) {
                         // skip the turn of the next player
                         System.out.println("p = " + p);
+                        System.out.println(skip);
                         p = skipTurn(flip, p);
                         System.out.println("p = skipTurn(flip, p) = " + p);
                     }
@@ -110,6 +111,7 @@ public class Main {
                     if(playerCardSymbol.equals(draw2)) {
                         // next player draws two cards
                         System.out.println("p = " + p);
+                        System.out.println(flip);
                         int d = nextPlayerDraws(flip, p);
                         System.out.println("d = nextPlayerDraws(flip, p) = " + d);
                         players.get(d).drawCards();
@@ -118,6 +120,7 @@ public class Main {
                         
                         // skip the turn of the next player
                         System.out.println("p = " + p);
+                        System.out.print(flip);
                         p = skipTurn(flip, p);
                         System.out.println("p = skipTurn(flip, p) = " + p);
                     }
@@ -198,23 +201,22 @@ public class Main {
     // skip the turn of the next player 
     private static int skipTurn(boolean flip, int p) {
         if(flip == false) {
-            if((p + 2) <= (players.size() - 1)) {
-                p+=2;
+            if((p + 1) < (players.size() - 1)) {
+                p+=1;
             }
             else {
-                p = ((p + 2) - players.size());
+                p = ((p + 1) - players.size());
             }
-            return p - 1;
         }
         else {
-            if((p - 2) >= 0) {
-                p-=2;
+            if((p - 1) > 0) {
+                p-=1;
             }
             else {
-                p = ((p - 2) + players.size());
+                p = ((p - 1) + players.size());
             }
-            return p + 1;
         }
+        return p;
     }
 
     // determine the next player to draw the cards
