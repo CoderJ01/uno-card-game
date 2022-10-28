@@ -183,7 +183,7 @@ public class Main {
             }
             // special cards
             deck.addCard(new Card(letter + "_Skip", color, skip));
-            deck.addCard(new Card(letter + "_Reverse", color, reverse));
+            // deck.addCard(new Card(letter + "_Reverse", color, reverse));
             deck.addCard(new Card(letter + "_Draw-2", color, draw2));
             // increment
             n++;
@@ -200,45 +200,12 @@ public class Main {
 
     // skip the turn of the next player 
     private static int skipTurn(boolean flip, int p) {
-        if(flip == false) {
-            if((p + 1) < (players.size() - 1)) {
-                p+=1;
-            }
-            else {
-                p = ((p + 1) - players.size());
-            }
-        }
-        else {
-            if((p - 1) > 0) {
-                p-=1;
-            }
-            else {
-                p = ((p - 1) + players.size());
-            }
-        }
-        return p;
+        return 0;
     }
 
     // determine the next player to draw the cards
     private static int nextPlayerDraws(boolean flip, int p) {
-        if(flip == false) {
-            if((p + 1) < (players.size() - 1)) {
-                p+=1;
-            }
-            else {
-                p = ((p + 1) - players.size());
-            }
-            return p - 1;
-        }
-        else {
-            if((p - 1) > 0) {
-                p-=1;
-            }
-            else {
-                p = ((p - 1) + players.size());
-            }
-            return p + 1;
-        }
+        return 0;
     }
 
     // display the amount of points for each player 
