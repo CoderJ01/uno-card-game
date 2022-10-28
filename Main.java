@@ -21,7 +21,7 @@ public class Main {
         setUpDeck("G", "green");
         setUpDeck("R", "red");
         setUpDeck("Y", "yellow");
-        // setUpDeck();
+        setUpDeck();
 
         // shuffle cards
         deck.shuffleCards(); 
@@ -130,8 +130,6 @@ public class Main {
                 players.get(p).addCard(deck.removeCard());
             }
 
-            System.out.println("Deck: " + deck.numberOfCards() + " cards");
-
             // end the game if a player has no cards left 
             if(players.get(p).returnCards().size() == 0 || deck.numberOfCards() <= 1) {
                 break;
@@ -173,9 +171,9 @@ public class Main {
                 deck.addCard(new Card(letter + i, color, i.toString()));
             }
             // special cards
-            deck.addCard(new Card(letter + "_Skip", color, skip));
-            deck.addCard(new Card(letter + "_Reverse", color, reverse));
-            deck.addCard(new Card(letter + "_Draw-2", color, draw2));
+            // deck.addCard(new Card(letter + "_Skip", color, skip));
+            // deck.addCard(new Card(letter + "_Reverse", color, reverse));
+            // deck.addCard(new Card(letter + "_Draw-2", color, draw2));
             // increment
             n++;
         }
@@ -185,7 +183,7 @@ public class Main {
     private static void setUpDeck() {
         for(int i = 0; i < 4; i++) {
             deck.addCard(new Card(wildCard, ""));
-            deck.addCard(new Card(wildPlus4, ""));
+            // deck.addCard(new Card(wildPlus4, ""));
         }
     }
 
