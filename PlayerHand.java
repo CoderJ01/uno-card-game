@@ -75,7 +75,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     public void drawCards(String messageNumber) {
         String draw = "";
         while(!draw.equals("d")) {
-            System.out.print(this.playerName + ", you must draw " + messageNumber + " card(s). Press 'd' to draw: ");
+            System.out.print("\n" + this.playerName + ", you must draw " + messageNumber + " card(s). Press 'd' to draw: ");
             draw = input.next();
         }
     }

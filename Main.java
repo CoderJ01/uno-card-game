@@ -125,7 +125,7 @@ public class Main {
             }
 
             // end the game if a player has no cards left 
-            if(players.get(p).returnCards().size() == 0 || deck.numberOfCards() <= 1) {
+            if(players.get(p).returnCards().size() == 0) {
                 break;
             }
 
@@ -223,10 +223,10 @@ public class Main {
             max = deckSize;
         }
 
-        String messageNumber = messageNumber(max);
-        players.get(next).drawCards(messageNumber);
         // draw cards only if there are cards left to draw
         if(max >= 1) {
+            String messageNumber = messageNumber(max);
+            players.get(next).drawCards(messageNumber);
             for(int i = 0; i < max; i++) {
                 players.get(next).addCard(deck.removeCard());
             }
