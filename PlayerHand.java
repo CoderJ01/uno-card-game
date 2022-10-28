@@ -72,10 +72,10 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     }
 
     // force player to draw two cards
-    public void drawCards() {
+    public void drawCards(String messageNumber) {
         String draw = "";
         while(!draw.equals("d")) {
-            System.out.print(this.playerName + ", you must draw two cards. Press 'd' to draw: ");
+            System.out.print(this.playerName + ", you must draw " + messageNumber + " card(s). Press 'd' to draw: ");
             draw = input.next();
         }
     }
@@ -118,14 +118,5 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     public Card removeFromPlayerHand(Card card) {
         returnCards().remove(card);
         return card;
-    }
-
-    // force player to draw two cards
-    public void draw4Cards() {
-        String draw = "";
-        while(!draw.equals("d")) {
-            System.out.print(this.playerName + ", you must draw four cards. Press 'd' to draw: ");
-            draw = input.next();
-        }
     }
 }

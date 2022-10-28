@@ -87,10 +87,9 @@ public class Main {
                     // extra rules for wild +4 card
                     if(playerCardName.equals(wildPlus4)) {
                         int d = nextSkipOrDraw(flip, p);
-                        players.get(d).draw4Cards();  // force the next player to draw four cards
-                        for(int i = 0; i < 4; i++) {
-                            players.get(d).addCard(deck.removeCard());
-                        }
+                        // force the next player to draw four cards
+                        draw(d, 4);  
+                       
                         // after drawing four cards, the next player loses his turn
                         p = nextSkipOrDraw(flip, p);
                     }
@@ -117,9 +116,8 @@ public class Main {
                     if(playerCardSymbol.equals(draw2)) {
                         // next player draws two cards
                         int d = nextSkipOrDraw(flip, p);
-                        players.get(d).drawCards();
-                        players.get(d).addCard(deck.removeCard());
-                        players.get(d).addCard(deck.removeCard());
+                        // force player to draw two cards
+                        draw(d, 2);
                         
                         // skip the turn of the next player;
                         p = nextSkipOrDraw(flip, p);
@@ -127,16 +125,12 @@ public class Main {
                 }
                 else {
                     System.out.print("Invalid placement. ");
-                    players.get(p).drawCards();
-                    players.get(p).addCard(deck.removeCard());
-                    players.get(p).addCard(deck.removeCard());
+                    draw(p, 2);
                 }
             }
             // force player to draw two cards
             else {
-                players.get(p).drawCards();
-                players.get(p).addCard(deck.removeCard());
-                players.get(p).addCard(deck.removeCard());
+                draw(p, 2);
             }
 
             // end the game if a player has no cards left 
@@ -228,5 +222,44 @@ public class Main {
             System.out.println(i + ". " + player.getPlayerName());
             i++;
         }
+    }
+
+    // when the amount of cards in the deck is low, alter the amount drawn
+    private static void draw(int next, int defaultDrawAmount) {
+        int deckSize = deck.numberOfCards();
+        int max = 0;
+        if(deckSize >= defaultDrawAmount) {
+            max = defaultDrawAmount;
+        }
+        else {
+            max = deckSize;
+        }
+
+        String messageNumber = messageNumber(max);
+        players.get(next).drawCards(messageNumber);
+        // draw cards only if there are cards left to draw
+        if(max >= 1) {
+            for(int i = 0; i < max; i++) {
+                players.get(next).addCard(deck.removeCard());
+            }
+        }
+    }
+
+    // print out number for prompt
+    private static String messageNumber(int max) {
+        String number = "";
+        if(max == 4) {
+            number = "four";
+        }
+        else if(max == 3) {
+            number = "three";
+        }
+        else if(max == 2) {
+            number = "two";
+        }
+        else if(max == 1) {
+            number = "one";
+        }
+        return number;
     }
 }
