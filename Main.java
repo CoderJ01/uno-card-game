@@ -86,12 +86,13 @@ public class Main {
 
                     if(playerCardName.equals(wildPlus4)) {
                         int d = skipTurnOrDraw(flip, p);
-                        players.get(d).draw4Cards();
+                        players.get(d).draw4Cards();  // force the next player to draw four cards
                         for(int i = 0; i < 4; i++) {
                             players.get(d).addCard(deck.removeCard());
                         }
                     }
 
+                    // after drawing four cards, the next player loses his turn
                     p = skipTurnOrDraw(flip, p);
                 }
                 // check if either the color or symbol of the player's card matches those of the top discard card
