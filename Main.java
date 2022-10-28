@@ -90,10 +90,9 @@ public class Main {
                         for(int i = 0; i < 4; i++) {
                             players.get(d).addCard(deck.removeCard());
                         }
+                        // after drawing four cards, the next player loses his turn
+                        p = skipTurnOrDraw(flip, p);
                     }
-
-                    // after drawing four cards, the next player loses his turn
-                    p = skipTurnOrDraw(flip, p);
                 }
                 // check if either the color or symbol of the player's card matches those of the top discard card
                 else if(playerCardColor.equals(requiredColor) || playerCardSymbol.equals(requiredSymbol)) {
@@ -164,6 +163,8 @@ public class Main {
             }
         }
 
+        System.out.println("Numbers of cards in deck: " + deck.numberOfCards());
+
         displayPoints();
         rankPlayers(); 
     }
@@ -192,7 +193,7 @@ public class Main {
     private static void setUpDeck() {
         for(int i = 0; i < 4; i++) {
             deck.addCard(new Card(wildCard, ""));
-            // deck.addCard(new Card(wildPlus4, ""));
+            deck.addCard(new Card(wildPlus4, ""));
         }
     }
 
