@@ -19,8 +19,8 @@ public class Main {
         // set up deck of cards
         setUpDeck("B", "blue");
         setUpDeck("G", "green");
-        setUpDeck("R", "red");
-        setUpDeck("Y", "yellow");
+        // setUpDeck("R", "red");
+        // setUpDeck("Y", "yellow");
         setUpDeck();
 
         deck.shuffleCards(); // shuffle cards
@@ -42,9 +42,19 @@ public class Main {
             q++;
         }
 
+        if(discardPile.showTopCard().getCardName().equals(wildCard) || discardPile.showTopCard().getCardName().equals(wildPlus4)) {
+            Card firstCard = discardPile.showTopCard();
+            System.out.println("\nDiscard Pile");
+            System.out.println("************");
+            System.out.println(firstCard.getCardName());
+            setWildCard(firstCard, 0); // allow the first player to set the color of the wild card
+        }
+
         // start game
         int p = 0;
         while(true) {
+
+            System.out.println("Numbers of cards in deck: " + deck.numberOfCards());
 
             // show top of discard pile
             System.out.println("\nDiscard Pile");
@@ -52,7 +62,7 @@ public class Main {
             System.out.println(discardPile.showTopCard().getCardName());
             System.out.println();
 
-            players.get(p).displayCards();  // display player cards
+            players.get(p).displayCards(); // display player cards
 
             // prompt player to either discard matching card
             if(players.get(p).pickOrNo() == true) {
@@ -67,20 +77,13 @@ public class Main {
                 
                 // check if player's card is a wild card
                 if(playerCardName.equals(wildCard) || playerCardName.equals(wildPlus4)) {
-                    String wildType = "";
-
-                    if(playerCardName.equals(wildCard)) {
-                        wildType = wildCard;
-                    }
-                    else {
-                        wildType = wildPlus4;
-                    }
-                    // set color of card
-                    String color = players.get(p).enterColor();
-                    pickedCard.setCardColor(color);
-                    pickedCard.setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildType);
-
+                    pickedCard = setWildCard(pickedCard, p); // allow player that discarded the card to set card
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
+
+                    // end the game if a player has no cards left 
+                    if(players.get(p).returnCards().size() == 0) {
+                        break;
+                    }
 
                     // extra rules for wild +4 card
                     if(playerCardName.equals(wildPlus4)) {
@@ -92,6 +95,11 @@ public class Main {
                 // check if either the color or symbol of the player's card matches those of the top discard card
                 else if(playerCardColor.equals(requiredColor) || playerCardSymbol.equals(requiredSymbol)) {
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
+
+                     // end the game if a player has no cards left 
+                    if(players.get(p).returnCards().size() == 0) {
+                        break;
+                    }
                     // if player places a skip card
                     if(playerCardSymbol.equals(skip)) {
                         p = nextSkipOrDraw(flip, p); // skip the turn of the next player
@@ -131,8 +139,6 @@ public class Main {
             p = nextSkipOrDraw(flip, p); // increment or decrement
         }
 
-        System.out.println("Numbers of cards in deck: " + deck.numberOfCards());
-
         displayPoints();
         rankPlayers(); 
     }
@@ -142,7 +148,7 @@ public class Main {
         deck.addCard(new Card(letter + "0", color, "0")); // card 0
         
         int n = 0;
-        while(n < 2) {
+        while(n < 1) {
             // numbered cards
             for(Integer i = 1; i < 10; i++) {
                 deck.addCard(new Card(letter + i, color, i.toString()));
@@ -248,5 +254,22 @@ public class Main {
             number = "one";
         }
         return number;
+    }
+
+    // set the wild card
+    private static Card setWildCard(Card card, int player) {
+        String wildType = "";
+        if(card.getCardName().equals(wildCard)) {
+            wildType = wildCard;
+        }
+        else {
+            wildType = wildPlus4;
+        }
+        // set color of card
+        String color = players.get(player).enterColor();
+        card.setCardColor(color);
+        card.setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildType);
+
+        return card;
     }
 }
