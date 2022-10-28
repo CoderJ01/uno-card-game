@@ -13,7 +13,7 @@ public class Main {
     private static String skip = "S";
     private static String reverse = "R";
     private static String draw2 = "D";
-    private static boolean flip = false;
+    private static boolean flip = true;
 
     public static void main(String[] args) {
         // set up deck of cards
@@ -184,7 +184,7 @@ public class Main {
             }
             // special cards
             deck.addCard(new Card(letter + "_Skip", color, skip));
-            // deck.addCard(new Card(letter + "_Reverse", color, reverse));
+            deck.addCard(new Card(letter + "_Reverse", color, reverse));
             deck.addCard(new Card(letter + "_Draw-2", color, draw2));
             // increment
             n++;
