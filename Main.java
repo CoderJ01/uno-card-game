@@ -185,7 +185,7 @@ public class Main {
             // special cards
             deck.addCard(new Card(letter + "_Skip", color, skip));
             // deck.addCard(new Card(letter + "_Reverse", color, reverse));
-            // deck.addCard(new Card(letter + "_Draw-2", color, draw2));
+            deck.addCard(new Card(letter + "_Draw-2", color, draw2));
             // increment
             n++;
         }
@@ -223,7 +223,24 @@ public class Main {
 
     // determine the next player to draw the cards
     private static int nextPlayerDraws(boolean flip, int p) {
-        return 0;
+        int highestIndex = players.size() - 1;
+        if(flip == false) {
+            if(p < highestIndex) {
+                p+=1;
+            }
+            else if(p == highestIndex) {
+                p = 0;
+            }
+        }
+        else {
+            if(p > 0) {
+                p-=1;
+            }
+            else if(p == 0) {
+                p = highestIndex;
+            }
+        }
+        return p;
     }
 
     // display the amount of points for each player 
