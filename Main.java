@@ -53,8 +53,7 @@ public class Main {
             System.out.println(discardPile.showTopCard().getCardName());
             System.out.println();
 
-            // display player cards
-            players.get(p).displayCards();
+            players.get(p).displayCards();  // display player cards
 
             // prompt player to either discard matching card
             if(players.get(p).pickOrNo() == true) {
@@ -87,11 +86,8 @@ public class Main {
                     // extra rules for wild +4 card
                     if(playerCardName.equals(wildPlus4)) {
                         int d = nextSkipOrDraw(flip, p);
-                        // force the next player to draw four cards
-                        draw(d, 4);  
-                       
-                        // after drawing four cards, the next player loses his turn
-                        p = nextSkipOrDraw(flip, p);
+                        draw(d, 4); // force the next player to draw four cards
+                        p = nextSkipOrDraw(flip, p);   // after drawing four cards, the next player loses his turn
                     }
                 }
                 // check if either the color or symbol of the player's card matches those of the top discard card
@@ -99,8 +95,7 @@ public class Main {
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
                     // if player places a skip card
                     if(playerCardSymbol.equals(skip)) {
-                        // skip the turn of the next player
-                        p = nextSkipOrDraw(flip, p);
+                        p = nextSkipOrDraw(flip, p); // skip the turn of the next player
                     }
                     // if player places a reverse card
                     if(playerCardSymbol.equals(reverse)) {
@@ -114,18 +109,14 @@ public class Main {
                     }
                     // if player places a draw 2 card
                     if(playerCardSymbol.equals(draw2)) {
-                        // next player draws two cards
-                        int d = nextSkipOrDraw(flip, p);
-                        // force player to draw two cards
-                        draw(d, 2);
-                        
-                        // skip the turn of the next player;
-                        p = nextSkipOrDraw(flip, p);
+                        int d = nextSkipOrDraw(flip, p); // next player draws two cards
+                        draw(d, 2); // force player to draw two cards
+                        p = nextSkipOrDraw(flip, p); // skip the turn of the next player;
                     }
                 }
                 else {
                     System.out.print("Invalid placement. ");
-                    draw(p, 2);
+                    draw(p, 2); // force player to draw two cards
                 }
             }
             // force player to draw two cards
@@ -138,8 +129,7 @@ public class Main {
                 break;
             }
 
-            // increment or decrement
-            p = nextSkipOrDraw(flip, p);
+            p = nextSkipOrDraw(flip, p); // increment or decrement
         }
 
         System.out.println("Numbers of cards in deck: " + deck.numberOfCards());
@@ -150,8 +140,7 @@ public class Main {
 
     // set up the deck of non-wild cards
     private static void setUpDeck(String letter, String color) {
-        // card 0
-        deck.addCard(new Card(letter + "0", color, "0"));
+        deck.addCard(new Card(letter + "0", color, "0")); // card 0
         
         int n = 0;
         while(n < 2) {
@@ -211,8 +200,7 @@ public class Main {
 
     // rank players
     private static void rankPlayers() {
-        // use collections
-        Collections.sort(players);
+        Collections.sort(players); // use collections
 
         // print out ranks
         System.out.println("\nRANKS");
