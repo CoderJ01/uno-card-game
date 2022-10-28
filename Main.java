@@ -111,12 +111,12 @@ public class Main {
                     if(playerCardSymbol.equals(draw2)) {
                         int d = nextSkipOrDraw(flip, p); // next player draws two cards
                         draw(d, 2); // force player to draw two cards
-                        p = nextSkipOrDraw(flip, p); // skip the turn of the next player;
+                        p = nextSkipOrDraw(flip, p); 
                     }
                 }
                 else {
                     System.out.print("Invalid placement. ");
-                    draw(p, 2); // force player to draw two cards
+                    draw(p, 2); 
                 }
             }
             // force player to draw two cards
