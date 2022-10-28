@@ -84,6 +84,7 @@ public class Main {
 
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
 
+                    // extra rules for wild +4 card
                     if(playerCardName.equals(wildPlus4)) {
                         int d = skipTurnOrDraw(flip, p);
                         players.get(d).draw4Cards();  // force the next player to draw four cards
