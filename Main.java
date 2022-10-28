@@ -69,12 +69,12 @@ public class Main {
                 
                 // check if player's card is a wild card
                 if(playerCardName.equals(wildCard) || playerCardName.equals(wildPlus4)) {
-                    discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
-
                     // set color of card
                     String color = players.get(p).enterColor();
                     pickedCard.setCardColor(color);
                     pickedCard.setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildCard);
+
+                    discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
 
                     // if the card picked is wild
                     if(playerCardName.equals(wildPlus4)) {

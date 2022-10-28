@@ -82,9 +82,10 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
 
     // have the player enter the color of a wild card
     public String enterColor() {
-        System.out.print("Set the color of the wild card: ");
-        String color = input.next();
+        String color = "";
         while(true) {
+            System.out.print("Set the color of the wild card: ");
+            color = input.next();
             if(color.equals("blue") || color.equals("green") || 
                color.equals("red") || color.equals("yellow"))
             {
