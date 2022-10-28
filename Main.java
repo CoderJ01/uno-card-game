@@ -13,7 +13,7 @@ public class Main {
     private static String skip = "S";
     private static String reverse = "R";
     private static String draw2 = "D";
-    private static boolean flip = true;
+    private static boolean flip = false;
 
     public static void main(String[] args) {
         // set up deck of cards
