@@ -28,9 +28,9 @@ public class Main {
 
         // add players
         players.add(new PlayerHand("Joshua"));
-        players.add(new PlayerHand("Kraken"));
+        players.add(new PlayerHand("Kingston"));
         players.add(new PlayerHand("Leonardo"));
-        players.add(new PlayerHand("Michaelangelo"));
+        players.add(new PlayerHand("Michelangelo"));
 
         // start game
         discardPile.addCard(deck.removeBottomCard());
