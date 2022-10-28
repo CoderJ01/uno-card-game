@@ -92,10 +92,7 @@ public class Main {
                     // if player places a skip card
                     if(playerCardSymbol.equals(skip)) {
                         // skip the turn of the next player
-                        System.out.println("p = " + p);
-                        System.out.println(skip);
                         p = skipTurnOrDraw(flip, p);
-                        System.out.println("p = skipTurn(flip, p) = " + p);
                     }
                     // if player places a reverse card
                     if(playerCardSymbol.equals(reverse)) {
@@ -110,19 +107,13 @@ public class Main {
                     // if player places a draw 2 card
                     if(playerCardSymbol.equals(draw2)) {
                         // next player draws two cards
-                        System.out.println("p = " + p);
-                        System.out.println(flip);
                         int d = skipTurnOrDraw(flip, p);
                         System.out.println("d = nextPlayerDraws(flip, p) = " + d);
-                        players.get(d).drawCards();
                         players.get(d).addCard(deck.removeCard());
                         players.get(d).addCard(deck.removeCard());
                         
-                        // skip the turn of the next player
-                        System.out.println("p = " + p);
-                        System.out.print(flip);
+                        // skip the turn of the next player;
                         p = skipTurnOrDraw(flip, p);
-                        System.out.println("p = skipTurn(flip, p) = " + p);
                     }
                 }
                 else {
@@ -164,7 +155,6 @@ public class Main {
                     p = (players.size() - 1);
                 }
             }
-            System.out.println("End of while loop p: " + p);
         }
 
         displayPoints();
