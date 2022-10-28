@@ -119,4 +119,13 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         returnCards().remove(card);
         return card;
     }
+
+    // force player to draw two cards
+    public void draw4Cards() {
+        String draw = "";
+        while(!draw.equals("d")) {
+            System.out.print(this.playerName + ", you must draw four cards. Press 'd' to draw: ");
+            draw = input.next();
+        }
+    }
 }

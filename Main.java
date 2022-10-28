@@ -69,22 +69,30 @@ public class Main {
                 
                 // check if player's card is a wild card
                 if(playerCardName.equals(wildCard) || playerCardName.equals(wildPlus4)) {
+                    String wildType = "";
+
+                    if(playerCardName.equals(wildCard)) {
+                        wildType = wildCard;
+                    }
+                    else {
+                        wildType = wildPlus4;
+                    }
                     // set color of card
                     String color = players.get(p).enterColor();
                     pickedCard.setCardColor(color);
-                    pickedCard.setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildCard);
+                    pickedCard.setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildType);
 
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
 
-                    // if the card picked is wild
                     if(playerCardName.equals(wildPlus4)) {
-                        pickedCard.setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildPlus4);
-                       // the next player draws four cards
-                       int d = skipTurnOrDraw(flip, p);
-                       for(int i = 0; i < 4; i++) {
-                        players.get(d).addCard(deck.removeCard());
-                       }
+                        int d = skipTurnOrDraw(flip, p);
+                        players.get(d).draw4Cards();
+                        for(int i = 0; i < 4; i++) {
+                            players.get(d).addCard(deck.removeCard());
+                        }
                     }
+
+                    p = skipTurnOrDraw(flip, p);
                 }
                 // check if either the color or symbol of the player's card matches those of the top discard card
                 else if(playerCardColor.equals(requiredColor) || playerCardSymbol.equals(requiredSymbol)) {
