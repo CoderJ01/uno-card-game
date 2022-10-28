@@ -47,6 +47,9 @@ public class Main {
             System.out.println("\nDiscard Pile");
             System.out.println("************");
             System.out.println(firstCard.getCardName());
+            System.out.println();
+            players.get(0).displayCards();
+            System.out.println("\n");
             setWildCard(firstCard, 0); // allow the first player to set the color of the wild card
         }
 
@@ -187,7 +190,7 @@ public class Main {
     // display the amount of points for each player 
     private static void displayPoints() { 
         int i = 1;
-        System.out.println("The player with the least amount of points wins the game");
+        System.out.println("\nThe player with the least amount of points wins the game");
         for(PlayerHand player : players) {
             System.out.println("Player " + i + " (" + player.getPlayerName() + ") had " + player.tallyPoints() + " remaining");
             i++;
