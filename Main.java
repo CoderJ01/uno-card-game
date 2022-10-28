@@ -86,13 +86,13 @@ public class Main {
 
                     // extra rules for wild +4 card
                     if(playerCardName.equals(wildPlus4)) {
-                        int d = skipTurnOrDraw(flip, p);
+                        int d = nextSkipOrDraw(flip, p);
                         players.get(d).draw4Cards();  // force the next player to draw four cards
                         for(int i = 0; i < 4; i++) {
                             players.get(d).addCard(deck.removeCard());
                         }
                         // after drawing four cards, the next player loses his turn
-                        p = skipTurnOrDraw(flip, p);
+                        p = nextSkipOrDraw(flip, p);
                     }
                 }
                 // check if either the color or symbol of the player's card matches those of the top discard card
@@ -101,7 +101,7 @@ public class Main {
                     // if player places a skip card
                     if(playerCardSymbol.equals(skip)) {
                         // skip the turn of the next player
-                        p = skipTurnOrDraw(flip, p);
+                        p = nextSkipOrDraw(flip, p);
                     }
                     // if player places a reverse card
                     if(playerCardSymbol.equals(reverse)) {
@@ -116,13 +116,13 @@ public class Main {
                     // if player places a draw 2 card
                     if(playerCardSymbol.equals(draw2)) {
                         // next player draws two cards
-                        int d = skipTurnOrDraw(flip, p);
+                        int d = nextSkipOrDraw(flip, p);
                         players.get(d).drawCards();
                         players.get(d).addCard(deck.removeCard());
                         players.get(d).addCard(deck.removeCard());
                         
                         // skip the turn of the next player;
-                        p = skipTurnOrDraw(flip, p);
+                        p = nextSkipOrDraw(flip, p);
                     }
                 }
                 else {
@@ -144,24 +144,8 @@ public class Main {
                 break;
             }
 
-            // direction of game
-            if(flip == false) {
-                // default direction
-                if(p < (players.size() - 1)) {
-                    p++;
-                }
-                else {
-                    p = 0;
-                }
-            }
-            else {
-                if(p > 0) {
-                    p--;
-                }
-                else {
-                    p = (players.size() - 1);
-                }
-            }
+            // increment or decrement
+            p = nextSkipOrDraw(flip, p);
         }
 
         System.out.println("Numbers of cards in deck: " + deck.numberOfCards());
@@ -176,15 +160,15 @@ public class Main {
         deck.addCard(new Card(letter + "0", color, "0"));
         
         int n = 0;
-        while(n < 1) {
+        while(n < 2) {
             // numbered cards
             for(Integer i = 1; i < 10; i++) {
                 deck.addCard(new Card(letter + i, color, i.toString()));
             }
             // special cards
-            // deck.addCard(new Card(letter + "_Skip", color, skip));
-            // deck.addCard(new Card(letter + "_Reverse", color, reverse));
-            // deck.addCard(new Card(letter + "_Draw-2", color, draw2));
+            deck.addCard(new Card(letter + "_Skip", color, skip));
+            deck.addCard(new Card(letter + "_Reverse", color, reverse));
+            deck.addCard(new Card(letter + "_Draw-2", color, draw2));
             // increment
             n++;
         }
@@ -199,9 +183,10 @@ public class Main {
     }
 
     // skip the turn of the next player or determine the next player to draw the cards
-    private static int skipTurnOrDraw(boolean flip, int p) {
+    private static int nextSkipOrDraw(boolean flip, int p) {
         int highestIndex = players.size() - 1;
         if(flip == false) {
+            // default direction
             if(p < highestIndex) {
                 p+=1;
             }
