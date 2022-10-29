@@ -37,7 +37,7 @@ public class ComputerHand extends PlayerHand {
             else if (card.getCardName().equals("W")) {
                 cardToReturn = card;
             }
-            // if the CPU has no wild cards of neither type, it will select a random card to discard
+            // if the CPU has no wild cards, it will select a random card to discard
             else {
                 for(int i = 0; i < cardMatches.size(); i++) {
                     cardToReturn = cardMatches.get(rand.nextInt(cardMatches.size()));
