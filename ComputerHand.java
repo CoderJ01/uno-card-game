@@ -57,10 +57,12 @@ public class ComputerHand extends PlayerHand {
         delay();
         if(cardMatches.size() == 0) {
             System.out.println("\n" + this.playerName + " will skip its turn");
+            delay();
             return false;
         }
         else {
             System.out.println("\n" + this.playerName + " will discard a card onto the discard pile");
+            delay();
             return true;
         }
     }
@@ -136,6 +138,7 @@ public class ComputerHand extends PlayerHand {
 
         delay();
         System.out.println("\n" + this.playerName + " has selected " + color);
+        delay();
         return color;
     }
 
