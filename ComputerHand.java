@@ -70,7 +70,7 @@ public class ComputerHand extends PlayerHand {
     public void drawCards(String messageNumber) {
         String draw = "";
         while(!draw.equals("d")) {
-            System.out.println("\n" + this.playerName + ", will draw " + messageNumber + " card(s)");
+            System.out.println("\n" + this.playerName + " will draw " + messageNumber + " card(s)");
             draw = "d";
         }
         delay();
