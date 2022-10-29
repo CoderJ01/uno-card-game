@@ -13,7 +13,7 @@ Download the .jar file [here](https://github.com/CoderJ01/uno-card-game/blob/mai
 * Java
 
 ## Screenshot of Terminal
-![Alt text](./assets/images/image-01_terminal.JPG?raw=true "Pig")
+![Alt text](./assets/images/image-01_terminal.JPG?raw=true "Uno")
 
 ## Contribution
 Made by CoderJ01
