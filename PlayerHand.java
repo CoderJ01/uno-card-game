@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // variables
-    private String playerName;
+    protected String playerName;
     private Scanner input = new Scanner(System.in);
     private int points;
 

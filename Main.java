@@ -26,10 +26,7 @@ public class Main {
         deck.shuffleCards(); // shuffle cards
 
         // add players
-        players.add(new PlayerHand("Joshua"));
-        players.add(new PlayerHand("Kingston"));
-        players.add(new PlayerHand("Leonardo"));
-        players.add(new PlayerHand("Michelangelo"));
+        players.add(new ComputerHand("CPU_1"));
 
         discardPile.addCard(deck.removeBottomCard()); // place first card onto discard pile
 
