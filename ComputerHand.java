@@ -45,7 +45,7 @@ public class ComputerHand extends PlayerHand {
             }
         }
         delay();
-        System.out.println(cardToReturn.getCardName());
+        System.out.println("\n" + this.playerName + " put '" + cardToReturn.getCardName() + "' onto the discard pile");
         return cardToReturn;
     }
 
