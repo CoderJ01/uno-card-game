@@ -33,4 +33,63 @@ public class ComputerHand extends PlayerHand {
             return true;
         }
     }
+
+    // have the CPU select a color
+    @Override
+    public String enterColor() {
+        String color = "";
+        // variables
+        List<Card> blue = new ArrayList<>();
+        List<Card> green = new ArrayList<>();
+        List<Card> red = new ArrayList<>();
+        List<Card> yellow = new ArrayList<>();
+
+        System.out.print(this.playerName + ", set the color of the wild card to 'blue', 'green', 'red', or 'yellow': ");
+
+        // the CPU will keep track of the number of occurences of each card color in its deck
+        for(Card card : returnCards()) {
+            if(card.getCardColor().equals("blue")) {
+                blue.add(card);
+            }
+            else if(card.getCardColor().equals("green")) {
+                green.add(card);
+            }
+            else if(card.getCardColor().equals("red")) {
+                red.add(card);
+            }
+            else if(card.getCardColor().equals("yellow")) {
+                yellow.add(card);
+            }
+        }
+
+        // store sizes (amount of occurences) in a new array
+        int[] compareSizes = new int[4];
+        compareSizes[0] = blue.size();
+        compareSizes[1] = green.size();
+        compareSizes[2] = red.size();
+        compareSizes[3] = yellow.size();
+
+        // the CPU will pick the color that it has the most of 
+        int greatest = 0;
+        for(int i = 0; i < compareSizes.length; i++) {
+            if(compareSizes[i] > greatest) {
+                greatest = compareSizes[i];
+            }
+        }
+
+        // the CPU will finally select said color
+        if(greatest == compareSizes[0]) {
+            color = "blue";
+        }
+        else if(greatest == compareSizes[1]) {
+            color = "green";
+        }
+        else if(greatest == compareSizes[2]) {
+            color = "red";
+        }
+        else if(greatest == compareSizes[3]) {
+            color = "yellow";
+        }
+        return color;
+    }
 }
