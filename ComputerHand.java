@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ComputerHand extends PlayerHand {
 
@@ -34,6 +35,7 @@ public class ComputerHand extends PlayerHand {
                 cardMatches.add(card);
             }
         }
+        delay();
         if(cardMatches.size() == 0) {
             System.out.println("\n" + this.playerName + " will skip its turn");
             return false;
@@ -55,7 +57,7 @@ public class ComputerHand extends PlayerHand {
         List<Card> yellow = new ArrayList<>();
 
         System.out.println(this.playerName + ", set the color of the wild card to 'blue', 'green', 'red', or 'yellow'");
-
+       
         // the CPU will keep track of the number of occurences of each card color in its deck
         for(Card card : returnCards()) {
             if(card.getCardColor().equals("blue")) {
@@ -101,7 +103,18 @@ public class ComputerHand extends PlayerHand {
             color = "yellow";
         }
 
+        delay();
         System.out.println(this.playerName + " has selected " + color);
         return color;
+    }
+
+    private void delay() {
+        // delay each output
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        }
+        catch(InterruptedException e) {
+            System.out.println("Error");
+        }
     }
 }
