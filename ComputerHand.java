@@ -20,11 +20,7 @@ public class ComputerHand extends PlayerHand {
     // display CPU's cards
     @Override
     public void displayCards() {
-        System.out.println("CPU Hand");
-        System.out.println("********");
-        for(Card card : returnCards()) {
-            System.out.print(card.getCardName() + "   ");
-        }
+        System.out.println("\n" + this.playerName + " has " + returnCards().size() + " left");
     }
 
     // set CPU to pick a card 
@@ -74,9 +70,11 @@ public class ComputerHand extends PlayerHand {
     public void drawCards(String messageNumber) {
         String draw = "";
         while(!draw.equals("d")) {
-            System.out.print("\n" + this.playerName + ", you must draw " + messageNumber + " card(s). Press 'd' to draw: ");
+            System.out.println("\n" + this.playerName + ", will draw " + messageNumber + " card(s)");
             draw = "d";
         }
+        delay();
+        System.out.println("\n" + this.playerName + " has drawn " + messageNumber + " card(s)");
     }
 
     // have the CPU select a color
@@ -89,7 +87,7 @@ public class ComputerHand extends PlayerHand {
         List<Card> red = new ArrayList<>();
         List<Card> yellow = new ArrayList<>();
 
-        System.out.println(this.playerName + ", set the color of the wild card to 'blue', 'green', 'red', or 'yellow'");
+        System.out.println("\n" + this.playerName + " will the color of the wild card");
        
         // the CPU will keep track of the number of occurences of each card color in its deck
         for(Card card : returnCards()) {
@@ -137,7 +135,7 @@ public class ComputerHand extends PlayerHand {
         }
 
         delay();
-        System.out.println(this.playerName + " has selected " + color);
+        System.out.println("\n" + this.playerName + " has selected " + color);
         return color;
     }
 

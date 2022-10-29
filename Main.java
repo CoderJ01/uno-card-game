@@ -26,7 +26,10 @@ public class Main {
         deck.shuffleCards(); // shuffle cards
 
         // add players
-        players.add(new ComputerHand("CPU_1"));
+        players.add(new PlayerHand("Joshua"));
+        players.add(new ComputerHand("CPU_Atlantis"));
+        players.add(new ComputerHand("CPU_Michelangelo"));
+        players.add(new ComputerHand("CPU_Picasso"));
 
         discardPile.addCard(deck.removeBottomCard()); // place first card onto discard pile
 
@@ -53,8 +56,6 @@ public class Main {
         // start game
         int p = 0;
         while(true) {
-
-            System.out.println("Numbers of cards in deck: " + deck.numberOfCards());
 
             // show top of discard pile
             System.out.println("\nDiscard Pile");

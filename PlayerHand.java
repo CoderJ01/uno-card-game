@@ -29,7 +29,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
 
     // prompt player to pick a card
     public Card pickCard(Card placeholder) {
-        placeholder = new Card("", "", "");
+        // placeholder = new Card("", "", "");
         String choosenCard = ""; 
         Card realCard = null;
         boolean valid = false;
