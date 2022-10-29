@@ -56,6 +56,7 @@ public class ComputerHand extends PlayerHand {
             }
         }
         delay();
+        System.out.println(cardToReturn.getCardName());
         return cardToReturn;
     }
 
