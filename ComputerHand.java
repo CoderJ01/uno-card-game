@@ -108,8 +108,8 @@ public class ComputerHand extends PlayerHand {
         return color;
     }
 
+    // delay each output
     private void delay() {
-        // delay each output
         try {
             TimeUnit.SECONDS.sleep(2);
         }
