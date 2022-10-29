@@ -20,7 +20,7 @@ public class ComputerHand extends PlayerHand {
     // display CPU's cards
     @Override
     public void displayCards() {
-        System.out.println(this.playerName + " has " + returnCards().size() + " left");
+        System.out.println(this.playerName + " has " + returnCards().size() + " card(s) left");
     }
 
     // set CPU to pick a card 
