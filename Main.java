@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -14,6 +15,7 @@ public class Main {
     private static String reverse = "R";
     private static String draw2 = "D";
     private static boolean flip = false;
+    private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
         // set up deck of cards
@@ -25,8 +27,10 @@ public class Main {
 
         deck.shuffleCards(); // shuffle cards
 
+        String name = getName(); // retrieve player's name
+
         // add players
-        players.add(new PlayerHand("Joshua"));
+        players.add(new PlayerHand(name));
         players.add(new ComputerHand("CPU_1"));
         players.add(new ComputerHand("CPU_2"));
         players.add(new ComputerHand("CPU_3"));
@@ -263,5 +267,11 @@ public class Main {
         card.setCardName((Character.toString(color.charAt(0))).toUpperCase() + "_" + wildType);
 
         return card;
+    }
+
+    private static String getName() {
+        System.out.print("Enter your name: ");
+        String name = input.next();
+        return name;
     }
 }
