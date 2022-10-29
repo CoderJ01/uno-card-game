@@ -69,6 +69,16 @@ public class ComputerHand extends PlayerHand {
         }
     }
 
+    // set CPU to draw cards
+    @Override
+    public void drawCards(String messageNumber) {
+        String draw = "";
+        while(!draw.equals("d")) {
+            System.out.print("\n" + this.playerName + ", you must draw " + messageNumber + " card(s). Press 'd' to draw: ");
+            draw = "d";
+        }
+    }
+
     // have the CPU select a color
     @Override
     public String enterColor() {
