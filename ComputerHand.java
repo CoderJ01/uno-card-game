@@ -44,7 +44,7 @@ public class ComputerHand extends PlayerHand {
         List<Card> red = new ArrayList<>();
         List<Card> yellow = new ArrayList<>();
 
-        System.out.print(this.playerName + ", set the color of the wild card to 'blue', 'green', 'red', or 'yellow': ");
+        System.out.println(this.playerName + ", set the color of the wild card to 'blue', 'green', 'red', or 'yellow'");
 
         // the CPU will keep track of the number of occurences of each card color in its deck
         for(Card card : returnCards()) {
@@ -90,6 +90,8 @@ public class ComputerHand extends PlayerHand {
         else if(greatest == compareSizes[3]) {
             color = "yellow";
         }
+
+        System.out.println(this.playerName + " has selected " + color);
         return color;
     }
 }
