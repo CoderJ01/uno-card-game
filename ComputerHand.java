@@ -20,16 +20,16 @@ public class ComputerHand extends PlayerHand {
             if(card.getCardName().equals("W") || card.getCardName().equals("W+4")) {
                 cardMatches.add(card);
             }
-            if(card.getCardColor().equals(topOfDiscardPile.getCardColor()) || card.getCardSymbol().equals(topOfDiscardPile.getCardSymbol())) {
+            else if(card.getCardColor().equals(topOfDiscardPile.getCardColor()) || card.getCardSymbol().equals(topOfDiscardPile.getCardSymbol())) {
                 cardMatches.add(card);
             }
         }
         if(cardMatches.size() == 0) {
-            System.out.println(this.playerName + " will skip its turn");
+            System.out.println("\n" + this.playerName + " will skip its turn");
             return false;
         }
         else {
-            System.out.println(this.playerName + " will discard a card onto the discard pile");
+            System.out.println("\n" + this.playerName + " will discard a card onto the discard pile");
             return true;
         }
     }

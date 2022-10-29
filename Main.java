@@ -19,8 +19,8 @@ public class Main {
         // set up deck of cards
         setUpDeck("B", "blue");
         setUpDeck("G", "green");
-        // setUpDeck("R", "red");
-        // setUpDeck("Y", "yellow");
+        setUpDeck("R", "red");
+        setUpDeck("Y", "yellow");
         setUpDeck();
 
         deck.shuffleCards(); // shuffle cards
