@@ -39,9 +39,7 @@ public class ComputerHand extends PlayerHand {
             }
             // if the CPU has no wild cards, it will select a random card to discard
             else {
-                for(int i = 0; i < cardMatches.size(); i++) {
-                    cardToReturn = cardMatches.get(rand.nextInt(cardMatches.size()));
-                }
+                cardToReturn = cardMatches.get(rand.nextInt(cardMatches.size()));
             }
         }
         delay();
