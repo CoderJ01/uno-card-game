@@ -1,5 +1,5 @@
 public class Card {
-    // variables
+    // fields
     private String name;
     private String color;
     private String symbol;

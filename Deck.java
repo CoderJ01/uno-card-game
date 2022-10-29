@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Deck {
  
-    private List<Card> deck = new ArrayList<>(); // variable
+    private List<Card> deck = new ArrayList<>(); // field
 
     public Deck () {} // constructor 
 

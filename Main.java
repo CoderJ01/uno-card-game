@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Main {
 
-    // variables
+    // fields
     private static Deck deck = new Deck();
     private static DiscardPile discardPile = new DiscardPile();
     private static List<PlayerHand> players = new ArrayList<>();
