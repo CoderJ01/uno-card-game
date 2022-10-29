@@ -20,7 +20,7 @@ public class ComputerHand extends PlayerHand {
     // display CPU's cards
     @Override
     public void displayCards() {
-        System.out.println("\n" + this.playerName + " has " + returnCards().size() + " left");
+        System.out.println(this.playerName + " has " + returnCards().size() + " left");
     }
 
     // set CPU to pick a card 
@@ -87,7 +87,7 @@ public class ComputerHand extends PlayerHand {
         List<Card> red = new ArrayList<>();
         List<Card> yellow = new ArrayList<>();
 
-        System.out.println("\n" + this.playerName + " will the color of the wild card");
+        System.out.println("\n" + this.playerName + " will set the color of the wild card");
        
         // the CPU will keep track of the number of occurences of each card color in its deck
         for(Card card : returnCards()) {
