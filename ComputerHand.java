@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class ComputerHand extends PlayerHand {
+
+    private Random rand = new Random(); // field
 
     // constructor
     public ComputerHand(String name) {
@@ -17,6 +20,38 @@ public class ComputerHand extends PlayerHand {
         for(Card card : returnCards()) {
             System.out.print(card.getCardName() + "   ");
         }
+    }
+
+    // set CPU to pick a card 
+    @Override
+    public Card pickCard(Card topOfDiscardPile) {
+        List<Card> cardMatches = new ArrayList<>();
+        for(Card card : returnCards()) {
+            if(card.getCardName().equals("W") || card.getCardName().equals("W+4")) {
+                cardMatches.add(card);
+            }
+            else if(card.getCardColor().equals(topOfDiscardPile.getCardColor()) || card.getCardSymbol().equals(topOfDiscardPile.getCardSymbol())) {
+                cardMatches.add(card);
+            }
+        }
+        Card cardToReturn = null;
+        for(Card card : cardMatches) {
+            // the CPU will attempt to get rid of the wild type cards first to lose more points
+            if(card.getCardName().equals("W+4")) {
+                cardToReturn = card;
+            }
+            else if (card.getCardName().equals("W")) {
+                cardToReturn = card;
+            }
+            // if the CPU has no wild cards of neither type, it will select a random card to discard
+            else {
+                for(int i = 0; i < cardMatches.size(); i++) {
+                    cardToReturn = cardMatches.get(rand.nextInt(cardMatches.size()));
+                }
+            }
+        }
+        delay();
+        return cardToReturn;
     }
 
     // set CPU to discard card if it finds a match
