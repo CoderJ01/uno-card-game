@@ -27,7 +27,7 @@ public class Deck {
         return topCard;
     }
 
-    /* remove the bottom card to start the game
+    /* remove the bottom card before starting the game
        this will be the first card in the discard pile
     */
     public Card removeBottomCard() {
