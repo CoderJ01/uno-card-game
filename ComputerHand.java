@@ -152,7 +152,7 @@ public class ComputerHand extends PlayerHand {
         }
     }
 
-    // the CPU checks to see each card in its hand matches the card on the discard pile in any way
+    // the CPU checks to see if each card in its hand matches the card on the discard pile in any way
     private List<Card> checkCardMatdches(List<Card> cardMatch, Card topOfDiscardPile) {
         for(Card card : returnCards()) {
             // wildcards have no symbol and initially have no color, so the CPU will add such cards to its arsenal
