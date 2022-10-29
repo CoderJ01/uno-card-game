@@ -140,7 +140,7 @@ public class Main {
         deck.addCard(new Card(letter + "0", color, "0")); // card 0
         
         int n = 0;
-        while(n < 1) {
+        while(n < 2) {
             // numbered cards
             for(Integer i = 1; i < 10; i++) {
                 deck.addCard(new Card(letter + i, color, i.toString()));
