@@ -8,6 +8,16 @@ public class ComputerHand extends PlayerHand {
         super(name);
     }
 
+    // display CPU's cards
+    @Override
+    public void displayCards() {
+        System.out.println("CPU Hand");
+        System.out.println("********");
+        for(Card card : returnCards()) {
+            System.out.print(card.getCardName() + "   ");
+        }
+    }
+
     // set CPU to discard card if it finds a match
     /*
        NOTE: parameter 'card' is used only in this class, but is nevertheless
