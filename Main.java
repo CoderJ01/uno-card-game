@@ -27,9 +27,9 @@ public class Main {
 
         // add players
         players.add(new PlayerHand("Joshua"));
-        players.add(new ComputerHand("CPU_Atlantis"));
-        players.add(new ComputerHand("CPU_Michelangelo"));
-        players.add(new ComputerHand("CPU_Picasso"));
+        players.add(new ComputerHand("CPU_1"));
+        players.add(new ComputerHand("CPU_2"));
+        players.add(new ComputerHand("CPU_3"));
 
         discardPile.addCard(deck.removeBottomCard()); // place first card onto discard pile
 
