@@ -66,11 +66,7 @@ public class ComputerHand extends PlayerHand {
     // set CPU to draw cards
     @Override
     public void drawCards(String messageNumber) {
-        String draw = "";
-        while(!draw.equals("d")) {
-            System.out.println("\n" + this.playerName + " has drawn " + messageNumber + " card(s)");
-            draw = "d";
-        }
+        System.out.println("\n" + this.playerName + " has drawn " + messageNumber + " card(s)");
         delay();
     }
 
