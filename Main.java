@@ -166,7 +166,7 @@ public class Main {
         }
     }
 
-    // skip the turn of the next player or determine the next player to draw the cards
+    // switch to the next player, skip the turn of the next player, or determine the next player to draw the cards
     private static int nextSkipOrDraw(boolean flip, int p) {
         int highestIndex = players.size() - 1;
         if(flip == false) {
