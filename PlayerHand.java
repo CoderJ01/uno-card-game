@@ -57,7 +57,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         String placeCard = "";
         // allow player to select only 'y' for "yes" or 'n' for "no"
         while(true) {
-            System.out.print("\n\n" + this.playerName + ", would you like to place a card onto the discard pile? If so, press 'y'. Otherwise, press 'n': ");
+            System.out.print("\n\n" + this.playerName + ", would you like to place a card onto the discard pile? If so, enter 'y'. Otherwise, enter 'n': ");
             placeCard = input.next();
             if(placeCard.equals("y") || placeCard.equals("n")) {
                 break;
@@ -76,10 +76,10 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         String draw = "";
         while(!draw.equals("d")) {
             if(messageNumber.equals("one")) {
-                System.out.print("\n" + this.playerName + ", you must draw " + messageNumber + " card. Press 'd' to draw: ");
+                System.out.print("\n" + this.playerName + ", you must draw " + messageNumber + " card. Enter 'd' to draw: ");
             }
             else {
-                System.out.print("\n" + this.playerName + ", you must draw " + messageNumber + " cards. Press 'd' to draw: ");
+                System.out.print("\n" + this.playerName + ", you must draw " + messageNumber + " cards. Enter 'd' to draw: ");
             }
             draw = input.next();
         }
