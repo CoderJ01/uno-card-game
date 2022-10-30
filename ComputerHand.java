@@ -32,8 +32,7 @@ public class ComputerHand extends PlayerHand {
     // set CPU to pick a card 
     @Override
     public Card pickCard(Card topOfDiscardPile) {
-        List<Card> cardMatches = new ArrayList<>();
-        cardMatches = checkCardMatches(cardMatches, topOfDiscardPile);
+        List <Card> cardMatches = checkCardMatches(topOfDiscardPile); // check for matches
         Card cardToReturn = null;
         for(Card card : cardMatches) {
             // the CPU will attempt to get rid of the wild type cards first to lose more points
@@ -56,8 +55,7 @@ public class ComputerHand extends PlayerHand {
     // set CPU to discard card if it finds a match
     @Override
     public boolean pickOrNo(Card topOfDiscardPile) {
-        List<Card> cardMatches = new ArrayList<>();
-        cardMatches = checkCardMatches(cardMatches, topOfDiscardPile);
+        List<Card> cardMatches = checkCardMatches(topOfDiscardPile);
         delay();
         if(cardMatches.size() == 0) {
             System.out.println("\n" + this.playerName + " will skip its turn");
@@ -155,7 +153,8 @@ public class ComputerHand extends PlayerHand {
     }
 
     // the CPU checks to see if each card in its hand matches the card on the discard pile in any way
-    private List<Card> checkCardMatches(List<Card> cardMatch, Card topOfDiscardPile) {
+    private List<Card> checkCardMatches(Card topOfDiscardPile) {
+        List<Card> cardMatch = new ArrayList<>();
         for(Card card : returnCards()) {
             // wildcards have no symbol and initially have no color, so the CPU will add such cards to its arsenal
             if(card.getCardName().equals("W") || card.getCardName().equals("W+4")) {
