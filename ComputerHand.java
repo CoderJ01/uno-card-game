@@ -17,10 +17,16 @@ public class ComputerHand extends PlayerHand {
         super(name);
     }
 
-    // display CPU's cards
+    // display the amount of cards the CPU has in its hand
     @Override
     public void displayCards() {
-        System.out.println(this.playerName + " has " + returnCards().size() + " card(s) left");
+        int cardsInHand = returnCards().size();
+        if(cardsInHand == 1) {
+            System.out.println(this.playerName + " has " + cardsInHand + " card left");
+        }
+        else if(cardsInHand > 1) {
+            System.out.println(this.playerName + " has " + cardsInHand + " cards left");
+        }
     }
 
     // set CPU to pick a card 
