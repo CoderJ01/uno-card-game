@@ -269,6 +269,7 @@ public class Main {
         return card;
     }
 
+    // have player enter name
     private static String getName() {
         System.out.print("Enter your name: ");
         String name = input.next();
