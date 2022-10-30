@@ -87,8 +87,8 @@ public class Main {
 
                     // extra rules for wild +4 card
                     if(playerCardName.equals(wildPlus4)) {
-                        int d = nextSkipOrDraw(flip, p);
-                        draw(d, 4); // force the next player to draw four cards
+                        int nextPlayer = nextSkipOrDraw(flip, p);
+                        draw(nextPlayer, 4); // force the next player to draw four cards
                         p = nextSkipOrDraw(flip, p);   // after drawing four cards, the next player loses his turn
                     }
                 }
@@ -112,8 +112,8 @@ public class Main {
                     }
                     // if player places a draw 2 card
                     if(playerCardSymbol.equals(draw2)) {
-                        int d = nextSkipOrDraw(flip, p); // next player draws two cards
-                        draw(d, 2); // force player to draw two cards
+                        int nextPlayer = nextSkipOrDraw(flip, p); // next player draws two cards
+                        draw(nextPlayer, 2); // force player to draw two cards
                         p = nextSkipOrDraw(flip, p); 
                     }
                 }
