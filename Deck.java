@@ -41,7 +41,7 @@ public class Deck {
         return this.deck.size();
     }
 
-    // return the cards as a list for Collections
+    // return the cards as a list
     public List<Card> returnCards() {
         return this.deck;
     }

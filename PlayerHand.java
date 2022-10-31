@@ -71,7 +71,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         }
     }
 
-    // force player to draw two cards
+    // force player to draw cards
     public void drawCards(String messageNumber) {
         String draw = "";
         while(!draw.equals("d")) {
