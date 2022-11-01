@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/**
+* NOTE: certain parameters are used only in ComputerHand (subclass), but are nevertheless
+* passed to the methods here to prevent compiler error
+*/
+
 public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // fields
     protected String playerName;

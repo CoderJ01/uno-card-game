@@ -3,11 +3,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-/**
-* NOTE: certain parameters are used only in this class, but are nevertheless
-* passed to the methods in PlayerHand (superclass) to prevent compiler error
-*/
-
 public class ComputerHand extends PlayerHand {
 
     private Random rand = new Random(); // field
