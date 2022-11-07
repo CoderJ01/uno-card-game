@@ -27,7 +27,7 @@ public class Main {
 
         deck.shuffleCards(); // shuffle cards
 
-        String name = getName(); // retrieve player's name
+        String name = name(); // retrieve player's name
 
         // add players
         players.add(new PlayerHand(name));
@@ -270,7 +270,7 @@ public class Main {
     }
 
     // have player enter name
-    private static String getName() {
+    private static String name() {
         System.out.print("Enter your name: ");
         String name = input.next();
         return name;
