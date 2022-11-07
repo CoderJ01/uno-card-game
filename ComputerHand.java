@@ -5,7 +5,9 @@ import java.util.concurrent.TimeUnit;
 
 public class ComputerHand extends PlayerHand {
 
-    private Random rand = new Random(); // field
+    // fields
+    private Random rand = new Random(); 
+    private String computerName = getPlayerName();
 
     // constructor
     public ComputerHand(String name) {
@@ -17,10 +19,10 @@ public class ComputerHand extends PlayerHand {
     public void displayCards() {
         int cardsInHand = returnCards().size();
         if(cardsInHand == 1) {
-            System.out.println(this.playerName + " has " + cardsInHand + " card left");
+            System.out.println(this.computerName + " has " + cardsInHand + " card left");
         }
         else if(cardsInHand > 1) {
-            System.out.println(this.playerName + " has " + cardsInHand + " cards left");
+            System.out.println(this.computerName + " has " + cardsInHand + " cards left");
         }
     }
 
@@ -43,7 +45,7 @@ public class ComputerHand extends PlayerHand {
             }
         }
         delay();
-        System.out.println("\n" + this.playerName + " put '" + cardToReturn.getCardName() + "' onto the discard pile");
+        System.out.println("\n" + this.computerName + " put '" + cardToReturn.getCardName() + "' onto the discard pile");
         return cardToReturn;
     }
 
@@ -53,11 +55,11 @@ public class ComputerHand extends PlayerHand {
         List<Card> cardMatches = checkCardMatches(topOfDiscardPile);
         delay();
         if(cardMatches.size() == 0) {
-            System.out.println("\n" + this.playerName + " will skip its turn");
+            System.out.println("\n" + this.computerName + " will skip its turn");
             return false;
         }
         else {
-            System.out.println("\n" + this.playerName + " will discard a card onto the discard pile");
+            System.out.println("\n" + this.computerName + " will discard a card onto the discard pile");
             return true;
         }
     }
@@ -66,10 +68,10 @@ public class ComputerHand extends PlayerHand {
     @Override
     public void drawCards(String messageNumber) {
         if(messageNumber.equals("one")) {
-            System.out.println("\n" + this.playerName + " has drawn " + messageNumber + " card");
+            System.out.println("\n" + this.computerName + " has drawn " + messageNumber + " card");
         }
         else {
-            System.out.println("\n" + this.playerName + " has drawn " + messageNumber + " cards");
+            System.out.println("\n" + this.computerName + " has drawn " + messageNumber + " cards");
         }
         delay();
     }
@@ -84,7 +86,7 @@ public class ComputerHand extends PlayerHand {
         List<Card> red = new ArrayList<>();
         List<Card> yellow = new ArrayList<>();
 
-        System.out.println("\n" + this.playerName + " will set the color of the wild card");
+        System.out.println("\n" + this.computerName + " will set the color of the wild card");
        
         // the CPU will keep track of the number of occurences of each card color in its deck
         for(Card card : returnCards()) {
@@ -132,7 +134,7 @@ public class ComputerHand extends PlayerHand {
         }
 
         delay();
-        System.out.println("\n" + this.playerName + " has selected " + color);
+        System.out.println("\n" + this.computerName + " has selected " + color);
         delay();
         return color;
     }
