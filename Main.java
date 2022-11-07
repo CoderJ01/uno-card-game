@@ -275,4 +275,13 @@ public class Main {
         String name = input.next();
         return name;
     }
+
+    // getters (for class ComputerHand)
+    public static String getWildCard() {
+        return wildCard;
+    }
+
+    public static String getWildPlus4() {
+        return wildPlus4;
+    }
 }
