@@ -9,11 +9,11 @@ public class Main {
     private static Deck deck = new Deck();
     private static DiscardPile discardPile = new DiscardPile();
     private static List<PlayerHand> players = new ArrayList<>();
-    private static String wildCard = "W";
-    private static String wildPlus4 = "W+4";
-    private static String skip = "S";
-    private static String reverse = "R";
-    private static String draw2 = "D";
+    private static final String WILD_CARD = "W";
+    private static final String WILD_PLUS_4 = "W+4";
+    private static final String SKIP = "S";
+    private static final String REVERSE = "R";
+    private static final String DRAW_2 = "D";
     private static boolean flip = false;
     private static Scanner input = new Scanner(System.in);
 
@@ -46,7 +46,7 @@ public class Main {
             q++;
         }
 
-        if(discardPile.showTopCard().getCardName().equals(wildCard) || discardPile.showTopCard().getCardName().equals(wildPlus4)) {
+        if(discardPile.showTopCard().getCardName().equals(WILD_CARD) || discardPile.showTopCard().getCardName().equals(WILD_PLUS_4)) {
             Card firstCard = discardPile.showTopCard();
             System.out.println("\nDiscard Pile");
             System.out.println("************");
@@ -81,12 +81,12 @@ public class Main {
                 String requiredSymbol = discardPile.showTopCard().getCardSymbol();
                 
                 // check if player's card is a wild card
-                if(playerCardName.equals(wildCard) || playerCardName.equals(wildPlus4)) {
+                if(playerCardName.equals(WILD_CARD) || playerCardName.equals(WILD_PLUS_4)) {
                     pickedCard = setWildCard(pickedCard, p); // allow player that discarded the card to set card
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
 
                     // extra rules for wild +4 card
-                    if(playerCardName.equals(wildPlus4)) {
+                    if(playerCardName.equals(WILD_PLUS_4)) {
                         int nextPlayer = nextSkipOrDraw(flip, p);
                         draw(nextPlayer, 4); // force the next player to draw four cards
                         p = nextSkipOrDraw(flip, p);   // after drawing four cards, the next player loses his turn
@@ -97,11 +97,11 @@ public class Main {
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
 
                     // if player places a skip card
-                    if(playerCardSymbol.equals(skip)) {
+                    if(playerCardSymbol.equals(SKIP)) {
                         p = nextSkipOrDraw(flip, p); // skip the turn of the next player
                     }
                     // if player places a reverse card
-                    if(playerCardSymbol.equals(reverse)) {
+                    if(playerCardSymbol.equals(REVERSE)) {
                         // change the direction of the game
                         if(flip == false) {
                             flip = true;
@@ -111,7 +111,7 @@ public class Main {
                         }
                     }
                     // if player places a draw 2 card
-                    if(playerCardSymbol.equals(draw2)) {
+                    if(playerCardSymbol.equals(DRAW_2)) {
                         int nextPlayer = nextSkipOrDraw(flip, p); // next player draws two cards
                         draw(nextPlayer, 2); // force player to draw two cards
                         p = nextSkipOrDraw(flip, p); 
@@ -150,9 +150,9 @@ public class Main {
                 deck.addCard(new Card(letter + i, color, i.toString()));
             }
             // special cards
-            deck.addCard(new Card(letter + "_Skip", color, skip));
-            deck.addCard(new Card(letter + "_Reverse", color, reverse));
-            deck.addCard(new Card(letter + "_Draw-2", color, draw2));
+            deck.addCard(new Card(letter + "_Skip", color, SKIP));
+            deck.addCard(new Card(letter + "_Reverse", color, REVERSE));
+            deck.addCard(new Card(letter + "_Draw-2", color, DRAW_2));
             // increment
             n++;
         }
@@ -161,8 +161,8 @@ public class Main {
     // set of deck of wild cards
     private static void setUpDeck() {
         for(int i = 0; i < 4; i++) {
-            deck.addCard(new Card(wildCard, ""));
-            deck.addCard(new Card(wildPlus4, ""));
+            deck.addCard(new Card(WILD_CARD, ""));
+            deck.addCard(new Card(WILD_PLUS_4, ""));
         }
     }
 
@@ -255,11 +255,11 @@ public class Main {
     // set the wild card
     private static Card setWildCard(Card card, int player) {
         String wildType = "";
-        if(card.getCardName().equals(wildCard)) {
-            wildType = wildCard;
+        if(card.getCardName().equals(WILD_CARD)) {
+            wildType = WILD_CARD;
         }
         else {
-            wildType = wildPlus4;
+            wildType = WILD_PLUS_4;
         }
         // set color of card
         String color = players.get(player).enterColor();
@@ -278,10 +278,10 @@ public class Main {
 
     // getters (for class ComputerHand)
     public static String getWildCard() {
-        return wildCard;
+        return WILD_CARD;
     }
 
     public static String getWildPlus4() {
-        return wildPlus4;
+        return WILD_PLUS_4;
     }
 }
