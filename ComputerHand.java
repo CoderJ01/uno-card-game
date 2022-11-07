@@ -35,10 +35,10 @@ public class ComputerHand extends PlayerHand {
         Card cardToReturn = null;
         for(Card card : cardMatches) {
             // the CPU will attempt to get rid of the wild type cards first to lose more points
-            if(card.getCardName().equals(wildPlus4)) {
+            if(card.getCardName().equals(this.wildPlus4)) {
                 cardToReturn = card;
             }
-            else if (card.getCardName().equals(wildCard)) {
+            else if (card.getCardName().equals(this.wildCard)) {
                 cardToReturn = card;
             }
             // if the CPU has no wild cards, it will select a random card to discard
@@ -156,7 +156,7 @@ public class ComputerHand extends PlayerHand {
         List<Card> cardMatch = new ArrayList<>();
         for(Card card : returnCards()) {
             // wildcards have no symbol and initially have no color, so the CPU will add such cards to its arsenal
-            if(card.getCardName().equals(wildCard) || card.getCardName().equals(wildPlus4)) {
+            if(card.getCardName().equals(this.wildCard) || card.getCardName().equals(this.wildPlus4)) {
                 cardMatch.add(card);
             }
             // check for match
