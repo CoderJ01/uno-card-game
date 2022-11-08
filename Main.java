@@ -214,7 +214,7 @@ public class Main {
     }
 
     // when the amount of cards in the deck is low, alter the amount drawn
-    private static void draw(int next, int defaultDrawAmount) {
+    private static void draw(int nextPlayerIndex, int defaultDrawAmount) {
         int deckSize = deck.numberOfCards();
         int max = 0;
         if(deckSize >= defaultDrawAmount) {
@@ -227,9 +227,9 @@ public class Main {
         // draw cards only if there are cards left to draw
         if(max >= 1) {
             String messageNumber = messageNumber(max); // retrieve message number
-            players.get(next).drawCards(messageNumber);
+            players.get(nextPlayerIndex).drawCards(messageNumber);
             for(int i = 0; i < max; i++) {
-                players.get(next).addCard(deck.removeCard());
+                players.get(nextPlayerIndex).addCard(deck.removeCard());
             }
         }
     }
