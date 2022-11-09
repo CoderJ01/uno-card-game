@@ -82,17 +82,16 @@ public class Main {
                 
                 // check if player's card is a wild card
                 if(playerCardName.equals(WILD_CARD) || playerCardName.equals(WILD_PLUS_4)) {
+                    pickedCard = setWildCard(pickedCard, p); // allow player that discarded the card to set card
+                    discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
+                    
+                    // end the game if a player has no cards left 
                     if(players.get(p).returnCards().size() == 0) {
                         break;
                     }
-                    pickedCard = setWildCard(pickedCard, p); // allow player that discarded the card to set card
-                    discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
 
                     // extra rules for wild +4 card
                     if(playerCardName.equals(WILD_PLUS_4)) {
-                        if(players.get(p).returnCards().size() == 0) {
-                            break;
-                        }
                         int nextPlayer = nextSkipOrDraw(flip, p);
                         draw(nextPlayer, 4); // force the next player to draw four cards
                         p = nextSkipOrDraw(flip, p);   // after drawing four cards, the next player loses his turn
@@ -101,12 +100,12 @@ public class Main {
                 // check if either the color or symbol of the player's card matches those of the top discard card
                 else if(playerCardColor.equals(requiredColor) || playerCardSymbol == requiredSymbol) {
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
+                    if(players.get(p).returnCards().size() == 0) {
+                        break;
+                    }
 
                     // if player places a skip card
                     if(playerCardSymbol == SKIP) {
-                        if(players.get(p).returnCards().size() == 0) {
-                            break;
-                        }
                         p = nextSkipOrDraw(flip, p); // skip the turn of the next player
                     }
                     // if player places a reverse card
@@ -121,9 +120,6 @@ public class Main {
                     }
                     // if player places a draw 2 card
                     if(playerCardSymbol == DRAW_2) {
-                        if(players.get(p).returnCards().size() == 0) {
-                            break;
-                        }
                         int nextPlayer = nextSkipOrDraw(flip, p); // next player draws two cards
                         draw(nextPlayer, 2); // force player to draw two cards
                         p = nextSkipOrDraw(flip, p); 
@@ -137,11 +133,6 @@ public class Main {
             // force player to draw two cards
             else {
                 draw(p, 2);
-            }
-
-            // end the game if a player has no cards left 
-            if(players.get(p).returnCards().size() == 0) {
-                break;
             }
 
             p = nextSkipOrDraw(flip, p); // increment or decrement
