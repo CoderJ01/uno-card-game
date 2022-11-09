@@ -87,6 +87,9 @@ public class Main {
 
                     // extra rules for wild +4 card
                     if(playerCardName.equals(WILD_PLUS_4)) {
+                        if(players.get(p).returnCards().size() == 0) {
+                            break;
+                        }
                         int nextPlayer = nextSkipOrDraw(flip, p);
                         draw(nextPlayer, 4); // force the next player to draw four cards
                         p = nextSkipOrDraw(flip, p);   // after drawing four cards, the next player loses his turn
@@ -98,6 +101,9 @@ public class Main {
 
                     // if player places a skip card
                     if(playerCardSymbol == SKIP) {
+                        if(players.get(p).returnCards().size() == 0) {
+                            break;
+                        }
                         p = nextSkipOrDraw(flip, p); // skip the turn of the next player
                     }
                     // if player places a reverse card
@@ -112,6 +118,9 @@ public class Main {
                     }
                     // if player places a draw 2 card
                     if(playerCardSymbol == DRAW_2) {
+                        if(players.get(p).returnCards().size() == 0) {
+                            break;
+                        }
                         int nextPlayer = nextSkipOrDraw(flip, p); // next player draws two cards
                         draw(nextPlayer, 2); // force player to draw two cards
                         p = nextSkipOrDraw(flip, p); 
