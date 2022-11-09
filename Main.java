@@ -82,7 +82,11 @@ public class Main {
                 
                 // check if player's card is a wild card
                 if(playerCardName.equals(WILD_CARD) || playerCardName.equals(WILD_PLUS_4)) {
-                    pickedCard = setWildCard(pickedCard, p); // allow player that discarded the card to set card
+                    
+                    if(players.get(p).returnCards().size() >= 2) {
+                        pickedCard = setWildCard(pickedCard, p); // allow player that discarded the card to set card
+                    }
+                    
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
                     
                     // end the game if a player has no cards left 
