@@ -11,18 +11,18 @@ public class Main {
     private static List<PlayerHand> players = new ArrayList<>();
     private static final String WILD_CARD = "W";
     private static final String WILD_PLUS_4 = "W+4";
-    private static final String SKIP = "S";
-    private static final String REVERSE = "R";
-    private static final String DRAW_2 = "D";
+    private static final char SKIP = 'S';
+    private static final char REVERSE = 'R';
+    private static final char DRAW_2 = 'D';
     private static boolean flip = false;
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
         // set up deck of cards
-        setUpDeck("B", "blue");
-        setUpDeck("G", "green");
-        setUpDeck("R", "red");
-        setUpDeck("Y", "yellow");
+        setUpDeck('B', "blue");
+        setUpDeck('G', "green");
+        setUpDeck('R', "red");
+        setUpDeck('Y', "yellow");
         setUpDeck();
 
         deck.shuffleCards(); // shuffle cards
@@ -76,9 +76,9 @@ public class Main {
                 // variables
                 String playerCardName = pickedCard.getCardName();
                 String playerCardColor = pickedCard.getCardColor();
-                String playerCardSymbol = pickedCard.getCardSymbol();
+                char playerCardSymbol = pickedCard.getCardSymbol();
                 String requiredColor = discardPile.showTopCard().getCardColor();
-                String requiredSymbol = discardPile.showTopCard().getCardSymbol();
+                char requiredSymbol = discardPile.showTopCard().getCardSymbol();
                 
                 // check if player's card is a wild card
                 if(playerCardName.equals(WILD_CARD) || playerCardName.equals(WILD_PLUS_4)) {
@@ -93,15 +93,15 @@ public class Main {
                     }
                 }
                 // check if either the color or symbol of the player's card matches those of the top discard card
-                else if(playerCardColor.equals(requiredColor) || playerCardSymbol.equals(requiredSymbol)) {
+                else if(playerCardColor.equals(requiredColor) || playerCardSymbol == requiredSymbol) {
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
 
                     // if player places a skip card
-                    if(playerCardSymbol.equals(SKIP)) {
+                    if(playerCardSymbol == SKIP) {
                         p = nextSkipOrDraw(flip, p); // skip the turn of the next player
                     }
                     // if player places a reverse card
-                    if(playerCardSymbol.equals(REVERSE)) {
+                    if(playerCardSymbol == REVERSE) {
                         // change the direction of the game
                         if(flip == false) {
                             flip = true;
@@ -111,7 +111,7 @@ public class Main {
                         }
                     }
                     // if player places a draw 2 card
-                    if(playerCardSymbol.equals(DRAW_2)) {
+                    if(playerCardSymbol == DRAW_2) {
                         int nextPlayer = nextSkipOrDraw(flip, p); // next player draws two cards
                         draw(nextPlayer, 2); // force player to draw two cards
                         p = nextSkipOrDraw(flip, p); 
@@ -140,14 +140,14 @@ public class Main {
     }
 
     // set up the deck of non-wild cards
-    private static void setUpDeck(String letter, String color) {
-        deck.addCard(new Card(letter + "0", color, "0")); // card 0
+    private static void setUpDeck(char letter, String color) {
+        deck.addCard(new Card(letter + "0", color, '0')); // card 0
         
         int n = 0;
         while(n < 2) {
             // numbered cards
-            for(Integer i = 1; i < 10; i++) {
-                deck.addCard(new Card(letter + i, color, i.toString()));
+            for(int i = 1; i < 10; i++) {
+                deck.addCard(new Card(letter + "" + i, color, (String.valueOf(i)).charAt(0)));
             }
             // special cards
             deck.addCard(new Card(letter + "_Skip", color, SKIP));

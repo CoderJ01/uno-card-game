@@ -160,7 +160,7 @@ public class ComputerHand extends PlayerHand {
                 cardMatch.add(card);
             }
             // check for match
-            else if(card.getCardColor().equals(topOfDiscardPile.getCardColor()) || card.getCardSymbol().equals(topOfDiscardPile.getCardSymbol())) {
+            else if(card.getCardColor().equals(topOfDiscardPile.getCardColor()) || card.getCardSymbol() == topOfDiscardPile.getCardSymbol()) {
                 cardMatch.add(card);
             }
         }

@@ -2,7 +2,7 @@ public class Card {
     // fields
     private String name;
     private String color;
-    private String symbol;
+    private char symbol;
     private int points;
 
     // constructor for wild cards
@@ -13,17 +13,17 @@ public class Card {
     }
 
     // constructor for non-wild cards
-    public Card(String name, String color, String symbol) {
+    public Card(String name, String color, char symbol) {
         this(name, color);
         this.symbol = symbol;
         // numbered cards
-        if(symbol.equals("1") || symbol.equals("2") || symbol.equals("3") || symbol.equals("4") || 
-           symbol.equals("5") || symbol.equals("6") || symbol.equals("7") || symbol.equals("8") ||
-           symbol.equals("9")) 
+        if(symbol == '1' || symbol == '2' || symbol == '3' || symbol == '4' || 
+           symbol == '5' || symbol == '6' || symbol == '7' || symbol == '8' ||
+           symbol == '9') 
         {
-            this.points = Integer.parseInt(symbol);
+            this.points = Character.getNumericValue(symbol);
         }
-        else if(symbol.equals("0")) {
+        else if(symbol == '0') {
             this.points = 10;
         }
         // Skip, Draw 2, Reverse cards
@@ -41,7 +41,7 @@ public class Card {
         return this.color;
     }
 
-    public String getCardSymbol() {
+    public char getCardSymbol() {
         return this.symbol;
     }
 
