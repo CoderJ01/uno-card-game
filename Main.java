@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -16,6 +17,7 @@ public class Main {
     private static final char DRAW_2 = 'D';
     private static boolean flip = false;
     private static Scanner input = new Scanner(System.in);
+    private static Random rand = new Random();
 
     public static void main(String[] args) {
         // set up deck of cards
@@ -46,19 +48,19 @@ public class Main {
             q++;
         }
 
+        // start game
+        int p = rand.nextInt(players.size());
         if(discardPile.showTopCard().getCardName().equals(WILD_CARD) || discardPile.showTopCard().getCardName().equals(WILD_PLUS_4)) {
             Card firstCard = discardPile.showTopCard();
             System.out.println("\nDiscard Pile");
             System.out.println("************");
             System.out.println(firstCard.getCardName());
             System.out.println();
-            players.get(0).displayCards();
+            players.get(p).displayCards();
             System.out.println("\n");
-            setWildCard(firstCard, 0); // allow the first player to set the color of the wild card
+            setWildCard(firstCard, p); // allow the first player to set the color of the wild card
         }
 
-        // start game
-        int p = 0;
         while(true) {
 
             // show top of discard pile
