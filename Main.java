@@ -83,6 +83,7 @@ public class Main {
                 // check if player's card is a wild card
                 if(playerCardName.equals(WILD_CARD) || playerCardName.equals(WILD_PLUS_4)) {
                     
+                    // disable player from setting wild card if said card is player's last card
                     if(players.get(p).returnCards().size() >= 2) {
                         pickedCard = setWildCard(pickedCard, p); // allow player that discarded the card to set card
                     }
