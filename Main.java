@@ -100,6 +100,7 @@ public class Main {
                 // check if either the color or symbol of the player's card matches those of the top discard card
                 else if(playerCardColor.equals(requiredColor) || playerCardSymbol == requiredSymbol) {
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
+                    
                     if(players.get(p).returnCards().size() == 0) {
                         break;
                     }
