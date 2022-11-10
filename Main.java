@@ -26,16 +26,19 @@ public class Main {
         setUpDeck('R', "red");
         setUpDeck('Y', "yellow");
         setUpDeck();
-
+       
         deck.shuffleCards(); // shuffle cards
 
         String name = name(); // retrieve player's name
 
         // add players
         players.add(new PlayerHand(name));
-        players.add(new ComputerHand("CPU_1"));
-        players.add(new ComputerHand("CPU_2"));
-        players.add(new ComputerHand("CPU_3"));
+        
+        String computerName = "CPU_";
+        
+        for(int i = 1; i < 4; i++) {
+            players.add(new ComputerHand(computerName + i));
+        }
 
         discardPile.addCard(deck.removeBottomCard()); // place first card onto discard pile
 
@@ -57,7 +60,12 @@ public class Main {
             System.out.println(firstCard.getCardName());
             System.out.println();
             players.get(p).displayCards();
-            System.out.println("\n");
+            
+            // get rid of large gap for CPU players
+            if(!players.get(p).getPlayerName().contains(computerName)) {
+                System.out.println("\n");
+            }
+
             setWildCard(firstCard, p); // allow the first player to set the color of the wild card
         }
 
