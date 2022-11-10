@@ -61,7 +61,7 @@ public class Main {
             System.out.println();
             players.get(p).displayCards();
             
-            // get rid of large gap for CPU players
+            // get rid of large 'white space' for CPU players
             if(!players.get(p).getPlayerName().contains(computerName)) {
                 System.out.println("\n");
             }
