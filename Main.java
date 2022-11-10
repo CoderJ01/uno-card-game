@@ -22,9 +22,9 @@ public class Main {
     public static void main(String[] args) {
         // set up deck of cards
         setUpDeck('B', "blue");
-        setUpDeck('G', "green");
-        setUpDeck('R', "red");
-        setUpDeck('Y', "yellow");
+        // setUpDeck('G', "green");
+        // setUpDeck('R', "red");
+        // setUpDeck('Y', "yellow");
         setUpDeck();
        
         deck.shuffleCards(); // shuffle cards
@@ -36,7 +36,7 @@ public class Main {
         
         String computerName = "CPU_";
         
-        for(int i = 1; i < 4; i++) {
+        for(int i = 1; i < 3; i++) {
             players.add(new ComputerHand(computerName + i));
         }
 
@@ -70,6 +70,11 @@ public class Main {
         }
 
         while(true) {
+
+            System.out.println();
+            System.out.println("Deck: " + deck.numberOfCards());
+            System.out.println("Discard: " + discardPile.numberOfCards());
+            System.out.println();
 
             // show top of discard pile
             System.out.println("\nDiscard Pile");
