@@ -247,7 +247,7 @@ public class Main {
             max = defaultDrawAmount;
         }
 
-        // draw cards only if there are cards left to draw
+        // draw cards 
         String messageNumber = messageNumber(max); // retrieve message number
         players.get(nextPlayerIndex).drawCards(messageNumber);
         for(int i = 0; i < max; i++) {
