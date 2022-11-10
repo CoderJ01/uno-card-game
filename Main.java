@@ -239,17 +239,19 @@ public class Main {
         if(deckSize >= defaultDrawAmount) {
             max = defaultDrawAmount;
         }
-        else {
+        else if(deckSize < defaultDrawAmount && deckSize > 0) {
             max = deckSize;
+        }
+        else if(deckSize == 0) {
+            deck.createNewDeck(discardPile.removeFromDiscardPile()); // the discard pile will be the new deck
+            max = defaultDrawAmount;
         }
 
         // draw cards only if there are cards left to draw
-        if(max >= 1) {
-            String messageNumber = messageNumber(max); // retrieve message number
-            players.get(nextPlayerIndex).drawCards(messageNumber);
-            for(int i = 0; i < max; i++) {
-                players.get(nextPlayerIndex).addCard(deck.removeCard());
-            }
+        String messageNumber = messageNumber(max); // retrieve message number
+        players.get(nextPlayerIndex).drawCards(messageNumber);
+        for(int i = 0; i < max; i++) {
+            players.get(nextPlayerIndex).addCard(deck.removeCard());
         }
     }
 
