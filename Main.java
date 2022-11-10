@@ -244,6 +244,7 @@ public class Main {
         }
         else if(deckSize == 0) {
             deck.createNewDeck(discardPile.removeFromDiscardPile()); // the discard pile will be the new deck
+            deck.shuffleCards();
             max = defaultDrawAmount;
         }
 
