@@ -50,4 +50,11 @@ public class Deck {
     public void shuffleCards() {
         Collections.shuffle(this.deck);
     }
+
+    // create a new deck of cards
+    public void createNewDeck(List<Card> stackOfCards) {
+        for(Card card : stackOfCards) {
+            this.deck.add(card);
+        }
+    }
 }
