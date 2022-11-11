@@ -323,7 +323,6 @@ public class Main {
                     System.out.print("\nHow many opponents would you like to play against? Enter a number from " + min + " to " + max + ": ");
                     numberOfOpponents = input.nextInt();
                 }
-                // display message if user inputs a non-integer value
                 catch(InputMismatchException e) {
                     error = true;
                     input.nextLine();
