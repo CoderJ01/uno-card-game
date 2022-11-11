@@ -30,13 +30,14 @@ public class Main {
         deck.shuffleCards(); // shuffle cards
 
         String name = name(); // retrieve player's name
+        int numberOfOpponents = opponents(); // retrieve number of opponents
 
         // add players
         players.add(new PlayerHand(name));
         
         String computerName = "CPU_";
         
-        for(int i = 1; i < 6; i++) {
+        for(int i = 1; i <= numberOfOpponents; i++) {
             players.add(new ComputerHand(computerName + i));
         }
 
@@ -305,5 +306,17 @@ public class Main {
 
     public static String getWildPlus4() {
         return WILD_PLUS_4;
+    }
+
+    private static int opponents() {
+        int numberOfOpponents = 0;
+        while(true) {
+            System.out.print("\nHow many opponents would you like to play against? Enter a number from 2 to 9: ");
+            numberOfOpponents = input.nextInt();
+            if(numberOfOpponents >= 2 && numberOfOpponents <= 9) {
+                break;
+            }
+        }
+        return numberOfOpponents;
     }
 }
