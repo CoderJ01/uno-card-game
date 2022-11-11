@@ -329,7 +329,7 @@ public class Main {
                 }
             } while(error);
 
-            // check if intger is within the specified range
+            // check if integer is within the specified range
             if(numberOfOpponents >= min && numberOfOpponents <= max) {
                 break;
             }
