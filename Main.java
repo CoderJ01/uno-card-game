@@ -325,7 +325,6 @@ public class Main {
                 }
                 // display message if user inputs a non-integer value
                 catch(InputMismatchException e) {
-                    System.out.println("Invalid input. Enter an integer");
                     error = true;
                     input.nextLine();
                 }
