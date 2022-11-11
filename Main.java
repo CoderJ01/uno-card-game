@@ -308,6 +308,7 @@ public class Main {
         return WILD_PLUS_4;
     }
 
+    // allow the player to enter the number of opponents to play against
     private static int opponents() {
         int numberOfOpponents = 0;
         while(true) {
