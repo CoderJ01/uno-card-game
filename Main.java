@@ -348,7 +348,7 @@ public class Main {
     private static void gamePlay() {
         System.out.println("\nRULES");
         System.out.println("*****");
-        System.out.println("\nThe first player to discard all the cards in said player's hand wins the game. When the game is finished,");
+        System.out.println("The first player to discard all the cards in said player's hand wins the game. When the game is finished,");
         System.out.println("players are ranked by the number of points they have.");
         System.out.println("\nWild and wild-plus-4 cards are worth 50 points. Reverse, skip, and draw-2 cards are worth 20 points;");
         System.out.println("cards numbered '0', 10 points; the remaining numbered cards; their face value.");
