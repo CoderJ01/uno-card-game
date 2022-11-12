@@ -348,7 +348,8 @@ public class Main {
         System.out.println("players are ranked by the number of points they have.");
         System.out.println("\nWild and wild-plus-4 cards are worth 50 points. Reverse, skip, and draw-2 cards are worth 20 points;");
         System.out.println("cards numbered '0', 10 points; the remaining numbered cards; their face value.");
-        System.out.println("\nThe less points a player has, the higher the player will be ranked. The winner will have 0 points due to having no cards.");
+        System.out.println("\nThe less points a player has, the higher the player will be ranked. The winner will have 0 points due");
+        System.out.println("to having no cards.");
         System.out.println("\nB = blue, G = green, R = red, and Y = yellow; W = wild, W+4 = wild +4");
         System.out.println("\nThe discard pile shows only its top card. Unless any wild type card is placed, then players must select a card");
         System.out.println("that matches either the color or number of the top card.");
