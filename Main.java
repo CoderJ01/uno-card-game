@@ -373,8 +373,7 @@ public class Main {
     // ask if player would like to see the rules
     private static boolean viewOrNo(String name) {
         String view = "";
-        System.out.println("\nHello " + name + ", would you like to view the rules of the game? If you would, enter 'y'. If not, enter any other");
-        System.out.print("key: ");
+        System.out.println("\nHello " + name + ", would you like to view the rules of the game? If you would, enter 'y'. If not, enter any other key: ");
         view = input.next();
         if(view.equals("y")) {
             return true;
