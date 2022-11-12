@@ -219,6 +219,8 @@ public class Main {
     // display the amount of points for each player 
     private static void displayPoints() { 
         int i = 1;
+        System.out.println("\nPOINTS");
+        System.out.println("******");
         for(PlayerHand player : players) {
             System.out.println("Player " + i + " (" + player.getPlayerName() + ") had " + player.tallyPoints() + " points remaining");
             i++;
