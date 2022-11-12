@@ -353,7 +353,7 @@ public class Main {
         System.out.println("\nB = blue, G = green, R = red, and Y = yellow; W = wild, W+4 = wild +4");
         System.out.println("\nThe discard pile shows only its top card. Unless any wild type card is placed, then players must select a card");
         System.out.println("that matches either the color or number of the top card.");
-        System.out.println("\nThe player that gets to play first will be chosen randomly");
+        System.out.println("\nThe player that gets to play first will be chosen randomly.");
 
         // confirm that player understands the rules
         String confirmation = "";
