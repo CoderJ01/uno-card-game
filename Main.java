@@ -31,6 +31,12 @@ public class Main {
         deck.shuffleCards(); // shuffle cards
 
         String name = name(); // retrieve player's name
+        
+        // inquire if player wants to view rules
+        if(viewOrNo(name) == true) {
+            gamePlay(); // describe rules of game
+        }
+
         int numberOfOpponents = opponents(); // retrieve number of opponents
 
         // add players
@@ -213,7 +219,6 @@ public class Main {
     // display the amount of points for each player 
     private static void displayPoints() { 
         int i = 1;
-        System.out.println("\nThe player with the least amount of points wins the game");
         for(PlayerHand player : players) {
             System.out.println("Player " + i + " (" + player.getPlayerName() + ") had " + player.tallyPoints() + " points remaining");
             i++;
@@ -335,5 +340,40 @@ public class Main {
             }
         }
         return numberOfOpponents;
+    }
+
+    // describe the rules if the game
+    private static void gamePlay() {
+        System.out.println("\nThe first player to discard all the cards in said player's hand wins the game. When the game is finished,");
+        System.out.println("players are ranked by the number of points they have.");
+        System.out.println("\nWild and wild-plus-4 cards are worth 50 points. Reverse, skip, and draw-2 cards are worth 20 points;");
+        System.out.println("cards numbered '0', 10 points; the remaining numbered cards; their face value.");
+        System.out.println("\nThe less points a player has, the higher the player will be ranked. The winner will have 0 points due to having no cards.");
+        System.out.println("\nB = blue, G = green, R = red, and Y = yellow; W = wild, W+4 = wild +4");
+        System.out.println("\nThe discard pile shows only its top card. Unless any wild type card is placed, then players must select a card");
+        System.out.println("that matches either the color or number of the top card.");
+
+        // confirm that player understands the rules
+        String confirmation = "";
+        while(true) {
+            System.out.print("\nEnter 'y' to confirm that you understand the rules: ");
+            confirmation = input.next();
+            if(confirmation.equals("y")) {
+                break;
+            }
+        }
+    }
+
+    // ask if player would like to see the rules
+    private static boolean viewOrNo(String name) {
+        String view = "";
+        System.out.print("\nHello " + name + ", would you like to view the rules of the game? If you would, enter 'y': ");
+        view = input.next();
+        if(view.equals("y")) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
