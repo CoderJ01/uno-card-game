@@ -66,7 +66,7 @@ public class Deck {
                 card.setCardColor("");
             }
             // reset wild +4 cards
-            else if(card.getCardName().equals("B_" + wildPlus4) || 
+            if(card.getCardName().equals("B_" + wildPlus4) || 
                card.getCardName().equals("G_" + wildPlus4) || 
                card.getCardName().equals("R_" + wildPlus4) ||
                card.getCardName().equals("Y_" + wildPlus4)) 
