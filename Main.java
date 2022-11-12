@@ -300,7 +300,7 @@ public class Main {
         return name;
     }
 
-    // getters (for class ComputerHand)
+    // getters (for classes ComputerHand and Deck)
     public static String getWildCard() {
         return WILD_CARD;
     }

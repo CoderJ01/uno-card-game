@@ -5,6 +5,8 @@ import java.util.List;
 public class Deck {
  
     private List<Card> deck = new ArrayList<>(); // field
+    private String wild = Main.getWildCard();
+    private String wildPlus4 = Main.getWildPlus4();
 
     public Deck () {} // constructor 
 
@@ -54,6 +56,25 @@ public class Deck {
     // create a new deck of cards
     public void createNewDeck(List<Card> stackOfCards) {
         for(Card card : stackOfCards) {
+            // reset wild cards
+            if(card.getCardName().equals("B_" + wild) || 
+               card.getCardName().equals("G_" + wild) || 
+               card.getCardName().equals("R_" + wild) ||
+               card.getCardName().equals("Y_" + wild)) 
+            {
+                card.setCardName(wild);
+                card.setCardColor("");
+            }
+            // reset wild +4 cards
+            else if(card.getCardName().equals("B_" + wildPlus4) || 
+               card.getCardName().equals("G_" + wildPlus4) || 
+               card.getCardName().equals("R_" + wildPlus4) ||
+               card.getCardName().equals("Y_" + wildPlus4)) 
+            {
+                card.setCardName(wildPlus4);
+                card.setCardColor("");
+            }
+            
             this.deck.add(card);
         }
     }
