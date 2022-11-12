@@ -344,6 +344,8 @@ public class Main {
 
     // describe the rules if the game
     private static void gamePlay() {
+        System.out.println("\nRULES");
+        System.out.println("*****");
         System.out.println("\nThe first player to discard all the cards in said player's hand wins the game. When the game is finished,");
         System.out.println("players are ranked by the number of points they have.");
         System.out.println("\nWild and wild-plus-4 cards are worth 50 points. Reverse, skip, and draw-2 cards are worth 20 points;");
@@ -352,7 +354,7 @@ public class Main {
         System.out.println("to having no cards.");
         System.out.println("\nB = blue, G = green, R = red, and Y = yellow; W = wild, W+4 = wild +4");
         System.out.println("\nThe discard pile shows only its top card. Unless any wild type card is placed, then players must select a card");
-        System.out.println("that matches either the color or number of the top card.");
+        System.out.println("that matches either the color or right-side symbol of the top card. Examples of such symbols are '3' and '_Skip'.");
         System.out.println("\nThe player that gets to play first will be chosen randomly.");
 
         // confirm that player understands the rules
@@ -369,7 +371,8 @@ public class Main {
     // ask if player would like to see the rules
     private static boolean viewOrNo(String name) {
         String view = "";
-        System.out.print("\nHello " + name + ", would you like to view the rules of the game? If you would, enter 'y': ");
+        System.out.println("\nHello " + name + ", would you like to view the rules of the game? If you would, enter 'y'. If not,");
+        System.out.print("enter any other key: ");
         view = input.next();
         if(view.equals("y")) {
             return true;
