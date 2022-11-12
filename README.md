@@ -7,7 +7,19 @@ There are five types of special cards - 'reverse', 'skip', 'draw 2', 'wild', and
 
 Each card is worth a certain amount of points. The code in this respository is designed to reflect the following variation of the game: A zero card is worth 10 points. The other numbered cards are worth the number of the card (e.g. a five card is worth 5 points). Skip, reverse, and draw 2 are each worth 20 points. Each wild card is worth 50 points. Again, the object of the game is to play all of your cards. The player that discards all of his cards will have 0 points remaining. The goal is to lose points: the less points, the better.
 
+When the game ends, players will be raked based on the amounts of points they have; not the amount of cards left in their hand.
+
 Download the .jar file [here](https://github.com/CoderJ01/uno-card-game/blob/main/assets/jar/uno-card-game.jar) to run the application. For further assistance, read [this](https://github.com/CoderJ01/how-to-run-jar-files) reference repository.
+
+### Table
+| Symbol | Card    |
+| ------ | ------- |
+| B      | blue    |
+| G      | green   |
+| R      | red     |
+| Y      | yellow  |
+| W      | wild    |  
+| W+4    | wild +4 |
 
 ## Built With
 * Java
