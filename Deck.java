@@ -74,7 +74,7 @@ public class Deck {
                 card.setCardName(wildPlus4);
                 card.setCardColor("");
             }
-            
+            // add cards to new deck
             this.deck.add(card);
         }
     }
