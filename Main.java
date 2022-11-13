@@ -358,6 +358,9 @@ public class Main {
         System.out.println("\nThe discard pile shows only its top card. Unless any wild type card is placed, then players must select a card");
         System.out.println("that matches either the color or right-side symbol of the top card. Examples of such symbols are '3' and '_Skip'.");
         System.out.println("\nThe player that gets to play first will be chosen randomly.");
+        System.out.println("\nWhen a player discards a skip card, the next player loses his/her turn. When a player discards a reverse card,");
+        System.out.println("the direction of the game changes. When a player discards a draw-2 card, the next player must draw two cards");
+        System.out.println("and loses his/her turn.");
 
         // confirm that player understands the rules
         String confirmation = "";
