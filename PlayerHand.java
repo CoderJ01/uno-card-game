@@ -132,6 +132,19 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
 
     // pass deck to the next player 
     public void passDeck(List<Card> newDeck) {
+        promptToPass();
         this.playerDeck = new ArrayList<>(newDeck);
+    }
+
+    // notify player to pass hand
+    private void promptToPass() {
+        String pass = "";
+        while(true) {
+            System.out.print("You must pass your hand to the next player. Enter 'p' to pass hand: ");
+            pass = input.next();
+            if(pass.equals("p")) {
+                break;
+            }
+        }
     }
 }
