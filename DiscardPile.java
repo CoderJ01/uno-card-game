@@ -26,8 +26,7 @@ public class DiscardPile extends Deck {
             // remove all the cards except for the top card
             if(!card.equals(topCard)) {
                 itr.remove();
-                // add all removed cards to new deck
-                removedFromDiscardPile.add(card);
+                removedFromDiscardPile.add(card); // add all removed cards to new deck
             }
         }
         
