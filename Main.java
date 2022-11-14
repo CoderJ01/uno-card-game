@@ -368,7 +368,7 @@ public class Main {
         System.out.println("\nThe player that gets to play first will be chosen randomly.");
         System.out.println("\nWhen a player discards a skip card, the next player loses his/her turn. When a player discards a reverse card,");
         System.out.println("the direction of the game changes. When a player discards a draw-2 card, the next player must draw two cards");
-        System.out.println("and loses his/her turn. When a player places a '0' card, then all players must pass their hands to the next player.");
+        System.out.println("and loses his/her turn. When a player discards a '0' card, then all players must pass their hands to the next player.");
 
         // confirm that player understands the rules
         String confirmation = "";
