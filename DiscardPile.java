@@ -16,9 +16,10 @@ public class DiscardPile extends Deck {
     // remove cards from discard pile
     public List<Card> removeFromDiscardPile() {
         List<Card> discardPile = returnCards();
-        Iterator<Card> itr = discardPile.iterator();
         List<Card> removedFromDiscardPile = new ArrayList<>();
+        
         // Iterator
+        Iterator<Card> itr = discardPile.iterator();
         while(itr.hasNext()) {
             Card card = itr.next();
             Card topCard = discardPile.get(discardPile.size() - 1);
@@ -29,6 +30,7 @@ public class DiscardPile extends Deck {
                 removedFromDiscardPile.add(card);
             }
         }
+        
         return removedFromDiscardPile;
     }
 }
