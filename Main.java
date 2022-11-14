@@ -154,7 +154,6 @@ public class Main {
                         for(int i = 0; i < players.size(); i++) {
                             int j = nextSkipOrDraw(flip, i);
                             players.get(i).passDeck(players.get(j).returnCards());
-                            System.out.println(i);
                         }
                     }
                 }
