@@ -140,7 +140,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     private void promptToPass() {
         String pass = "";
         while(true) {
-            System.out.print("\nYou must pass your hand to the next player. Enter 'p' to pass hand: ");
+            System.out.print("\nAll players must pass their respective hands to the next player. Enter 'p' to pass your hand: ");
             pass = input.next();
             if(pass.equals("p")) {
                 break;
