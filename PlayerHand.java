@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -127,5 +128,10 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     public Card removeFromPlayerHand(Card card) {
         this.playerDeck.remove(card);
         return card;
+    }
+
+    // pass deck to the next player 
+    public void passDeck(List<Card> newDeck) {
+        this.playerDeck = new ArrayList<>(newDeck);
     }
 }

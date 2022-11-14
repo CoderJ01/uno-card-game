@@ -50,6 +50,15 @@ public class Main {
 
         discardPile.addCard(deck.removeBottomCard()); // place first card onto discard pile
 
+        players.get(0).addCard(new Card("B0", "blue", '0'));
+        players.get(0).addCard(new Card("G0", "green", '0'));
+        players.get(0).addCard(new Card("R0", "red", '0'));
+        players.get(0).addCard(new Card("Y0", "yellow", '0'));
+        players.get(0).addCard(new Card("B0", "blue", '0'));
+        players.get(0).addCard(new Card("G0", "green", '0'));
+        players.get(0).addCard(new Card("R0", "red", '0'));
+        players.get(0).addCard(new Card("Y0", "yellow", '0'));
+
         // deal 7 cards to each player
         int q = 0;
         while(q < players.size()) {
@@ -148,6 +157,14 @@ public class Main {
                         draw(nextPlayer, 2); // force player to draw two cards
                         p = nextSkipOrDraw(flip, p); 
                     }
+
+                    if(playerCardSymbol == '0') {
+                        for(int i = 0; i < players.size(); i++) {
+                            int j = nextSkipOrDraw(flip, i);
+                            players.get(i).passDeck(players.get(j).returnCards());
+                            System.out.println(i);
+                        }
+                    }
                 }
                 else {
                     System.out.print("Invalid placement. ");
@@ -168,7 +185,7 @@ public class Main {
 
     // set up the deck of non-wild cards
     private static void setUpDeck(char letter, String color) {
-        deck.addCard(new Card(letter + "0", color, '0')); // card 0
+        // deck.addCard(new Card(letter + "0", color, '0')); // card 0
         
         int n = 0;
         while(n < 2) {
