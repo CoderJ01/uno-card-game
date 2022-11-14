@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -10,6 +11,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     private String playerName;
     private Scanner input = new Scanner(System.in);
     private int points;
+    private List<Card> playerDeck = returnCards();
 
     // constructor
     public PlayerHand (String playerName) {
@@ -27,7 +29,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     public void displayCards() {
         System.out.println("Your Hand");
         System.out.println("*********");
-        for(Card card : returnCards()) {
+        for(Card card : this.playerDeck) {
             System.out.print(card.getCardName() + "   ");
         }
     }
@@ -42,7 +44,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         while(valid == false) {
             System.out.print("\n" + this.playerName + ", place a card onto the discard pile: ");
             choosenCard = input.next();
-            for(Card card : returnCards()) {
+            for(Card card : this.playerDeck) {
                 // check if player input matches String representation (display) of card
                 if(choosenCard.equals(card.getCardName())) {
                     valid = true;
@@ -108,7 +110,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // tally the points for the player
     public int tallyPoints() {
         this.points = 0;
-        for (Card card : returnCards()) {
+        for (Card card : this.playerDeck) {
             this.points += card.getCardPoints();
         }
         return this.points;
@@ -123,7 +125,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
 
     // remove card from player's hand
     public Card removeFromPlayerHand(Card card) {
-        returnCards().remove(card);
+        this.playerDeck.remove(card);
         return card;
     }
 }
