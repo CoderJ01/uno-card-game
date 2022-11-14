@@ -10,7 +10,7 @@ public class ComputerHand extends PlayerHand {
     private String computerName = getPlayerName();
     private String wildCard = Main.getWildCard();
     private String wildPlus4 = Main.getWildPlus4();
-    private List<Card> computerHand = returnCards();
+    private List<Card> computerDeck = returnCards();
 
     // constructor
     public ComputerHand(String name) {
@@ -20,7 +20,7 @@ public class ComputerHand extends PlayerHand {
     // display the amount of cards the CPU has in its hand
     @Override
     public void displayCards() {
-        int cardsInHand = this.computerHand.size();
+        int cardsInHand = this.computerDeck.size();
         if(cardsInHand == 1) {
             System.out.println(this.computerName + " has " + cardsInHand + " card left");
         }
@@ -92,7 +92,7 @@ public class ComputerHand extends PlayerHand {
         System.out.println("\n" + this.computerName + " will set the color of the wild card");
        
         // the CPU will keep track of the number of occurences of each card color in its deck
-        for(Card card : this.computerHand) {
+        for(Card card : this.computerDeck) {
             if(card.getCardColor().equals("blue")) {
                 blue.add(card);
             }
@@ -155,7 +155,7 @@ public class ComputerHand extends PlayerHand {
     // the CPU checks to see if each card in its hand matches the card on the discard pile in any way
     private List<Card> checkCardMatches(Card topOfDiscardPile) {
         List<Card> cardMatch = new ArrayList<>();
-        for(Card card : this.computerHand) {
+        for(Card card : this.computerDeck) {
             // wildcards have no symbol and initially have no color, so the CPU will add such cards to its arsenal
             if(card.getCardName().equals(this.wildCard) || card.getCardName().equals(this.wildPlus4)) {
                 cardMatch.add(card);
@@ -171,6 +171,6 @@ public class ComputerHand extends PlayerHand {
     // have CPU pass deck to the next player 
     @Override
     public void passDeck(List<Card> newDeck) {
-        this.computerHand = new ArrayList<>(newDeck);
+        this.computerDeck = new ArrayList<>(newDeck);
     }
 }
