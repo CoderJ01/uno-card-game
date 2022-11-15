@@ -152,7 +152,7 @@ public class Main {
                     if(playerCardSymbol == '0') {
                         // all the players pass their hand to the next player
                         for(int i = 0; i < players.size(); i++) {
-                            int j = nextSkipOrDraw(flip, i);
+                            int j = nextSkipOrDraw(!flip, i);
                             players.get(i).receiveDeck(players.get(j).returnCards());
                         }
                     }
