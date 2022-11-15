@@ -148,6 +148,8 @@ public class Main {
                         draw(nextPlayer, 2); // force player to draw two cards
                         p = nextSkipOrDraw(flip, p); 
                     }
+                    // BUG
+                    /* 
                     // if player places a 0 card
                     if(playerCardSymbol == '0') {
                         // all the players pass their hand to the next player
@@ -156,6 +158,7 @@ public class Main {
                             players.get(i).receiveDeck(players.get(j).returnCards());
                         }
                     }
+                    */
                 }
                 else {
                     System.out.print("Invalid placement. ");
@@ -368,7 +371,7 @@ public class Main {
         System.out.println("\nThe player that gets to play first will be chosen randomly.");
         System.out.println("\nWhen a player discards a skip card, the next player loses his/her turn. When a player discards a reverse card,");
         System.out.println("the direction of the game changes. When a player discards a draw-2 card, the next player must draw two cards");
-        System.out.println("and loses his/her turn. When a player discards a '0' card, then all players must pass their hands to the next player.");
+        System.out.println("and loses his/her turn."/*+" When a player discards a '0' card, then all players must pass their hands to the next player."*/);
 
         // confirm that player understands the rules
         String confirmation = "";
