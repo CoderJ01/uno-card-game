@@ -168,6 +168,13 @@ public class ComputerHand extends PlayerHand {
         return cardMatch;
     }
 
+    // remove card from CPU's hand
+    @Override
+    public Card removeFromPlayerHand(Card card) {
+        this.computerDeck.remove(card);
+        return card;
+    }
+
     // have CPU pass deck to the next player 
     @Override
     public void receiveDeck(List<Card> newDeck) {
