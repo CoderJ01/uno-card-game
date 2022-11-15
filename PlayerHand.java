@@ -131,7 +131,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     }
 
     // pass deck to the next player 
-    public void passDeck(List<Card> newDeck) {
+    public void receiveDeck(List<Card> newDeck) {
         promptToPass();
         this.playerDeck = new ArrayList<>(newDeck);
     }

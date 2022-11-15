@@ -153,7 +153,7 @@ public class Main {
                         // all the players pass their hand to the next player
                         for(int i = 0; i < players.size(); i++) {
                             int j = nextSkipOrDraw(flip, i);
-                            players.get(i).passDeck(players.get(j).returnCards());
+                            players.get(i).receiveDeck(players.get(j).returnCards());
                         }
                     }
                 }

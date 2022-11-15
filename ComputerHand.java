@@ -170,7 +170,7 @@ public class ComputerHand extends PlayerHand {
 
     // have CPU pass deck to the next player 
     @Override
-    public void passDeck(List<Card> newDeck) {
+    public void receiveDeck(List<Card> newDeck) {
         this.computerDeck = new ArrayList<>(newDeck);
     }
 }
