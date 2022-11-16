@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ComputerHand extends PlayerHand {
 
-    // fields
+    // field
     private Random rand = new Random(); 
 
     // constructor
@@ -33,10 +33,10 @@ public class ComputerHand extends PlayerHand {
         Card cardToReturn = null;
         for(Card card : cardMatches) {
             // the CPU will attempt to get rid of the wild type cards first to lose more points
-            if(card.getCardName().equals(this.wildPlus4)) {
+            if(card.getCardName().equals(WILD_PLUS_4)) {
                 cardToReturn = card;
             }
-            else if (card.getCardName().equals(wild)) {
+            else if (card.getCardName().equals(WILD)) {
                 cardToReturn = card;
             }
             // if the CPU has no wild cards, it will select a random card to discard
@@ -154,7 +154,7 @@ public class ComputerHand extends PlayerHand {
         List<Card> cardMatch = new ArrayList<>();
         for(Card card : this.deck) {
             // wildcards have no symbol and initially have no color, so the CPU will add such cards to its arsenal
-            if(card.getCardName().equals(wild) || card.getCardName().equals(wildPlus4)) {
+            if(card.getCardName().equals(WILD) || card.getCardName().equals(WILD_PLUS_4)) {
                 cardMatch.add(card);
             }
             // check for match

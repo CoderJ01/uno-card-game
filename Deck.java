@@ -5,8 +5,8 @@ import java.util.List;
 public class Deck {
  
     protected List<Card> deck = new ArrayList<>();
-    protected String wild = Main.getWildCard();
-    protected String wildPlus4 = Main.getWildPlus4();
+    protected final String WILD = Main.getWildCard();
+    protected final String WILD_PLUS_4 = Main.getWildPlus4();
 
     public Deck () {} // constructor 
 
@@ -57,21 +57,21 @@ public class Deck {
     public void createNewDeck(List<Card> stackOfCards) {
         for(Card card : stackOfCards) {
             // reset wild cards
-            if(card.getCardName().equals("B_" + wild) || 
-               card.getCardName().equals("G_" + wild) || 
-               card.getCardName().equals("R_" + wild) ||
-               card.getCardName().equals("Y_" + wild)) 
+            if(card.getCardName().equals("B_" + WILD) || 
+               card.getCardName().equals("G_" + WILD) || 
+               card.getCardName().equals("R_" + WILD) ||
+               card.getCardName().equals("Y_" + WILD)) 
             {
-                card.setCardName(wild);
+                card.setCardName(WILD);
                 card.setCardColor("");
             }
             // reset wild +4 cards
-            if(card.getCardName().equals("B_" + wildPlus4) || 
-               card.getCardName().equals("G_" + wildPlus4) || 
-               card.getCardName().equals("R_" + wildPlus4) ||
-               card.getCardName().equals("Y_" + wildPlus4)) 
+            if(card.getCardName().equals("B_" + WILD_PLUS_4) || 
+               card.getCardName().equals("G_" + WILD_PLUS_4) || 
+               card.getCardName().equals("R_" + WILD_PLUS_4) ||
+               card.getCardName().equals("Y_" + WILD_PLUS_4)) 
             {
-                card.setCardName(wildPlus4);
+                card.setCardName(WILD_PLUS_4);
                 card.setCardColor("");
             }
             // add cards to new deck
