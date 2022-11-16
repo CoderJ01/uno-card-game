@@ -8,11 +8,8 @@ public class ComputerHand extends PlayerHand {
 
     // fields
     private Random rand = new Random(); 
-    private String computerName = getPlayerName();
     private String wildCard = Main.getWildCard();
     private String wildPlus4 = Main.getWildPlus4();
-    private List<Card> computerDeck = returnCards();
-    private List<Card> computerPass = new ArrayList<>();
 
     // constructor
     public ComputerHand(String name) {
@@ -22,12 +19,12 @@ public class ComputerHand extends PlayerHand {
     // display the amount of cards the CPU has in its hand
     @Override
     public void displayCards() {
-        int cardsInHand = this.computerDeck.size();
+        int cardsInHand = this.playerDeck.size();
         if(cardsInHand == 1) {
-            System.out.println(this.computerName + " has " + cardsInHand + " card left");
+            System.out.println(this.playerName + " has " + cardsInHand + " card left");
         }
         else if(cardsInHand > 1) {
-            System.out.println(this.computerName + " has " + cardsInHand + " cards left");
+            System.out.println(this.playerName + " has " + cardsInHand + " cards left");
         }
     }
 
@@ -50,7 +47,7 @@ public class ComputerHand extends PlayerHand {
             }
         }
         delay();
-        System.out.println("\n" + this.computerName + " put '" + cardToReturn.getCardName() + "' onto the discard pile");
+        System.out.println("\n" + this.playerName + " put '" + cardToReturn.getCardName() + "' onto the discard pile");
         return cardToReturn;
     }
 
@@ -60,11 +57,11 @@ public class ComputerHand extends PlayerHand {
         List<Card> cardMatches = checkCardMatches(topOfDiscardPile);
         delay();
         if(cardMatches.size() == 0) {
-            System.out.println("\n" + this.computerName + " will skip its turn");
+            System.out.println("\n" + this.playerName + " will skip its turn");
             return false;
         }
         else {
-            System.out.println("\n" + this.computerName + " will discard a card onto the discard pile");
+            System.out.println("\n" + this.playerName + " will discard a card onto the discard pile");
             return true;
         }
     }
@@ -73,10 +70,10 @@ public class ComputerHand extends PlayerHand {
     @Override
     public void drawCards(String messageNumber) {
         if(messageNumber.equals("one")) {
-            System.out.println("\n" + this.computerName + " has drawn " + messageNumber + " card");
+            System.out.println("\n" + this.playerName + " has drawn " + messageNumber + " card");
         }
         else {
-            System.out.println("\n" + this.computerName + " has drawn " + messageNumber + " cards");
+            System.out.println("\n" + this.playerName + " has drawn " + messageNumber + " cards");
         }
         delay();
     }
@@ -91,10 +88,10 @@ public class ComputerHand extends PlayerHand {
         List<Card> red = new ArrayList<>();
         List<Card> yellow = new ArrayList<>();
 
-        System.out.println("\n" + this.computerName + " will set the color of the wild card");
+        System.out.println("\n" + this.playerName + " will set the color of the wild card");
        
         // the CPU will keep track of the number of occurences of each card color in its deck
-        for(Card card : this.computerDeck) {
+        for(Card card : this.playerDeck) {
             if(card.getCardColor().equals("blue")) {
                 blue.add(card);
             }
@@ -139,7 +136,7 @@ public class ComputerHand extends PlayerHand {
         }
 
         delay();
-        System.out.println("\n" + this.computerName + " has selected " + color);
+        System.out.println("\n" + this.playerName + " has selected " + color);
         delay();
         return color;
     }
@@ -157,7 +154,7 @@ public class ComputerHand extends PlayerHand {
     // the CPU checks to see if each card in its hand matches the card on the discard pile in any way
     private List<Card> checkCardMatches(Card topOfDiscardPile) {
         List<Card> cardMatch = new ArrayList<>();
-        for(Card card : this.computerDeck) {
+        for(Card card : this.playerDeck) {
             // wildcards have no symbol and initially have no color, so the CPU will add such cards to its arsenal
             if(card.getCardName().equals(this.wildCard) || card.getCardName().equals(this.wildPlus4)) {
                 cardMatch.add(card);
@@ -173,32 +170,12 @@ public class ComputerHand extends PlayerHand {
     // pass deck to the next player 
     @Override
     public void passDeck() {
-        Iterator<Card> itr = this.computerDeck.iterator();
+        Iterator<Card> itr = this.playerDeck.iterator();
         resetPlayerPass();
         while(itr.hasNext()) {
             Card card = itr.next();
             itr.remove(); // remove card from player
-            this.computerPass.add(card); // add card to temporary deck
+            this.playerPass.add(card); // add card to temporary deck
         }
-    }
-
-    @Override
-    public List<Card> returnPassedCards() {
-        return this.computerPass;
-    }
-
-    @Override
-    public void receiveDeck(List<Card> cards) {
-        Iterator<Card> itrDeck = cards.iterator();
-        while(itrDeck.hasNext()) {
-            Card card = itrDeck.next();
-            itrDeck.remove();
-            this.computerDeck.add(card);
-        }
-    }
-
-    @Override
-    protected void resetPlayerPass() {
-        this.computerPass = new ArrayList<>();
     }
 }

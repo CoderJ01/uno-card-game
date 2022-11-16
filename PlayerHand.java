@@ -10,11 +10,11 @@ import java.util.Scanner;
 
 public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // fields
-    private String playerName;
+    protected String playerName;
     private Scanner input = new Scanner(System.in);
     private int points;
-    private List<Card> playerDeck = returnCards();
-    private List<Card> playerPass = new ArrayList<>(); // transitory deck for passing hand (0 card rule) 
+    protected List<Card> playerDeck = returnCards();
+    protected List<Card> playerPass = new ArrayList<>(); // transitory deck for passing hand (0 card rule) 
 
     // constructor
     public PlayerHand (String playerName) {
