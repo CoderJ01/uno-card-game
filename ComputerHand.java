@@ -184,13 +184,11 @@ public class ComputerHand extends PlayerHand {
 
     @Override
     public List<Card> returnPassedCards() {
-        System.out.println(this.computerName + " playerPass (return): " + this.computerPass.size());
         return this.computerPass;
     }
 
     @Override
     public void receiveDeck(List<Card> cards) {
-        System.out.println(this.computerName + " deck (void): " + this.computerPass.size());
         Iterator<Card> itrDeck = cards.iterator();
         while(itrDeck.hasNext()) {
             Card card = itrDeck.next();
