@@ -150,7 +150,19 @@ public class Main {
                     }
                     // if player places a 0 card
                     if(playerCardSymbol == '0') {
-        
+                        // all the players pass their hand to the next player
+                        for(int i = 0; i < players.size(); i++) {
+                            int j = nextSkipOrDraw(!flip, i);
+                            players.get(j).passDeck();
+                        }
+
+                        /* all the players receive a new hand from the last player
+                           for loops separate to prevent stack bug (zero cards in a players hand)
+                        */ 
+                        for(int i = 0; i < players.size(); i++) {
+                            int j = nextSkipOrDraw(!flip, i);
+                            players.get(i).receiveDeck(players.get(j).returnPassedCards());
+                        }
                     }
                 }
                 else {
