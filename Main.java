@@ -148,17 +148,10 @@ public class Main {
                         draw(nextPlayer, 2); // force player to draw two cards
                         p = nextSkipOrDraw(flip, p); 
                     }
-                    // BUG
-                    /* 
                     // if player places a 0 card
                     if(playerCardSymbol == '0') {
-                        // all the players pass their hand to the next player
-                        for(int i = 0; i < players.size(); i++) {
-                            int j = nextSkipOrDraw(!flip, i);
-                            players.get(i).receiveDeck(players.get(j).returnCards());
-                        }
+        
                     }
-                    */
                 }
                 else {
                     System.out.print("Invalid placement. ");
