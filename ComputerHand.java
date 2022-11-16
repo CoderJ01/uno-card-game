@@ -6,8 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ComputerHand extends PlayerHand {
 
-    // field
-    private Random rand = new Random(); 
+    private Random rand = new Random(); // field
 
     // constructor
     public ComputerHand(String name) {

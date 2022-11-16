@@ -323,7 +323,7 @@ public class Main {
         return name;
     }
 
-    // getters (for classes ComputerHand and Deck)
+    // getters (for class Deck)
     public static String getWildCard() {
         return WILD_CARD;
     }
