@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -11,6 +12,7 @@ public class ComputerHand extends PlayerHand {
     private String wildCard = Main.getWildCard();
     private String wildPlus4 = Main.getWildPlus4();
     private List<Card> computerDeck = returnCards();
+    private List<Card> computerPass = new ArrayList<>();
 
     // constructor
     public ComputerHand(String name) {
@@ -166,5 +168,16 @@ public class ComputerHand extends PlayerHand {
             }
         }
         return cardMatch;
+    }
+
+    // pass deck to the next player 
+    @Override
+    public void passDeck() {
+        Iterator<Card> itr = this.computerDeck.iterator();
+        while(itr.hasNext()) {
+            Card card = itr.next();
+            itr.remove(); // remove card from player
+            this.computerPass.add(card); // add card to temporary deck
+        }
     }
 }
