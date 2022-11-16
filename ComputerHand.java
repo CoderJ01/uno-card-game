@@ -8,8 +8,6 @@ public class ComputerHand extends PlayerHand {
 
     // fields
     private Random rand = new Random(); 
-    private String wildCard = Main.getWildCard();
-    private String wildPlus4 = Main.getWildPlus4();
 
     // constructor
     public ComputerHand(String name) {
@@ -19,7 +17,7 @@ public class ComputerHand extends PlayerHand {
     // display the amount of cards the CPU has in its hand
     @Override
     public void displayCards() {
-        int cardsInHand = this.playerDeck.size();
+        int cardsInHand = this.deck.size();
         if(cardsInHand == 1) {
             System.out.println(this.playerName + " has " + cardsInHand + " card left");
         }
@@ -38,7 +36,7 @@ public class ComputerHand extends PlayerHand {
             if(card.getCardName().equals(this.wildPlus4)) {
                 cardToReturn = card;
             }
-            else if (card.getCardName().equals(this.wildCard)) {
+            else if (card.getCardName().equals(wild)) {
                 cardToReturn = card;
             }
             // if the CPU has no wild cards, it will select a random card to discard
@@ -91,7 +89,7 @@ public class ComputerHand extends PlayerHand {
         System.out.println("\n" + this.playerName + " will set the color of the wild card");
        
         // the CPU will keep track of the number of occurences of each card color in its deck
-        for(Card card : this.playerDeck) {
+        for(Card card : this.deck) {
             if(card.getCardColor().equals("blue")) {
                 blue.add(card);
             }
@@ -154,9 +152,9 @@ public class ComputerHand extends PlayerHand {
     // the CPU checks to see if each card in its hand matches the card on the discard pile in any way
     private List<Card> checkCardMatches(Card topOfDiscardPile) {
         List<Card> cardMatch = new ArrayList<>();
-        for(Card card : this.playerDeck) {
+        for(Card card : this.deck) {
             // wildcards have no symbol and initially have no color, so the CPU will add such cards to its arsenal
-            if(card.getCardName().equals(this.wildCard) || card.getCardName().equals(this.wildPlus4)) {
+            if(card.getCardName().equals(wild) || card.getCardName().equals(wildPlus4)) {
                 cardMatch.add(card);
             }
             // check for match
@@ -170,7 +168,7 @@ public class ComputerHand extends PlayerHand {
     // have CPU pass deck to the next player 
     @Override
     public void passDeck() {
-        Iterator<Card> itr = this.playerDeck.iterator();
+        Iterator<Card> itr = this.deck.iterator();
         resetPlayerPass();
         while(itr.hasNext()) {
             Card card = itr.next();

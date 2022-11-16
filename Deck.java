@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Deck {
  
-    private List<Card> deck = new ArrayList<>(); // field
-    private String wild = Main.getWildCard();
-    private String wildPlus4 = Main.getWildPlus4();
+    protected List<Card> deck = new ArrayList<>();
+    protected String wild = Main.getWildCard();
+    protected String wildPlus4 = Main.getWildPlus4();
 
     public Deck () {} // constructor 
 

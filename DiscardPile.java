@@ -8,14 +8,14 @@ public class DiscardPile extends Deck {
 
     // display and return top card
     public Card showTopCard() {
-        List<Card> cards = returnCards();
+        List<Card> cards = this.deck;
         Card topCard = cards.get(cards.size() - 1);
         return topCard;
     }
 
     // remove cards from discard pile
     public List<Card> removeFromDiscardPile() {
-        List<Card> discardPile = returnCards();
+        List<Card> discardPile = this.deck;
         List<Card> removedFromDiscardPile = new ArrayList<>();
         
         // Iterator
