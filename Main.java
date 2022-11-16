@@ -78,6 +78,12 @@ public class Main {
         }
 
         while(true) {
+            int x = 0;
+            for(PlayerHand player : players) {
+                x += player.numberOfCards();
+            }
+
+            System.out.println("\nDeck: " + (deck.numberOfCards() + discardPile.numberOfCards() + x));
 
             // show top of discard pile
             System.out.println("\nDiscard Pile");
