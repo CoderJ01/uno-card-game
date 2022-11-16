@@ -165,7 +165,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         Iterator<Card> itr = deck.iterator();
         while(itr.hasNext()) {
             Card card = itr.next();
-            itr.remove(); // remove instance (card) to prevent creation of duplicates
+            itr.remove(); // remove instance (card) to prevent creation of duplicate
             this.playerDeck.add(card); // receive cards from last player
         }
     }
