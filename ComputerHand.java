@@ -171,8 +171,8 @@ public class ComputerHand extends PlayerHand {
         resetPlayerPass();
         while(itr.hasNext()) {
             Card card = itr.next();
-            itr.remove(); // remove card from player
-            this.playerPass.add(card); // add card to temporary deck
+            itr.remove(); 
+            this.playerPass.add(card); 
         }
     }
 }
