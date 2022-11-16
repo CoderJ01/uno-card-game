@@ -148,6 +148,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     public void passDeck() {
         promptToPass();
         Iterator<Card> itr = this.playerDeck.iterator();
+        resetPlayerPass();
         while(itr.hasNext()) {
             Card card = itr.next();
             itr.remove(); // remove card from player
@@ -168,5 +169,10 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
             itr.remove(); // remove instance (card) to prevent creation of duplicate
             this.playerDeck.add(card); // receive cards from last player
         }
+    }
+
+    // reset field to prevent creation of duplicate instances (cards)
+    protected void resetPlayerPass() {
+        this.playerPass = new ArrayList<>();
     }
 }
