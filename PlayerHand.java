@@ -146,6 +146,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
 
     // pass deck to the next player 
     public void passDeck() {
+        promptToPass();
         Iterator<Card> itr = this.playerDeck.iterator();
         while(itr.hasNext()) {
             Card card = itr.next();
