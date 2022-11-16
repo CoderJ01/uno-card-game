@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,6 +14,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     private Scanner input = new Scanner(System.in);
     private int points;
     private List<Card> playerDeck = returnCards();
+    private List<Card> playerPass = new ArrayList<>(); // transitory deck for passing hand (0 card rule) 
 
     // constructor
     public PlayerHand (String playerName) {
@@ -139,6 +141,16 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
             if(pass.equals("p")) {
                 break;
             }
+        }
+    }
+
+    // pass deck to the next player 
+    public void passDeck() {
+        Iterator<Card> itr = this.playerDeck.iterator();
+        while(itr.hasNext()) {
+            Card card = itr.next();
+            itr.remove(); // remove card from player
+            this.playerPass.add(card); // add card to temporary deck
         }
     }
 }
