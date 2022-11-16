@@ -158,4 +158,14 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     public List<Card> returnPassedCards() {
         return this.playerPass;
     }
+
+    // receive deck from player
+    public void receiveDeck(List<Card> deck) {
+        Iterator<Card> itr = deck.iterator();
+        while(itr.hasNext()) {
+            Card card = itr.next();
+            itr.remove(); // remove instance (card) to prevent creation of duplicates
+            this.playerDeck.add(card); // receive cards from last player
+        }
+    }
 }
