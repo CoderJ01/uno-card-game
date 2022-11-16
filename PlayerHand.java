@@ -153,4 +153,9 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
             this.playerPass.add(card); // add card to temporary deck
         }
     }
+
+    // store passed cards
+    public List<Card> returnPassedCards() {
+        return this.playerPass;
+    }
 }
