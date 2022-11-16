@@ -167,7 +167,7 @@ public class ComputerHand extends PlayerHand {
         return cardMatch;
     }
 
-    // pass deck to the next player 
+    // have CPU pass deck to the next player 
     @Override
     public void passDeck() {
         Iterator<Card> itr = this.playerDeck.iterator();
