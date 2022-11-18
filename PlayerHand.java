@@ -10,20 +10,20 @@ import java.util.Scanner;
 
 public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // fields
-    protected String playerName;
+    protected final String PLAYER_NAME;
     private Scanner input = new Scanner(System.in);
     private int points;
     protected List<Card> playerPass = new ArrayList<>(); // transitory deck for passing hand (0 card rule) 
 
     // constructor
     public PlayerHand (String playerName) {
-        this.playerName = playerName;
+        PLAYER_NAME = playerName;
         this.points = 0;
     }
 
     // getter
     public final String getPlayerName() {
-        return this.playerName;
+        return PLAYER_NAME;
     }
 
     // display cards in deck
@@ -44,7 +44,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         
         // exit loop only if player chooses card in hand
         while(valid == false) {
-            System.out.print("\n" + this.playerName + ", place a card onto the discard pile: ");
+            System.out.print("\n" + PLAYER_NAME + ", place a card onto the discard pile: ");
             choosenCard = input.next();
             for(Card card : this.deck) {
                 // check if player input matches String representation (display) of card
@@ -66,7 +66,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         String placeCard = "";
         // allow player to select only 'y' for "yes" or 'n' for "no"
         while(true) {
-            System.out.print("\n\n" + this.playerName + ", would you like to place a card onto the discard pile? If so, enter 'y'. Otherwise, enter 'n': ");
+            System.out.print("\n\n" + PLAYER_NAME + ", would you like to place a card onto the discard pile? If so, enter 'y'. Otherwise, enter 'n': ");
             placeCard = input.next();
             if(placeCard.equals("y") || placeCard.equals("n")) {
                 break;
@@ -85,10 +85,10 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         String draw = "";
         while(!draw.equals("d")) {
             if(messageNumber.equals("one")) {
-                System.out.print("\n" + this.playerName + ", you must draw " + messageNumber + " card. Enter 'd' to draw: ");
+                System.out.print("\n" + PLAYER_NAME + ", you must draw " + messageNumber + " card. Enter 'd' to draw: ");
             }
             else {
-                System.out.print("\n" + this.playerName + ", you must draw " + messageNumber + " cards. Enter 'd' to draw: ");
+                System.out.print("\n" + PLAYER_NAME + ", you must draw " + messageNumber + " cards. Enter 'd' to draw: ");
             }
             draw = input.next();
         }
@@ -98,7 +98,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     public String enterColor() {
         String color = "";
         while(true) {
-            System.out.print("\n" + this.playerName + ", set the color of the wild card to blue, green, red, or yellow: ");
+            System.out.print("\n" + PLAYER_NAME + ", set the color of the wild card to blue, green, red, or yellow: ");
             color = input.next();
             if(color.equals("blue") || color.equals("green") || 
                color.equals("red") || color.equals("yellow"))
