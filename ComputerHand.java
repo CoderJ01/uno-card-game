@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class ComputerHand extends PlayerHand {
+public final class ComputerHand extends PlayerHand {
 
     private Random rand = new Random(); // field
 

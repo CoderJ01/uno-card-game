@@ -18,12 +18,12 @@ public class Deck {
     }
 
     // add a card to the deck
-    public void addCard(Card card) {
+    public final void addCard(Card card) {
         this.deck.add(card);
     }
 
     // remove card from deck
-    public Card removeCard() {
+    public final Card removeCard() {
         Card topCard = deck.get(this.deck.size() - 1);
         this.deck.remove(topCard);
         return topCard;
@@ -32,29 +32,29 @@ public class Deck {
     /* remove the bottom card before starting the game
        this will be the first card in the discard pile
     */
-    public Card removeBottomCard() {
+    public final Card removeBottomCard() {
         Card bottomCard = deck.get(0);
         this.deck.remove(bottomCard);
         return bottomCard;
     }
 
     // get number of cards
-    public int numberOfCards() {
+    public final int numberOfCards() {
         return this.deck.size();
     }
 
     // return the cards as a list
-    public List<Card> returnCards() {
+    public final List<Card> returnCards() {
         return this.deck;
     }
 
     // shuffle cards
-    public void shuffleCards() {
+    public final void shuffleCards() {
         Collections.shuffle(this.deck);
     }
 
     // create a new deck of cards
-    public void createNewDeck(List<Card> stackOfCards) {
+    public final void createNewDeck(List<Card> stackOfCards) {
         for(Card card : stackOfCards) {
             // reset wild cards
             if(card.getCardName().equals("B_" + WILD) || 

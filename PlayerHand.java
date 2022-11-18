@@ -22,7 +22,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     }
 
     // getter
-    public String getPlayerName() {
+    public final String getPlayerName() {
         return this.playerName;
     }
 
@@ -110,7 +110,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     }
 
     // tally the points for the player
-    public int tallyPoints() {
+    public final int tallyPoints() {
         this.points = 0;
         for (Card card : this.deck) {
             this.points += card.getCardPoints();
@@ -120,13 +120,13 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
 
     // rank players
     @Override
-    public int compareTo(PlayerHand rankPlayer) {
+    public final int compareTo(PlayerHand rankPlayer) {
         this.points = tallyPoints();
         return this.points - rankPlayer.points;
     }
 
     // remove card from player's hand
-    public Card removeFromPlayerHand(Card card) {
+    public final Card removeFromPlayerHand(Card card) {
         this.deck.remove(card);
         return card;
     }
@@ -156,12 +156,12 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     }
 
     // store passed cards
-    public List<Card> returnPassedCards() {
+    public final List<Card> returnPassedCards() {
         return this.playerPass;
     }
 
     // receive deck from player
-    public void receiveDeck(List<Card> deck) {
+    public final void receiveDeck(List<Card> deck) {
         Iterator<Card> itr = deck.iterator();
         while(itr.hasNext()) {
             Card card = itr.next();
@@ -171,7 +171,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     }
 
     // reset field to prevent creation of duplicate instances (cards)
-    protected void resetPlayerPass() {
+    protected final void resetPlayerPass() {
         this.playerPass = new ArrayList<>();
     }
 }

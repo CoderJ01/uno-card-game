@@ -1,4 +1,4 @@
-public class Card {
+public final class Card {
     // fields
     private String name;
     private String color;

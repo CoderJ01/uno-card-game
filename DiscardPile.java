@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class DiscardPile extends Deck {
+public final class DiscardPile extends Deck {
 
     public DiscardPile() {} // contructor
 
