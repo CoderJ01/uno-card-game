@@ -118,7 +118,7 @@ public final class ComputerHand extends PlayerHand {
             }
         }
 
-        // the CPU will finally select said color
+        // the CPU will select said color
         if(greatest == compareSizes[0]) {
             color = "blue";
         }
