@@ -157,7 +157,7 @@ public final class Main {
                         }
 
                         /* all the players receive a new hand from the last player
-                           for loops separate to prevent stack bug (zero cards in a players hand)
+                           for loops separate to prevent error (missing cards)
                         */ 
                         for(int i = 0; i < players.size(); i++) {
                             int j = nextSkipOrDraw(!flip, i);
