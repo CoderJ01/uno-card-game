@@ -78,8 +78,8 @@ public final class ComputerHand extends PlayerHand {
     // have the CPU select a color
     @Override
     public String enterColor() {
-        String color = "";
         // variables
+        String color = "";
         List<Card> blue = new ArrayList<>();
         List<Card> green = new ArrayList<>();
         List<Card> red = new ArrayList<>();
