@@ -16,7 +16,7 @@ public final class Main {
     private static final char SKIP = 'S';
     private static final char REVERSE = 'R';
     private static final char DRAW_2 = 'D';
-    private static boolean flip = false;
+    private static boolean flip;
     private static Scanner input = new Scanner(System.in);
     private static Random rand = new Random();
 
