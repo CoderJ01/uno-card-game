@@ -152,8 +152,7 @@ public final class Main {
                     if(playerCardSymbol == '0') {
                         // all the players pass their hand to the next player
                         for(int i = 0; i < players.size(); i++) {
-                            int j = nextSkipOrDraw(!flip, i);
-                            players.get(j).passDeck();
+                            players.get(i).passDeck();
                         }
 
                         /* all the players receive a new hand from the last player
