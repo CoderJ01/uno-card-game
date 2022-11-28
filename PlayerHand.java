@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // fields
-    protected final String PLAYER_NAME;
+    private final String PLAYER_NAME;
     private Scanner input = new Scanner(System.in);
     private int points;
-    protected List<Card> playerPass = new ArrayList<>(); // transitory deck for passing hand (0 card rule) 
+    private List<Card> playerPass = new ArrayList<>(); // transitory deck for passing hand (0 card rule) 
 
     // constructor
     public PlayerHand (String playerName) {
@@ -31,7 +31,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     public void displayCards() {
         System.out.println("Your Hand");
         System.out.println("*********");
-        for(Card card : this.deck) {
+        for(Card card : getDeck()) {
             System.out.print(card.getCardName() + "   ");
         }
     }
@@ -46,7 +46,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         while(valid == false) {
             System.out.print("\n" + PLAYER_NAME + ", place a card onto the discard pile: ");
             choosenCard = input.next();
-            for(Card card : this.deck) {
+            for(Card card : getDeck()) {
                 // check if player input matches String representation (display) of card
                 if(choosenCard.equals(card.getCardName())) {
                     valid = true;
@@ -112,7 +112,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // tally the points for the player
     public final int tallyPoints() {
         this.points = 0;
-        for (Card card : this.deck) {
+        for (Card card : getDeck()) {
             this.points += card.getCardPoints();
         }
         return this.points;
@@ -127,7 +127,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
 
     // remove card from player's hand
     public final Card removeFromPlayerHand(Card card) {
-        this.deck.remove(card);
+        getDeck().remove(card);
         return card;
     }
 
@@ -146,7 +146,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // pass deck to the next player 
     public void passDeck() {
         promptToPass();
-        Iterator<Card> itr = this.deck.iterator();
+        Iterator<Card> itr = getDeck().iterator();
         resetPlayerPass();
         while(itr.hasNext()) {
             Card card = itr.next();
@@ -156,7 +156,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     }
 
     // store passed cards
-    public final List<Card> returnPassedCards() {
+    public final List<Card> getPassedCards() {
         return this.playerPass;
     }
 
@@ -166,7 +166,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         while(itr.hasNext()) {
             Card card = itr.next();
             itr.remove(); // remove instance (card) to prevent creation of duplicate
-            this.deck.add(card); // receive cards from last player
+            getDeck().add(card); // receive cards from last player
         }
     }
 

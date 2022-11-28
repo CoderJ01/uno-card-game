@@ -102,14 +102,14 @@ public final class Main {
                 if(playerCardName.equals(WILD_CARD) || playerCardName.equals(WILD_PLUS_4)) {
                     
                     // disable player from setting wild card if said card is player's last card
-                    if(players.get(p).returnCards().size() >= 2) {
+                    if(players.get(p).getDeck().size() >= 2) {
                         pickedCard = setWildCard(pickedCard, p); // allow player that discarded the card to set card
                     }
                     
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
                     
                     // end the game if a player has no cards left 
-                    if(players.get(p).returnCards().size() == 0) {
+                    if(players.get(p).getDeck().size() == 0) {
                         break;
                     }
 
@@ -124,7 +124,7 @@ public final class Main {
                 else if(playerCardColor.equals(requiredColor) || playerCardSymbol == requiredSymbol) {
                     discardPile.addCard(players.get(p).removeFromPlayerHand(pickedCard));
                     
-                    if(players.get(p).returnCards().size() == 0) {
+                    if(players.get(p).getDeck().size() == 0) {
                         break;
                     }
 
@@ -160,7 +160,7 @@ public final class Main {
                         */ 
                         for(int i = 0; i < players.size(); i++) {
                             int j = nextSkipOrDraw(!flip, i);
-                            players.get(i).receiveDeck(players.get(j).returnPassedCards());
+                            players.get(i).receiveDeck(players.get(j).getPassedCards());
                         }
                     }
                 }

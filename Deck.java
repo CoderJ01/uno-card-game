@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Deck {
  
-    protected List<Card> deck = new ArrayList<>();
-    protected final String WILD = Main.getWildCard();
-    protected final String WILD_PLUS_4 = Main.getWildPlus4();
+    private List<Card> deck = new ArrayList<>();
+    private final String WILD = Main.getWildCard();
+    private final String WILD_PLUS_4 = Main.getWildPlus4();
 
     public Deck () {} // constructor 
 
@@ -44,7 +44,7 @@ public class Deck {
     }
 
     // return the cards as a list
-    public final List<Card> returnCards() {
+    public final List<Card> getDeck() {
         return this.deck;
     }
 
@@ -77,5 +77,15 @@ public class Deck {
             // add cards to new deck
             this.deck.add(card);
         }
+    }
+
+    // get wild card
+    protected final String getWildCard() {
+        return WILD;
+    }
+
+    // get wild +4 card
+    protected final String getWildPlus4() {
+        return WILD_PLUS_4;
     }
 }
