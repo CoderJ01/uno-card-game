@@ -8,8 +8,6 @@ public class Deck {
     private final String WILD = Main.getWildCard();
     private final String WILD_PLUS_4 = Main.getWildPlus4();
 
-    public Deck () {} // constructor 
-
     // display cards in deck
     public void displayCards() {
         for(Card card : this.deck) {

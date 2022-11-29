@@ -4,8 +4,6 @@ import java.util.List;
 
 public final class DiscardPile extends Deck {
 
-    public DiscardPile() {} // contructor
-
     // display and return top card
     public Card showTopCard() {
         List<Card> cards = getDeck();
