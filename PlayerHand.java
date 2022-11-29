@@ -185,6 +185,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         boolean error = false;
 
         while(true) {
+            // data type validation
             do {
                 error = false;
                 try {
@@ -206,6 +207,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                 }
             } while(error);
 
+            // ensure that player picks a number within the range of players
             if(pick >= 1 && pick <= players.size() && pick != playerNumber) {
                 break;
             }
