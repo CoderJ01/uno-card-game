@@ -59,11 +59,6 @@ public final class Main {
             q++;
         }
 
-        players.get(0).addCard(new Card("Y7", "yellow", '7'));
-        players.get(0).addCard(new Card("B7", "blue", '7'));
-        players.get(0).addCard(new Card("G7", "green", '7'));
-        players.get(0).addCard(new Card("R7", "red", '7'));
-
         // start game
         int p = rand.nextInt(players.size()); // randomize which player gets to play first
         if(discardPile.showTopCard().getCardName().equals(WILD_CARD) || discardPile.showTopCard().getCardName().equals(WILD_PLUS_4)) {
