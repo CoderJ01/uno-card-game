@@ -48,6 +48,17 @@ public final class Main {
             players.add(new ComputerHand(computerName + i));
         }
 
+        players.get(1).addCard(new Card("B7", "blue", '7'));
+        players.get(1).addCard(new Card("B7", "blue", '7'));
+        players.get(1).addCard(new Card("B7", "blue", '7'));
+        players.get(1).addCard(new Card("B7", "blue", '7'));
+
+        players.get(2).addCard(new Card("B7", "blue", '7'));
+        players.get(2).addCard(new Card("B7", "blue", '7'));
+        players.get(2).addCard(new Card("B7", "blue", '7'));
+        players.get(2).addCard(new Card("B7", "blue", '7'));
+
+
         discardPile.addCard(deck.removeBottomCard()); // place first card onto discard pile
 
         // deal 7 cards to each player

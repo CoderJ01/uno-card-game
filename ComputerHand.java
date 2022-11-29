@@ -182,9 +182,9 @@ public final class ComputerHand extends PlayerHand {
         delay();
         System.out.println("\n" + players.get(playerIndex).getPlayerName() + " will switch cards with another player");
         int pick = 0;
+        int least = 109;
         for(int i = 0; i < players.size(); i++) {
             if(i != playerIndex) {
-                int least = 109;
                 // the CPU will switch cards with the player with the least amount of cards
                 if(players.get(i).numberOfCards() < least) {
                     least = players.get(i).numberOfCards();
