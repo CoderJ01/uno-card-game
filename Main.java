@@ -41,12 +41,15 @@ public final class Main {
 
         // add players
         players.add(new PlayerHand(name));
+        players.add(new PlayerHand("Komodo"));
+        players.add(new PlayerHand("Leonardo"));
+        players.add(new PlayerHand("Michelangelo"));
         
         String computerName = "CPU_";
         
-        for(int i = 1; i <= numberOfOpponents; i++) {
-            players.add(new ComputerHand(computerName + i));
-        }
+        // for(int i = 1; i <= numberOfOpponents; i++) {
+        //     players.add(new ComputerHand(computerName + i));
+        // }
 
         discardPile.addCard(deck.removeBottomCard()); // place first card onto discard pile
 
@@ -152,7 +155,7 @@ public final class Main {
                     if(playerCardSymbol == '0') {
                         // all the players pass their hand to the next player
                         for(int i = 0; i < players.size(); i++) {
-                            players.get(i).passDeck();
+                            players.get(i).passDeck(true);
                         }
 
                         /* all the players receive a new hand from the last player
@@ -166,7 +169,7 @@ public final class Main {
                     // if player places a 7 card
                     if(playerCardSymbol == '7') {
                         int pickedPlayer = players.get(p).pickPlayer(players, p);
-                        players.get(pickedPlayer).passDeck();
+                        players.get(pickedPlayer).passDeck(false);
                         players.get(p).receiveDeck(players.get(pickedPlayer).getPassedCards());
                     }
                 }

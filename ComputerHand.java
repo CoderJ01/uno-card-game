@@ -166,7 +166,7 @@ public final class ComputerHand extends PlayerHand {
 
     // have CPU pass deck to the next player 
     @Override
-    public void passDeck() {
+    public void passDeck(boolean placeholder) {
         Iterator<Card> itr = getDeck().iterator();
         resetPlayerPass();
         while(itr.hasNext()) {

@@ -145,8 +145,10 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     }
 
     // pass deck to the next player 
-    public void passDeck() {
-        promptToPass();
+    public void passDeck(boolean ruleZero) {
+        if(ruleZero == true) {
+            promptToPass();
+        }
         Iterator<Card> itr = getDeck().iterator();
         resetPlayerPass();
         while(itr.hasNext()) {
@@ -187,8 +189,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
             do {
                 error = false;
                 try {
-                    System.out.print("You are player " + playerNumber + ". Pick another player to switch cards with: ");
-                    pick = input.nextInt();
+                    System.out.println();
                     // list players
                     for(; i < players.size(); i++) {
                         // remove selector from list
@@ -196,6 +197,8 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                             System.out.println((i + 1) + ". " + players.get(i).getPlayerName());
                         }
                     }
+                    System.out.print("\nYou are player " + playerNumber + ". Pick another player to switch cards with: ");
+                    pick = input.nextInt();
                 }
                 catch(InputMismatchException e) {
                     error = true;
