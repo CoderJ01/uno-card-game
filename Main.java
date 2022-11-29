@@ -169,7 +169,13 @@ public final class Main {
                     // if player places a 7 card
                     if(playerCardSymbol == '7') {
                         int pickedPlayer = players.get(p).pickPlayer(players, p);
+                        
+                        // players pass cards to eachother
                         players.get(pickedPlayer).passDeck(false);
+                        players.get(p).passDeck(false);
+
+                        // players receive cards from each other
+                        players.get(pickedPlayer).receiveDeck(players.get(p).getPassedCards());
                         players.get(p).receiveDeck(players.get(pickedPlayer).getPassedCards());
                     }
                 }
