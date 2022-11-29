@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
@@ -173,5 +174,40 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // reset field to prevent creation of duplicate instances (cards)
     protected final void resetPlayerPass() {
         this.playerPass = new ArrayList<>();
+    }
+
+    // prompt player to choose another player to switch cards with
+    public int pickPlayer(List<PlayerHand> players, int playerIndex) {
+        int playerNumber = playerIndex + 1;
+        int pick = 0;
+        int i = 1;
+        boolean error = false;
+
+        while(true) {
+            do {
+                error = false;
+                try {
+                    System.out.print("You are player " + playerNumber + ". Pick another player to switch cards with: ");
+                    pick = input.nextInt();
+                    // list players
+                    for(; i < players.size(); i++) {
+                        // remove selector from list
+                        if(i != playerIndex) {
+                            System.out.println((i + 1) + ". " + players.get(i).getPlayerName());
+                        }
+                    }
+                }
+                catch(InputMismatchException e) {
+                    error = true;
+                    input.next();
+                }
+            } while(error);
+
+            if(pick >= 1 && pick <= players.size() && pick != playerNumber) {
+                break;
+            }
+        }
+
+        return pick - 1;
     }
 }
