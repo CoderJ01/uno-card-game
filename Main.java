@@ -33,7 +33,7 @@ public final class Main {
         String name = name(); // retrieve player's name
         
         // inquire if player wants to view rules
-        if(viewOrNo(name) == true) {
+        if(viewOrNo(name)) {
             gamePlay(); // describe rules of game
         }
 
@@ -88,7 +88,7 @@ public final class Main {
             players.get(p).displayCards(); // display player cards
 
             // prompt player to either discard matching card
-            if(players.get(p).pickOrNo(discardPile.showTopCard()) == true) {
+            if(players.get(p).pickOrNo(discardPile.showTopCard())) {
                 Card pickedCard = players.get(p).pickCard(discardPile.showTopCard());
             
                 // variables
