@@ -197,7 +197,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                             System.out.println((i + 1) + ". " + players.get(i).getPlayerName());
                         }
                     }
-                    System.out.print("\nYou are player " + playerNumber + ". Pick another player to switch cards with: ");
+                    System.out.print("\n" + PLAYER_NAME + ", you are player " + playerNumber + ". Pick another player to switch cards with: ");
                     pick = input.nextInt();
                 }
                 catch(InputMismatchException e) {
