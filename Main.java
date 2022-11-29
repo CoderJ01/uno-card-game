@@ -53,10 +53,10 @@ public final class Main {
         players.get(1).addCard(new Card("B7", "blue", '7'));
         players.get(1).addCard(new Card("B7", "blue", '7'));
 
-        players.get(2).addCard(new Card("B7", "blue", '7'));
-        players.get(2).addCard(new Card("B7", "blue", '7'));
-        players.get(2).addCard(new Card("B7", "blue", '7'));
-        players.get(2).addCard(new Card("B7", "blue", '7'));
+        players.get(1).addCard(new Card("Y7", "yellow", '7'));
+        players.get(1).addCard(new Card("Y7", "yellow", '7'));
+        players.get(1).addCard(new Card("Y7", "yellow", '7'));
+        players.get(1).addCard(new Card("Y7", "yellow", '7'));
 
 
         discardPile.addCard(deck.removeBottomCard()); // place first card onto discard pile
