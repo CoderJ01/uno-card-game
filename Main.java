@@ -163,6 +163,10 @@ public final class Main {
                             players.get(i).receiveDeck(players.get(j).getPassedCards());
                         }
                     }
+                    // if player places a 7 card
+                    if(playerCardSymbol == '7') {
+                        
+                    }
                 }
                 else {
                     System.out.print("Invalid placement. ");
