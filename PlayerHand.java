@@ -15,6 +15,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     private Scanner input = new Scanner(System.in);
     private int points;
     private List<Card> playerPass = new ArrayList<>(); // transitory deck for passing hand (0 card rule) 
+    private boolean hasDisplayed; // indicate if prompt for card 7 rule has previously displayed
 
     // constructor
     public PlayerHand (String playerName) {
@@ -198,8 +199,15 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                             System.out.println((i + 1) + ". " + players.get(i).getPlayerName());
                         }
                     }
-                    System.out.print("\n" + PLAYER_NAME + ", you are player " + playerNumber + ". Pick another player to switch cards with: ");
-                    pick = input.nextInt();
+                    // indicate player number to player only on first prompt display
+                    if(!hasDisplayed()) {
+                        System.out.print("\n" + PLAYER_NAME + ", you are player " + playerNumber + ". Pick another player to switch cards with: ");
+                        pick = input.nextInt();
+                    }
+                    else {
+                        System.out.print("\n" + PLAYER_NAME + ", pick another player to switch cards with: ");
+                        pick = input.nextInt();
+                    }
                 }
                 catch(InputMismatchException e) {
                     error = true;
@@ -212,7 +220,16 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                 break;
             }
         }
-
+        indicateDisplayed();
         return pick - 1;
+    }
+
+    // called after the prompt displays
+    private void indicateDisplayed() {
+        this.hasDisplayed = true;
+    }
+
+    private boolean hasDisplayed() {
+        return this.hasDisplayed;
     }
 }
