@@ -182,7 +182,6 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     public int pickPlayer(List<PlayerHand> players, int playerIndex) {
         int playerNumber = playerIndex + 1;
         int pick = 0;
-        int i = 1;
         boolean error = false;
 
         while(true) {
@@ -191,7 +190,8 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                 try {
                     System.out.println();
                     // list players
-                    for(; i < players.size(); i++) {
+                    System.out.println("Players");
+                    for(int i = 0; i < players.size(); i++) {
                         // remove selector from list
                         if(i != playerIndex) {
                             System.out.println((i + 1) + ". " + players.get(i).getPlayerName());
