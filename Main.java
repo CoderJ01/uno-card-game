@@ -386,6 +386,7 @@ public final class Main {
         System.out.println("\nWhen a player discards a skip card, the next player loses his/her turn. When a player discards a reverse card,");
         System.out.println("the direction of the game changes. When a player discards a draw-2 card, the next player must draw two cards");
         System.out.println("and loses his/her turn. When a player discards a '0' card, then all players must pass their hands to the next player.");
+        System.out.println("When a player discards a '7' card, then the player must select another player to switch hands with.");
 
         // confirm that player understands the rules
         String confirmation = "";
