@@ -41,15 +41,12 @@ public final class Main {
 
         // add players
         players.add(new PlayerHand(name));
-        players.add(new PlayerHand("Komodo"));
-        players.add(new PlayerHand("Leonardo"));
-        players.add(new PlayerHand("Michelangelo"));
         
         String computerName = "CPU_";
         
-        // for(int i = 1; i <= numberOfOpponents; i++) {
-        //     players.add(new ComputerHand(computerName + i));
-        // }
+        for(int i = 1; i <= numberOfOpponents; i++) {
+            players.add(new ComputerHand(computerName + i));
+        }
 
         discardPile.addCard(deck.removeBottomCard()); // place first card onto discard pile
 

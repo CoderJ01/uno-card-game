@@ -175,4 +175,25 @@ public final class ComputerHand extends PlayerHand {
             getPassedCards().add(card); 
         }
     }
+
+    // have CPU switch cards with another player
+    @Override
+    public int pickPlayer(List<PlayerHand> players, int playerIndex) {
+        delay();
+        System.out.println("\n" + players.get(playerIndex).getPlayerName() + " will switch cards with another player");
+        int pick = 0;
+        for(int i = 0; i < players.size(); i++) {
+            if(i != playerIndex) {
+                int least = 109;
+                // the CPU will switch cards with the player with the least amount of cards
+                if(players.get(i).numberOfCards() < least) {
+                    least = players.get(i).numberOfCards();
+                    pick = i;
+                }
+            }
+        }
+        delay();
+        System.out.println("\n" + players.get(playerIndex).getPlayerName() + " has chosen to switch cards with " + players.get(pick).getPlayerName());
+        return pick;
+    }
 }
