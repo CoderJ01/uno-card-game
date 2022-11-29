@@ -165,7 +165,9 @@ public final class Main {
                     }
                     // if player places a 7 card
                     if(playerCardSymbol == '7') {
-                        
+                        int pickedPlayer = players.get(p).pickPlayer(players, p);
+                        players.get(pickedPlayer).passDeck();
+                        players.get(p).receiveDeck(players.get(pickedPlayer).getPassedCards());
                     }
                 }
                 else {
