@@ -202,12 +202,11 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                     // indicate player number to player only on first prompt display
                     if(!hasDisplayed()) {
                         System.out.print("\n" + PLAYER_NAME + ", you are player " + playerNumber + ". Pick another player to switch cards with: ");
-                        pick = input.nextInt();
                     }
                     else {
                         System.out.print("\n" + PLAYER_NAME + ", pick another player to switch cards with: ");
-                        pick = input.nextInt();
                     }
+                    pick = input.nextInt();
                 }
                 catch(InputMismatchException e) {
                     error = true;
