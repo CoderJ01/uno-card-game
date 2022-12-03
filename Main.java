@@ -189,6 +189,7 @@ public final class Main {
             p = nextSkipOrDraw(flip, p); // increment or decrement
         }
 
+        // state winning player
         System.out.println();
         for(PlayerHand player : players) {
             if(player.tallyPoints() == 0) {
