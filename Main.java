@@ -117,7 +117,7 @@ public final class Main {
                     if(playerCardName.equals(WILD_PLUS_4)) {
                         int nextPlayer = nextSkipOrDraw(flip, p);
                         draw(nextPlayer, 4); // force the next player to draw four cards
-                        p = nextSkipOrDraw(flip, p);   // after drawing four cards, the next player loses his turn
+                        p = nextSkipOrDraw(flip, p); // after drawing four cards, the next player loses his turn
                     }
                 }
                 // check if either the color or symbol of the player's card matches those of the top discard card
@@ -167,7 +167,7 @@ public final class Main {
                     if(playerCardSymbol == '7') {
                         int pickedPlayer = players.get(p).pickPlayer(players, p); // player picks another player to switch cards with
                         
-                        // players pass cards to eachother
+                        // players pass cards to each other
                         players.get(pickedPlayer).passDeck(false);
                         players.get(p).passDeck(false);
 
