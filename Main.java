@@ -189,6 +189,13 @@ public final class Main {
             p = nextSkipOrDraw(flip, p); // increment or decrement
         }
 
+        System.out.println();
+        for(PlayerHand player : players) {
+            if(player.tallyPoints() == 0) {
+                System.out.println(player.getPlayerName() + " has won the game!");
+            }
+        }
+
         displayPoints();
         rankPlayers(); 
     }
