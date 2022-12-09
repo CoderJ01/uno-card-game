@@ -70,7 +70,7 @@ public final class Main {
             players.get(p).displayCards();
             
             // get rid of large 'white space' for CPU players
-            if(!players.get(p).getPlayerName().contains(computerName)) {
+            if(!(players.get(p) instanceof ComputerHand)) {
                 System.out.println("\n");
             }
 
