@@ -16,7 +16,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     private int points;
     private List<Card> playerPass = new ArrayList<>(); // transitory deck for passing hand (0 card rule) 
     private boolean hasDisplayed; // indicate if prompt for card 7 rule has previously displayed
-    private Object[][] color = Main.getColor();
+    private Object[][] colorPair = Main.getColor();
 
     // constructor
     public PlayerHand (String playerName) {
@@ -100,13 +100,14 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // have the player enter the color of a wild card
     public String enterColor() {
         String color = "";
-        while(true) {
+        OUTER: while(true) {
             System.out.print("\n" + PLAYER_NAME + ", set the color of the wild card to blue, green, red, or yellow: ");
             color = input.next();
-            if(color.equals("blue") || color.equals("green") || 
-               color.equals("red") || color.equals("yellow"))
-            {
-                break;
+            
+            for(int i = 0; i < colorPair.length; i++) {
+                if(color.equals((String)colorPair[i][1])) {
+                    break OUTER;
+                }
             }
         }
         return color;
