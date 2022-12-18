@@ -349,6 +349,10 @@ public final class Main {
         return WILD_PLUS_4;
     }
 
+    public static Object[][] getColor() {
+        return color;
+    }
+
     // allow the player to enter the number of opponents to play against
     private static int opponents() {
         int numberOfOpponents = 0;
