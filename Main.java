@@ -23,10 +23,9 @@ public final class Main {
 
     public static void main(String[] args) {
         // set up deck of cards
-        setUpDeck('B', "blue");
-        setUpDeck('G', "green");
-        setUpDeck('R', "red");
-        setUpDeck('Y', "yellow");
+        for(int i = 0; i < color.length; i++) {
+            setUpDeck((Character)color[i][0], (String)color[i][1]);
+        }
         setUpDeck();
        
         deck.shuffleCards(); // shuffle cards
