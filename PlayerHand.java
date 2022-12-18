@@ -29,6 +29,10 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         return PLAYER_NAME;
     }
 
+    protected final Object[][] getColorPair() {
+        return this.colorPair;
+    }
+
     // display cards in deck
     @Override
     public void displayCards() {
