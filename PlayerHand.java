@@ -29,7 +29,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         return PLAYER_NAME;
     }
 
-    protected final Object[] getColorPair() {
+    protected final Object[] getColor() {
         return this.colorName;
     }
 
