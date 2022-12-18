@@ -225,6 +225,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         return pick - 1;
     }
 
+    // this creates a list to hold the colors
     private StringBuilder colorList() {
         StringBuilder colorList = new StringBuilder();
         for(int i = 0; i < (colorPair.length - 1); i++) {
