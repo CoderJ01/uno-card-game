@@ -340,7 +340,7 @@ public final class Main {
         return name;
     }
 
-    // getters (for class Deck)
+    // getters (for class Deck and PlayerHand)
     public static String getWildCard() {
         return WILD_CARD;
     }
