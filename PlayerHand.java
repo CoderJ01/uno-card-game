@@ -17,6 +17,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     private List<Card> playerPass = new ArrayList<>(); // transitory deck for passing hand (0 card rule) 
     private boolean hasDisplayed; // indicate if prompt for card 7 rule has previously displayed
     private Object[][] colorPair = Main.getColor();
+    private StringBuilder colorChoices;
 
     // constructor
     public PlayerHand (String playerName) {
