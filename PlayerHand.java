@@ -200,7 +200,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                         }
                     }
                     // indicate player number to player only on first prompt display
-                    if(!hasDisplayed()) {
+                    if(!this.hasDisplayed) {
                         System.out.print("\n" + PLAYER_NAME + ", you are player " + playerNumber + ". Pick another player to switch cards with: ");
                     }
                     else {
@@ -219,16 +219,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
                 break;
             }
         }
-        indicateDisplayed();
-        return pick - 1;
-    }
-
-    // called after the prompt displays
-    private void indicateDisplayed() {
         this.hasDisplayed = true;
-    }
-
-    private boolean hasDisplayed() {
-        return this.hasDisplayed;
+        return pick - 1;
     }
 }
