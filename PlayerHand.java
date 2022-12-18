@@ -16,7 +16,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     private int points;
     private List<Card> playerPass = new ArrayList<>(); // transitory deck for passing hand (0 card rule) 
     private boolean hasDisplayed; // indicate if prompt for card 7 rule has previously displayed
-    private Object[][] colorPair = Main.getColor();
+    private Object[] colorName = Main.getColor();
 
     // constructor
     public PlayerHand (String playerName) {
@@ -29,8 +29,8 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         return PLAYER_NAME;
     }
 
-    protected final Object[][] getColorPair() {
-        return this.colorPair;
+    protected final Object[] getColorPair() {
+        return this.colorName;
     }
 
     // display cards in deck
@@ -108,8 +108,8 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
             System.out.print("\n" + PLAYER_NAME + ", set the color of the wild card to " + colorList() + ": ");
             color = input.next();
             
-            for(int i = 0; i < colorPair.length; i++) {
-                if(color.equals((String)colorPair[i][1])) {
+            for(int i = 0; i < colorName.length; i++) {
+                if(color.equals((String)colorName[i])) {
                     break OUTER;
                 }
             }
@@ -232,10 +232,10 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // this creates a list to hold the colors
     private StringBuilder colorList() {
         StringBuilder colorList = new StringBuilder();
-        for(int i = 0; i < (colorPair.length - 1); i++) {
-            colorList.append(colorPair[i][1] + ", ");
+        for(int i = 0; i < (colorName.length - 1); i++) {
+            colorList.append(colorName[i] + ", ");
         }
-        colorList.append("or "+ colorPair[colorPair.length - 1][1]);
+        colorList.append("or "+ colorName[colorName.length - 1]);
         return colorList;
     }
 }

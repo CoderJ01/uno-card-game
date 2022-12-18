@@ -19,12 +19,12 @@ public final class Main {
     private static boolean flip;
     private static Scanner input = new Scanner(System.in);
     private static Random rand = new Random();
-    private static Object[][] color = {{'B', "blue"}, {'G', "green"}, {'R', "red"}, {'Y', "yellow"}};
+    private static Object[] color = {"blue", "green", "red", "yellow"};
 
     public static void main(String[] args) {
         // set up deck of cards
         for(int i = 0; i < color.length; i++) {
-            setUpDeck((Character)color[i][0], (String)color[i][1]);
+            setUpDeck((((String)color[i]).toUpperCase()).charAt(0), (String)color[i]);
         }
         setUpDeck();
        
@@ -58,6 +58,8 @@ public final class Main {
             }
             q++;
         }
+
+        players.get(0).addCard(new Card(WILD_CARD, ""));
 
         // start game
         int p = rand.nextInt(players.size()); // randomize which player gets to play first
@@ -349,7 +351,7 @@ public final class Main {
         return WILD_PLUS_4;
     }
 
-    public static Object[][] getColor() {
+    public static Object[] getColor() {
         return color;
     }
 
