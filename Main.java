@@ -19,6 +19,7 @@ public final class Main {
     private static boolean flip;
     private static Scanner input = new Scanner(System.in);
     private static Random rand = new Random();
+    private static Object[][] color = {{'B', "blue"}, {'G', "green"}, {'R', "red"}, {'Y', "yellow"}};
 
     public static void main(String[] args) {
         // set up deck of cards
