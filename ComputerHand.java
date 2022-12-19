@@ -80,7 +80,6 @@ public final class ComputerHand extends PlayerHand {
     public String enterColor() {
         // variables
         String color = "";
-        // Object[] gameColors = getAssortment();
         List<List<Card>> colorChoice = new ArrayList<>();
 
         for(int i = 0; i < getNumberOfColors(); i++) {
