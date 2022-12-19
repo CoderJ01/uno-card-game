@@ -91,4 +91,8 @@ public class Deck {
     protected final Object[] getAssortment() {
         return this.colorsAssortment;
     }
+
+    protected final Object getColor(int index) {
+        return this.colorsAssortment[index];
+    }
 }
