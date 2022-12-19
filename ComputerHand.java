@@ -128,7 +128,7 @@ public final class ComputerHand extends PlayerHand {
     // delay each output
     private void delay() {
         try {
-            TimeUnit.SECONDS.sleep(2);
+            TimeUnit.SECONDS.sleep(1);
         }
         catch(InterruptedException e) {
             System.out.println("Error");
