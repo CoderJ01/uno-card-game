@@ -88,10 +88,12 @@ public class Deck {
         return WILD_PLUS_4;
     }
 
+    // get assortment of colors
     protected final Object[] getAssortment() {
         return this.colorsAssortment;
     }
 
+    // get a color in the assortment
     protected final Object getColor(int index) {
         return this.colorsAssortment[index];
     }
