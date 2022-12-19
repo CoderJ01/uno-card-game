@@ -55,23 +55,17 @@ public class Deck {
     // create a new deck of cards
     public final void createNewDeck(List<Card> stackOfCards) {
         for(Card card : stackOfCards) {
-            // reset wild cards
-            if(card.getCardName().equals("B_" + WILD) || 
-               card.getCardName().equals("G_" + WILD) || 
-               card.getCardName().equals("R_" + WILD) ||
-               card.getCardName().equals("Y_" + WILD)) 
-            {
-                card.setCardName(WILD);
-                card.setCardColor("");
-            }
-            // reset wild +4 cards
-            if(card.getCardName().equals("B_" + WILD_PLUS_4) || 
-               card.getCardName().equals("G_" + WILD_PLUS_4) || 
-               card.getCardName().equals("R_" + WILD_PLUS_4) ||
-               card.getCardName().equals("Y_" + WILD_PLUS_4)) 
-            {
-                card.setCardName(WILD_PLUS_4);
-                card.setCardColor("");
+            for(int i = 0; i < this.colorsAssortment.length; i++) {
+                // reset wild cards
+                if(card.getCardName().equals(resetColor(i) + WILD)) {
+                    card.setCardName(WILD);
+                    card.setCardColor("");
+                }
+                // reset wild +4 cards
+                if(card.getCardName().equals(resetColor(i) + WILD_PLUS_4)) {
+                    card.setCardName(WILD_PLUS_4);
+                    card.setCardColor("");
+                }
             }
             // add cards to new deck
             this.deck.add(card);
@@ -101,5 +95,9 @@ public class Deck {
     // get the number of colors in the assortment
     protected final int getNumberOfColors() {
         return this.colorsAssortment.length;
+    }
+
+    private String resetColor(int index) {
+        return (this.colorsAssortment[index].toUpperCase()).charAt(0) + "_";
     }
 }
