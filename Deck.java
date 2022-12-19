@@ -97,6 +97,7 @@ public class Deck {
         return this.colorsAssortment.length;
     }
 
+    // returns color symbol to be checked
     private String resetColor(int index) {
         return (this.colorsAssortment[index].toUpperCase()).charAt(0) + "_";
     }
