@@ -88,7 +88,7 @@ public class Deck {
         return WILD_PLUS_4;
     }
 
-    protected final Object[] getColor() {
+    protected final Object[] getAssortment() {
         return this.colorsAssortment;
     }
 }
