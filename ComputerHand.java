@@ -99,11 +99,10 @@ public final class ComputerHand extends PlayerHand {
         }
 
         // store sizes (amount of occurences) in a new array
-        int[] compareSizes = new int[4];
-        compareSizes[0] = blue.size();
-        compareSizes[1] = green.size();
-        compareSizes[2] = red.size();
-        compareSizes[3] = yellow.size();
+        int[] compareSizes = new int[gameColors.length];
+        for(int i = 0; i < compareSizes.length; i++) {
+            compareSizes[i] = colorChoice.get(i).size();
+        }
 
         // the CPU will pick the color that it has the most of 
         int greatest = 0;
