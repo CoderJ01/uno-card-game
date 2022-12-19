@@ -228,9 +228,19 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     private StringBuilder colorList() {
         StringBuilder colorList = new StringBuilder();
         for(int i = 0; i < (getNumberOfColors() - 1); i++) {
-            colorList.append(getColor(i) + ", ");
+            if(getNumberOfColors() >= 3) {
+                colorList.append(getColor(i) + ", ");
+            }
+            else if(getNumberOfColors() == 2) {
+                colorList.append(getColor(i) + " ");
+            }
         }
-        colorList.append("or "+ getColor(getNumberOfColors() - 1));
+        if(getNumberOfColors() >= 2) {
+            colorList.append("or "+ getColor(getNumberOfColors() - 1));
+        }
+        else {
+            colorList.append(getColor(getNumberOfColors() - 1));
+        }
         return colorList;
     }
 }
