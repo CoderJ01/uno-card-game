@@ -80,10 +80,10 @@ public final class ComputerHand extends PlayerHand {
     public String enterColor() {
         // variables
         String color = "";
-        Object[] gameColors = getAssortment();
+        // Object[] gameColors = getAssortment();
         List<List<Card>> colorChoice = new ArrayList<>();
 
-        for(int i = 0; i < gameColors.length; i++) {
+        for(int i = 0; i < getNumberOfColors(); i++) {
             colorChoice.add(new ArrayList<>());
         }
 
@@ -91,15 +91,15 @@ public final class ComputerHand extends PlayerHand {
        
         // the CPU will keep track of the number of occurences of each card color in its deck
         for(Card card : getDeck()) {
-            for(int i = 0; i < gameColors.length; i++) {
-                if(card.getCardColor().equals((String) gameColors[i])) {
+            for(int i = 0; i < getNumberOfColors(); i++) {
+                if(card.getCardColor().equals((String) getColor(i))) {
                     colorChoice.get(i).add(card);
                 }
             }
         }
 
         // store sizes (amount of occurences) in a new array
-        int[] compareSizes = new int[gameColors.length];
+        int[] compareSizes = new int[getNumberOfColors()];
         for(int i = 0; i < compareSizes.length; i++) {
             compareSizes[i] = colorChoice.get(i).size();
         }
@@ -115,7 +115,7 @@ public final class ComputerHand extends PlayerHand {
         // the CPU will select said color
         for(int i = 0; i < compareSizes.length; i++) {
             if(greatest == compareSizes[i]) {
-                color = (String) gameColors[i];
+                color = (String) getColor(i);
             }
         }
 
