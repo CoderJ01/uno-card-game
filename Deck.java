@@ -7,6 +7,7 @@ public class Deck {
     private List<Card> deck = new ArrayList<>();
     private final String WILD = Main.getWildCard();
     private final String WILD_PLUS_4 = Main.getWildPlus4();
+    private String[] colorsAssortment = Main.getColor();
 
     // display cards in deck
     public void displayCards() {
@@ -54,23 +55,17 @@ public class Deck {
     // create a new deck of cards
     public final void createNewDeck(List<Card> stackOfCards) {
         for(Card card : stackOfCards) {
-            // reset wild cards
-            if(card.getCardName().equals("B_" + WILD) || 
-               card.getCardName().equals("G_" + WILD) || 
-               card.getCardName().equals("R_" + WILD) ||
-               card.getCardName().equals("Y_" + WILD)) 
-            {
-                card.setCardName(WILD);
-                card.setCardColor("");
-            }
-            // reset wild +4 cards
-            if(card.getCardName().equals("B_" + WILD_PLUS_4) || 
-               card.getCardName().equals("G_" + WILD_PLUS_4) || 
-               card.getCardName().equals("R_" + WILD_PLUS_4) ||
-               card.getCardName().equals("Y_" + WILD_PLUS_4)) 
-            {
-                card.setCardName(WILD_PLUS_4);
-                card.setCardColor("");
+            for(int i = 0; i < this.colorsAssortment.length; i++) {
+                // reset wild cards
+                if(card.getCardName().equals(resetColor(i) + "_" + WILD)) {
+                    card.setCardName(WILD);
+                    card.setCardColor("");
+                }
+                // reset wild +4 cards
+                if(card.getCardName().equals(resetColor(i) + "_" + WILD_PLUS_4)) {
+                    card.setCardName(WILD_PLUS_4);
+                    card.setCardColor("");
+                }
             }
             // add cards to new deck
             this.deck.add(card);
@@ -85,5 +80,25 @@ public class Deck {
     // get wild +4 card
     protected final String getWildPlus4() {
         return WILD_PLUS_4;
+    }
+
+    // get assortment of colors
+    protected final String[] getAssortment() {
+        return this.colorsAssortment;
+    }
+
+    // get a color in the assortment
+    protected final String getColor(int index) {
+        return this.colorsAssortment[index];
+    }
+
+    // get the number of colors in the assortment
+    protected final int getNumberOfColors() {
+        return this.colorsAssortment.length;
+    }
+
+    // returns color symbol to be checked
+    private char resetColor(int index) {
+        return (this.colorsAssortment[index].toUpperCase()).charAt(0);
     }
 }

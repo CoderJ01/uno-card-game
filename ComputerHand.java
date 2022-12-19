@@ -80,35 +80,29 @@ public final class ComputerHand extends PlayerHand {
     public String enterColor() {
         // variables
         String color = "";
-        List<Card> blue = new ArrayList<>();
-        List<Card> green = new ArrayList<>();
-        List<Card> red = new ArrayList<>();
-        List<Card> yellow = new ArrayList<>();
+        List<List<Card>> colorChoice = new ArrayList<>();
+
+        // arrays within array need to be initialized to avoid an IndexOutOfBoundsException
+        for(int i = 0; i < getNumberOfColors(); i++) {
+            colorChoice.add(new ArrayList<>());
+        }
 
         System.out.println("\n" + getPlayerName() + " will set the color of the wild card");
        
         // the CPU will keep track of the number of occurences of each card color in its deck
         for(Card card : getDeck()) {
-            if(card.getCardColor().equals("blue")) {
-                blue.add(card);
-            }
-            else if(card.getCardColor().equals("green")) {
-                green.add(card);
-            }
-            else if(card.getCardColor().equals("red")) {
-                red.add(card);
-            }
-            else if(card.getCardColor().equals("yellow")) {
-                yellow.add(card);
+            for(int i = 0; i < getNumberOfColors(); i++) {
+                if(card.getCardColor().equals(getColor(i))) {
+                    colorChoice.get(i).add(card);
+                }
             }
         }
 
         // store sizes (amount of occurences) in a new array
-        int[] compareSizes = new int[4];
-        compareSizes[0] = blue.size();
-        compareSizes[1] = green.size();
-        compareSizes[2] = red.size();
-        compareSizes[3] = yellow.size();
+        int[] compareSizes = new int[getNumberOfColors()];
+        for(int i = 0; i < compareSizes.length; i++) {
+            compareSizes[i] = colorChoice.get(i).size();
+        }
 
         // the CPU will pick the color that it has the most of 
         int greatest = 0;
@@ -119,17 +113,10 @@ public final class ComputerHand extends PlayerHand {
         }
 
         // the CPU will select said color
-        if(greatest == compareSizes[0]) {
-            color = "blue";
-        }
-        else if(greatest == compareSizes[1]) {
-            color = "green";
-        }
-        else if(greatest == compareSizes[2]) {
-            color = "red";
-        }
-        else if(greatest == compareSizes[3]) {
-            color = "yellow";
+        for(int i = 0; i < compareSizes.length; i++) {
+            if(greatest == compareSizes[i]) {
+                color = getColor(i);
+            }
         }
 
         delay();
@@ -141,7 +128,7 @@ public final class ComputerHand extends PlayerHand {
     // delay each output
     private void delay() {
         try {
-            TimeUnit.SECONDS.sleep(2);
+            TimeUnit.SECONDS.sleep(1);
         }
         catch(InterruptedException e) {
             System.out.println("Error");

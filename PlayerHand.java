@@ -99,13 +99,14 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
     // have the player enter the color of a wild card
     public String enterColor() {
         String color = "";
-        while(true) {
-            System.out.print("\n" + PLAYER_NAME + ", set the color of the wild card to blue, green, red, or yellow: ");
+        OUTER: while(true) {
+            System.out.print("\n" + PLAYER_NAME + ", set the color of the wild card to " + colorList() + ": ");
             color = input.next();
-            if(color.equals("blue") || color.equals("green") || 
-               color.equals("red") || color.equals("yellow"))
-            {
-                break;
+            
+            for(int i = 0; i < getNumberOfColors(); i++) {
+                if(color.equals(getColor(i))) {
+                    break OUTER;
+                }
             }
         }
         return color;
@@ -221,5 +222,15 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         }
         this.hasDisplayed = true;
         return pick - 1;
+    }
+
+    // this creates a list to hold the colors
+    private StringBuilder colorList() {
+        StringBuilder colorList = new StringBuilder();
+        for(int i = 0; i < (getNumberOfColors() - 1); i++) {
+            colorList.append(getColor(i) + ", ");
+        }
+        colorList.append("or "+ getColor(getNumberOfColors() - 1));
+        return colorList;
     }
 }
