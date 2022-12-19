@@ -80,11 +80,8 @@ public final class ComputerHand extends PlayerHand {
     public String enterColor() {
         // variables
         String color = "";
-        Object gameColors = getColor();
-        List<Card> blue = new ArrayList<>();
-        List<Card> green = new ArrayList<>();
-        List<Card> red = new ArrayList<>();
-        List<Card> yellow = new ArrayList<>();
+        Object[] gameColors = getColor();
+        List<List<Card>> colorChoice = new ArrayList<>();
 
         System.out.println("\n" + getPlayerName() + " will set the color of the wild card");
        
