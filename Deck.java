@@ -7,6 +7,7 @@ public class Deck {
     private List<Card> deck = new ArrayList<>();
     private final String WILD = Main.getWildCard();
     private final String WILD_PLUS_4 = Main.getWildPlus4();
+    private Object[] colorName = Main.getColor();
 
     // display cards in deck
     public void displayCards() {
@@ -85,5 +86,9 @@ public class Deck {
     // get wild +4 card
     protected final String getWildPlus4() {
         return WILD_PLUS_4;
+    }
+
+    protected final Object[] getColor() {
+        return this.colorName;
     }
 }
