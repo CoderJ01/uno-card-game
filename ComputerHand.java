@@ -91,7 +91,7 @@ public final class ComputerHand extends PlayerHand {
         // the CPU will keep track of the number of occurences of each card color in its deck
         for(Card card : getDeck()) {
             for(int i = 0; i < getNumberOfColors(); i++) {
-                if(card.getCardColor().equals((String) getColor(i))) {
+                if(card.getCardColor().equals(getColor(i))) {
                     colorChoice.get(i).add(card);
                 }
             }
@@ -114,7 +114,7 @@ public final class ComputerHand extends PlayerHand {
         // the CPU will select said color
         for(int i = 0; i < compareSizes.length; i++) {
             if(greatest == compareSizes[i]) {
-                color = (String) getColor(i);
+                color = getColor(i);
             }
         }
 

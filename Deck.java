@@ -7,7 +7,7 @@ public class Deck {
     private List<Card> deck = new ArrayList<>();
     private final String WILD = Main.getWildCard();
     private final String WILD_PLUS_4 = Main.getWildPlus4();
-    private Object[] colorsAssortment = Main.getColor();
+    private String[] colorsAssortment = Main.getColor();
 
     // display cards in deck
     public void displayCards() {
@@ -89,12 +89,12 @@ public class Deck {
     }
 
     // get assortment of colors
-    protected final Object[] getAssortment() {
+    protected final String[] getAssortment() {
         return this.colorsAssortment;
     }
 
     // get a color in the assortment
-    protected final Object getColor(int index) {
+    protected final String getColor(int index) {
         return this.colorsAssortment[index];
     }
 

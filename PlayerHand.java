@@ -104,7 +104,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
             color = input.next();
             
             for(int i = 0; i < getNumberOfColors(); i++) {
-                if(color.equals((String) getColor(i))) {
+                if(color.equals(getColor(i))) {
                     break OUTER;
                 }
             }
