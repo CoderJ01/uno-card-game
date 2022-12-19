@@ -113,17 +113,10 @@ public final class ComputerHand extends PlayerHand {
         }
 
         // the CPU will select said color
-        if(greatest == compareSizes[0]) {
-            color = "blue";
-        }
-        else if(greatest == compareSizes[1]) {
-            color = "green";
-        }
-        else if(greatest == compareSizes[2]) {
-            color = "red";
-        }
-        else if(greatest == compareSizes[3]) {
-            color = "yellow";
+        for(int i = 0; i < compareSizes.length; i++) {
+            if(greatest == compareSizes[i]) {
+                color = (String) gameColors[i];
+            }
         }
 
         delay();
