@@ -57,12 +57,12 @@ public class Deck {
         for(Card card : stackOfCards) {
             for(int i = 0; i < this.colorsAssortment.length; i++) {
                 // reset wild cards
-                if(card.getCardName().equals(coloSymbol(i) + "_" + WILD)) {
+                if(card.getCardName().equals(colorSymbol(i) + "_" + WILD)) {
                     card.setCardName(WILD);
                     card.setCardColor("");
                 }
                 // reset wild +4 cards
-                if(card.getCardName().equals(coloSymbol(i) + "_" + WILD_PLUS_4)) {
+                if(card.getCardName().equals(colorSymbol(i) + "_" + WILD_PLUS_4)) {
                     card.setCardName(WILD_PLUS_4);
                     card.setCardColor("");
                 }
@@ -98,7 +98,7 @@ public class Deck {
     }
 
     // returns color symbol to be checked
-    private char coloSymbol(int index) {
+    private char colorSymbol(int index) {
         return (this.colorsAssortment[index].toUpperCase()).charAt(0);
     }
 }
