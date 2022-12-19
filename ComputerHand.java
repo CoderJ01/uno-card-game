@@ -91,17 +91,10 @@ public final class ComputerHand extends PlayerHand {
        
         // the CPU will keep track of the number of occurences of each card color in its deck
         for(Card card : getDeck()) {
-            if(card.getCardColor().equals("blue")) {
-                blue.add(card);
-            }
-            else if(card.getCardColor().equals("green")) {
-                green.add(card);
-            }
-            else if(card.getCardColor().equals("red")) {
-                red.add(card);
-            }
-            else if(card.getCardColor().equals("yellow")) {
-                yellow.add(card);
+            for(int i = 0; i < gameColors.length; i++) {
+                if(card.getCardColor().equals((String) gameColors[i])) {
+                    colorChoice.get(i).add(card);
+                }
             }
         }
 
