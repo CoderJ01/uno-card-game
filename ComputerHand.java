@@ -82,6 +82,7 @@ public final class ComputerHand extends PlayerHand {
         String color = "";
         List<List<Card>> colorChoice = new ArrayList<>();
 
+        // arrays within array need to be initialized to avoid an IndexOutOfBoundsException
         for(int i = 0; i < getNumberOfColors(); i++) {
             colorChoice.add(new ArrayList<>());
         }
