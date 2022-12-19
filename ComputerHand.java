@@ -83,6 +83,10 @@ public final class ComputerHand extends PlayerHand {
         Object[] gameColors = getColor();
         List<List<Card>> colorChoice = new ArrayList<>();
 
+        for(int i = 0; i < gameColors.length; i++) {
+            colorChoice.add(new ArrayList<>());
+        }
+
         System.out.println("\n" + getPlayerName() + " will set the color of the wild card");
        
         // the CPU will keep track of the number of occurences of each card color in its deck
