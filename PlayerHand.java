@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
 * NOTE: certain parameters are used only in ComputerHand (subclass), but are nevertheless
-* passed to the methods here to prevent compiler error
+* passed to the methods here to prevent compiler errors
 */
 
 public class PlayerHand extends Deck implements Comparable<PlayerHand>{
