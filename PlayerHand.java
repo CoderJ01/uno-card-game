@@ -45,7 +45,7 @@ public class PlayerHand extends Deck implements Comparable<PlayerHand>{
         boolean valid = false;
         
         // exit loop only if player chooses card in hand
-        while(valid == false) {
+        while(!valid) {
             System.out.print("\n" + PLAYER_NAME + ", place a card onto the discard pile: ");
             choosenCard = input.next();
             for(Card card : getDeck()) {
