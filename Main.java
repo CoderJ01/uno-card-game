@@ -19,12 +19,12 @@ public final class Main {
     private static boolean flip;
     private static Scanner input = new Scanner(System.in);
     private static Random rand = new Random();
-    private static String[] color = {"blue", "green", "red", "yellow"};
+    private static String[] colors = {"blue", "green", "red", "yellow"};
 
     public static void main(String[] args) {
         // set up deck of cards
-        for(int i = 0; i < color.length; i++) {
-            setUpDeck(((color[i]).toUpperCase()).charAt(0), color[i]);
+        for(int i = 0; i < colors.length; i++) {
+            setUpDeck(((colors[i]).toUpperCase()).charAt(0), colors[i]);
         }
         setUpDeck();
        
@@ -349,8 +349,8 @@ public final class Main {
         return WILD_PLUS_4;
     }
 
-    public static String[] getColor() {
-        return color;
+    public static String[] getColors() {
+        return colors;
     }
 
     // allow the player to enter the number of opponents to play against

@@ -7,7 +7,7 @@ public class Deck {
     private List<Card> deck = new ArrayList<>();
     private final String WILD = Main.getWildCard();
     private final String WILD_PLUS_4 = Main.getWildPlus4();
-    private String[] colorsAssortment = Main.getColor();
+    private String[] colorsAssortment = Main.getColors();
 
     // display cards in deck
     public void displayCards() {
