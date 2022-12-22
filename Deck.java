@@ -88,7 +88,7 @@ public class Deck {
     }
 
     // get a color in the assortment
-    protected final String getColor(int index) {
+    public final String getColor(int index) {
         return this.colorsAssortment[index];
     }
 
@@ -98,7 +98,7 @@ public class Deck {
     }
 
     // returns color symbol to be checked
-    private char colorSymbol(int index) {
+    public final char colorSymbol(int index) {
         return (this.colorsAssortment[index].toUpperCase()).charAt(0);
     }
 }

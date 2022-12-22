@@ -23,7 +23,7 @@ public final class Main {
     public static void main(String[] args) {
         // set up deck of cards
         for(int i = 0; i < deck.getNumberOfColors(); i++) {
-            setUpDeck(((deck.getColor(i)).toUpperCase()).charAt(0), deck.getColor(i));
+            setUpDeck(deck.colorSymbol(i), deck.getColor(i));
         }
         setUpDeck();
        
