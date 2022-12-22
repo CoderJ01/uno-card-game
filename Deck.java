@@ -7,7 +7,7 @@ public class Deck {
     private List<Card> deck = new ArrayList<>();
     private final String WILD = Main.getWildCard();
     private final String WILD_PLUS_4 = Main.getWildPlus4();
-    private String[] colorsAssortment = {"blue", "green", "red", "yellow"}; // hard code array into field until more elegant style is discovered
+    private String[] colorsAssortment = {"blue", "green", "red", "yellow"}; 
 
     // display cards in deck
     public void displayCards() {
