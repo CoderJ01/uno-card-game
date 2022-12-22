@@ -93,7 +93,7 @@ public class Deck {
     }
 
     // get the number of colors in the assortment
-    protected final int getNumberOfColors() {
+    public final int getNumberOfColors() {
         return this.colorsAssortment.length;
     }
 
