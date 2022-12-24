@@ -171,6 +171,7 @@ public final class ComputerHand extends PlayerHand {
         int pick = 0;
         int least = 109;
         for(int i = 0; i < players.size(); i++) {
+            // the CPU will not switch cards with itself
             if(i != playerIndex) {
                 // the CPU will switch cards with the player with the least amount of cards
                 if(players.get(i).numberOfCards() < least) {
