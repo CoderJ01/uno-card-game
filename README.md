@@ -27,5 +27,8 @@ Download the .jar file [here](https://github.com/CoderJ01/uno-card-game/blob/mai
 ## Screenshot of Terminal
 ![Alt text](./assets/images/image-01_terminal.JPG?raw=true "Uno")
 
+## Video
+[Video](https://youtu.be/4tNe8MPzqSk)
+
 ## Contribution
 Made by CoderJ01
