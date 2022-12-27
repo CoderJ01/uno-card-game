@@ -137,18 +137,18 @@ public final class ComputerHand extends PlayerHand {
 
     // the CPU checks to see if each card in its hand matches the card on the discard pile in any way
     private List<Card> checkCardMatches(Card topOfDiscardPile) {
-        List<Card> cardMatch = new ArrayList<>();
+        List<Card> cardMatches = new ArrayList<>();
         for(Card card : getDeck()) {
             // wildcards have no symbol and initially have no color, so the CPU will add such cards to its arsenal
             if(card.getCardName().equals(getWildCard()) || card.getCardName().equals(getWildPlus4())) {
-                cardMatch.add(card);
+                cardMatches.add(card);
             }
             // check for match
             else if(card.getCardColor().equals(topOfDiscardPile.getCardColor()) || card.getCardSymbol() == topOfDiscardPile.getCardSymbol()) {
-                cardMatch.add(card);
+                cardMatches.add(card);
             }
         }
-        return cardMatch;
+        return cardMatches;
     }
 
     // have CPU pass deck to the next player 
