@@ -80,7 +80,7 @@ public final class ComputerHand extends PlayerHand {
     public String enterColor() {
         // variables
         String color = "";
-        List<List<Card>> colorChoice = new ArrayList<>();
+        List<List<Card>> colorChoice = new ArrayList<>(); // two dimensional array
 
         // arrays within array need to be initialized to avoid an IndexOutOfBoundsException
         for(int i = 0; i < getNumberOfColors(); i++) {
